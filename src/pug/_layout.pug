@@ -4,6 +4,10 @@ mixin icon(name,cls,mod)
 	- mod = mod || ''
 	svg(class="icon icon-" + name + ' ' + mod + ' ' + cls)
 		use(xlink:href="#" + name)
+mixin icon_clean(name,cls,mod)
+	- mod = mod || ''
+	svg(class="icon-" + name + ' ' + cls)
+		use(xlink:href="#" + name)
 		//- Пример
 		//- +icon('facebook')
 		//- +icon('bug','bug_red')
@@ -13,6 +17,9 @@ html(lang="ru-RU")
 	block head
 		include ./_includes/_head/_head.pug
 	body
+		//- svg(style='display:none')
+		//- 	use(xlink:href="img/sprites/sprite.svg")
+		//- object(type="image/svg+xml" data="img/sprites/sprite.svg" style='display: none')
 		.wrapper
 			.maincontent
 				block header

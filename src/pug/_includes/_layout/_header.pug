@@ -16,24 +16,54 @@ header.header
 				p
 					a.tel(href="tel:74959225955") +7 (495) 922-59-55
 					a.tel(href="tel:74956447572") +7 (495) 922-59-55
-				p.tel-block__text Отправьте сообщение, если не получилось дозвониться
+				a.tel-block__text(href='#') Отправьте сообщение, если не получилось дозвониться
 			.menu-block
 				menu.menu
 					each item in ['О компании','Контакты','Как купить']
 						li.menu-item.menu-item_simple
-							a.menu-link(href='#')=item
-					li.menu-item
-						+icon('i_person','menu-icon')
-						a.menu-link(href='#') Уголок покупателя
+							a.menu-link(href='#')
+								span=item
+					li.menu-item.menu-item_w-icon
+						a.menu-link(href='#')
+							+icon('i_person','menu-icon')
+							span Уголок покупателя
 		.second-line
 			ul.additional-link__list
-				each item in ['Лавка кулинара', 'Кондитерский инвентарь']    
+				-var icons = ['i_cake','i_inventory'];
+				each item, index in ['Лавка кулинара', 'Кондитерский инвентарь']
 					li.additional-link__item
-						a.additional-link__link(href='#')=item
-				li.additional-link__item.j_search
-					a.additional-link__link(href='#') Поиск по магазину   
+						a.additional-link__link(href='#')
+							+icon(icons[index])
+							span=item
+				li.additional-link__item.additional-link__search
+					a(href='#').additional-link__link.j_search-init
+						+icon('i_dandruff')
+						span Поиск по магазину
+					form.search-form
+						button(type='submit')
+							+icon('i_dandruff')
+						input(type='text')
+						button(type='reset').j_search-close
+							+icon_clean('i_cross')
 			.cart-block
 				span.cart-text Корзина
 				span.cart-summ 2046
-				.cart-amount    
+				.cart-amount
+					+icon('i_cart')
 					span.amount 12
+		.search-result__wrap.j_search-result
+			ul.search-result__list
+				each item in [1,2]
+					li.search-result__item
+						.container
+							.search-result__img-wrap
+							a.search-result__descr(href="#")
+								h4.search-result__title Айсинг для надписей Красный, 85 гр. Wilton 710-2225
+								.search-result__info США, 2,3 кг
+								.search-result__price 1299 ₽
+				li.search-result__item
+					.container
+						a.all-results(href='#') Посмотреть все результаты поиска
+
+
+

@@ -187,26 +187,26 @@ gulp.task('svgSpriteBuild', function () {
   .pipe(replace('&gt;', '>'))
   // build svg sprite
   .pipe(svgSprite({
-    svg: {
-      sprite: '../img/sprites/sprite.svg',
-    }
-    // mode: {
-    //   inline: true,
-    //   symbol: {
-    //     // куда покласти сам спрайт
-    //     inline: true, 
-    //     sprite: '../img/sprites/sprite.svg',
-    //     render: {
-    //       scss: {
-    //         dimensions: '-dms',
-    //         // куда покласти стилі для спрайта  
-    //         dest: path.src.svgStyles,
-    //         // шаблон за яким будуть створені стилі
-    //         template: path.src.templates
-    //       }
-    //     }
-    //   }
+    // svg: {
+    //   sprite: '../img/sprites/sprite.svg',
     // }
+    mode: {
+      inline: true,
+      symbol: {
+        // куда покласти сам спрайт
+        inline: true,
+        sprite: '../img/sprites/sprite.svg',
+        render: {
+          scss: {
+            dimensions: '-dms',
+            // куда покласти стилі для спрайта
+            dest: path.src.svgStyles,
+            // шаблон за яким будуть створені стилі
+            template: path.src.templates
+          }
+        }
+      }
+    }
   }))
   .pipe(gulp.dest('src/'));
 });
@@ -217,7 +217,7 @@ gulp.task('svgSpritePNG', function () {
     // .pipe(gulp.dest(path.build.svg_sprite));
 });
 
-gulp.task('svgSprite', ['svgSpriteBuild','svgSpritePNG']);
+gulp.task('svgSprite', ['svgSpriteBuild','svgSpritePNG','img']);
 
 
 //Сжатие изображений
