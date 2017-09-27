@@ -1,3 +1,43 @@
+- var footerList1 = ['О компании', 'Как купить', 'Контакты', 'Распродажа', 'К празднику', 'Поступления'];
+- var footerList2 = ['Агар-агар, пектин', 'Ароматизаторы', 'Айсинг, гель, глазурь', 'Ваниль, ванильная паста', 'Десерты, крем, топпини', 'Все разделы'];
+- var footerList3 = ['Аксессуары для цветов, пектин', 'Выемки для теста, каттеры', 'Капсулы для айсинга', 'Кондитерские мешки, бумага', 'Книги и журналы', 'Все разделы'];
 footer.footer
-    h2 footer
-    
+    .container
+        .footer-lists
+            ul.f_left-list.f_main-list
+                each item in footerList1
+                    li.f_main-item
+                        a(href="#").f_main-link=item
+            ul.f_left-list.f_left-list-1
+                span.f-l-title
+                    | Лавка кулинара
+                each item in footerList2
+                    li.f_left-item
+                        a(href="#").f_left-link=item
+            ul.f_left-list.f_left-list-2
+                span.f-l-title
+                    | Кондитерский инвентарь
+                each item in footerList3
+                    li.f_left-item
+                        a(href="#").f_left-link=item
+            .f_left-list.f_left-list-3
+                span.f-l-title
+                    | Розничный магазин
+                .f_left-item
+                    .f_left-link
+                        | Сущевский вал, 46 <br>
+                        | Метро Марьина Роща <br>
+                        | Марьинский у-г, 3 этаж <br>
+                        | Работаем с 10:00 до 20:30
+                .f_left-item
+                    a(href="#").f_left-link
+                        | Посмотреть на карте
+
+    .rights-reserved
+        .container
+            .rights-reserved-body
+                span 
+                    | © 2017, Вкусный магазин
+                span 
+                    | Создание сайта — 
+                    a(href="#") ChezLab
