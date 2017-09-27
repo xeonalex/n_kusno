@@ -1,0 +1,26 @@
+- var px = '/img/px.png'
+
+mixin icon(name,cls,mod)
+	- mod = mod || ''
+	svg(class="icon icon-" + name + ' ' + mod + ' ' + cls)
+		use(xlink:href="#" + name)
+		//- Пример
+		//- +icon('facebook')
+		//- +icon('bug','bug_red')
+
+doctype html
+html(lang="ru-RU")
+	block head
+		include ./_includes/_head/_head.pug
+	body
+		.wrapper
+			.maincontent
+				block header
+					include ./_includes/_layout/_header.pug
+				main
+					block main
+						include ./_includes/_layout/_main.pug
+			block footer
+				include ./_includes/_layout/_footer.pug
+		block script
+			include ./_includes/_layout/_script.pug
