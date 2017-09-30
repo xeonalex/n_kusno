@@ -45,25 +45,26 @@ header.header
 						input(type='text')
 						button(type='reset').j_search-close
 							+icon_clean('i_cross')
+			.search-result__wrap.j_search-result
+				ul.search-result__list
+					each item in [1,2]
+						li.search-result__item
+							.container
+								.search-result__img-wrap
+								a.search-result__descr(href="#")
+									h4.search-result__title Айсинг для надписей Красный, 85 гр. Wilton 710-2225
+									.search-result__info США, 2,3 кг
+									.search-result__price 1299 ₽
+					li.search-result__item
+						.container
+							a.all-results(href='#') Посмотреть все результаты поиска
 			.cart-block
 				span.cart-text Корзина
 				span.cart-summ 2046
 				.cart-amount
 					+icon('i_cart')
 					span.amount 12
-		.search-result__wrap.j_search-result
-			ul.search-result__list
-				each item in [1,2]
-					li.search-result__item
-						.container
-							.search-result__img-wrap
-							a.search-result__descr(href="#")
-								h4.search-result__title Айсинг для надписей Красный, 85 гр. Wilton 710-2225
-								.search-result__info США, 2,3 кг
-								.search-result__price 1299 ₽
-				li.search-result__item
-					.container
-						a.all-results(href='#') Посмотреть все результаты поиска
+
 
 
 
