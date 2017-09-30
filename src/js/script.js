@@ -12,24 +12,58 @@ $(document).ready(function() { // начало document.ready
         document.body.insertBefore(div, document.body.childNodes[0]);
     });
 
-    $('.j_search-init').click(function(event) {
-    	event.preventDefault();
-    	/* Act on the event */
+    // форма поиска
+	    $('.j_search-init').click(function(event) {
+	    	event.preventDefault();
+	    	/* Act on the event */
 
-    	$('.header').addClass('search_activated');
-    	$('.j_search-result').slideDown();
-    	$('.header .search-form input').focus();
-    	return false;
-    });
+	    	$('.header').addClass('search_activated');
+	    	$('.j_search-result').slideDown('fast',function(){
+	    		$(this).css('display', 'flex');
+	    	});
+	    	$('.header .search-block__field').focus();
+	    	return false;
+	    });
 
-    $('.j_search-close').click(function(event) {
-    	// event.preventDefault();
-    	/* Act on the event */
+	    $('.j_search-close').click(function(event) {
+	    	// event.preventDefault();
+	    	/* Act on the event */
 
-    	$('.header').removeClass('search_activated');
-    	$('.j_search-result').slideUp();
-    	// return false;
-    });
+	    	$('.header').removeClass('search_activated');
+	    	$('.j_search-result').slideUp();
+	    });
+
+	// детали корзины
+		$('.j_cart-init').click(function(event) {
+	    	event.preventDefault();
+	    	$('.j_cart-result').slideDown('fast', function(){
+	    		$(this).css('display', 'flex');
+	    	});
+	    	return false;
+		});
+	    $('.j_cart-close').click(function(event) {
+	    	event.preventDefault();
+	    	/* Act on the event */
+
+	    	$('.j_cart-result').slideUp();
+	    	return false;
+	    });
+	    // +- контролеры
+
+		$('.j_cart-item-amount .decrease').click(function(event) {
+	    	event.preventDefault();
+	    	var parent = $(this).closest('.j_cart-item-amount'),
+	    		input = parent.find('.j_cart-item-amount_input');
+			input.val(+input.val()-1);
+	    	return false;
+		});
+		$('.j_cart-item-amount .increase').click(function(event) {
+	    	event.preventDefault();
+	    	var parent = $(this).closest('.j_cart-item-amount'),
+	    		input = parent.find('.j_cart-item-amount_input');
+			input.val(+input.val()+1);
+	    	return false;
+		});
 
     $('.show-more').click(function(){
         $(this)
@@ -39,14 +73,7 @@ $(document).ready(function() { // начало document.ready
             .slideToggle('slow');
     });
 
-//     // var ajax = new XMLHttpRequest();
-//     // ajax.open("GET", "img/sprites/sprite.svg", true);
-//     // ajax.send();
-//     // ajax.onload = function(e) {
-//     //   var div = document.createElement("div");
-//     //   div.innerHTML = ajax.responseText;
-//     //   document.body.insertBefore(div, document.body.childNodes[0]);
-//     // }
+
 
 });
 var icon1 = "img/icons/marker.svg";
@@ -71,7 +98,7 @@ function initialize() {
     };
     //Инициализируем карту
     var map = new google.maps.Map(mapCanvas, mapOptions);
-  
+
     //Объявляем массив с нашими местами и маркерами
     var markers = [],
         myPlaces = [];
@@ -81,13 +108,13 @@ function initialize() {
     myPlaces.push(new Place('', 55.63729857, 37.66181946, ''));
     //Теперь добавим маркеры для каждого места
     for (var i = 0, n = myPlaces.length; i < n; i++) {
-  
+
         var companyImage = new google.maps.MarkerImage(icon1,
           new google.maps.Size(113,130)
         //   new google.maps.Point(0,0),
         //   new google.maps.Point(0,0)
         );
-        
+
 
 
         var marker = new google.maps.Marker({
