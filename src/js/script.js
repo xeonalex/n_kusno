@@ -66,11 +66,21 @@ $(document).ready(function() { // начало document.ready
 		});
 
     // блоки одинаковой высоты
-        $('.news__item').matchHeight({ byRow: true });
+        $('.news__item, .goods__item').matchHeight({ byRow: true });
 
         $(window).on('resize', function(event) {
             $.fn.matchHeight._update()
         });
+
+
+    $('.j_rating').each(function(index, el) {
+        var flag = $(el).hasClass('j_rating_read');
+        $(el).barrating('show', {
+            theme: 'bars-1to10',
+            initialRating: ''+$(el).data('rating'),
+            readonly: flag
+        });
+    });
 
     $('.show-more').click(function(){
         $(this)

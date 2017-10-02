@@ -1,8 +1,20 @@
-mixin aboutMenu
-	ul.sidebar__menu
-		-var links = ['about.html','news.html']
-		each item, index in ['О компании','Новости','Блог','Отзывы']
+mixin aboutMenu(menu)
+	if menu == 'big'
+		ul.sidebar__menu
+			-var links = [];
+			each item, index in ['Расподажа','Ингридиенты',['Оформление',['Посыпки, шарики','Украшения','Десерты','Крем и топпинги']],'Шоколад и какао','Мастика','Кулинарые добавки','Ароматизаторы','Айсинг','Красители','Специи']
+				li.sidebar__menu-item(class= Array.isArray(item[1]) ? 'sidebar__menu-item_extended' : '')
+					a.sidebar__menu-link( href= links[index] ? links[index] : '#' class= index == 0 ? 'active': '')= Array.isArray(item[1]) ? item[0] : item
+					if Array.isArray(item[1])
+						ul.sidebar__sub-menu
+							each link in item[1]
+								li.sidebar__menu-item
+									a.sidebar__menu-link( href='#')=link
+	else
+		ul.sidebar__menu
+			-var links = ['about.html','news.html','#','reviews.html']
+			each item, index in ['О компании','Новости','Блог','Отзывы']
+				li.sidebar__menu-item
+					a.sidebar__menu-link( href= links[index] ? links[index] : '#' class= index == 0 ? 'active': '')=item
 			li.sidebar__menu-item
-				a.sidebar__menu-link( href= links[index] ? links[index] : '#' class= index == 0 ? 'active': '')=item
-		li.sidebar__menu-item
-			a.sidebar__menu-link(href='#') Пожелания <br> по ассортименту
+				a.sidebar__menu-link(href='#') Пожелания <br> по ассортименту

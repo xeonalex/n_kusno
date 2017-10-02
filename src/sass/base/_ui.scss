@@ -52,7 +52,7 @@
 }
 
 .ui_head3 {
-	font-size : 20px;
+	font-size : 22px;
 	line-height : 30.8px;
 	line-height: 1.4;
 	font-weight: 500;
@@ -188,4 +188,29 @@ h3 {
 	@include bshadow('+');
 	@extend .ui_text_sm;
 	color: #fff;
+}
+
+// ui block effect
+//
+
+.ui-block {
+	border-radius: 5px;
+}
+
+.ui-block_card { //Карточки новостей, товаров и некторые другие
+	@extend .ui-block;
+	border: 2px solid $line;
+}
+.ui-block_second-level { // Второй уровень каталога
+	@extend .ui-block;
+	box-shadow : 0px 2px 5px rgba(86, 58, 17, 0.2);
+}
+
+.ui-block_complicated { // Сложные интерактивные карточки, ховеры и др.
+	@extend .ui-block;
+	  box-shadow : 0px 5px 10px rgba(86, 58, 17, 0.15);
+}
+.ui-block_fields { // Поля раскрытых дроп-даунов, поиска и корзины
+	@extend .ui-block;
+	box-shadow : 0px 8px 20px rgba(86, 58, 17, 0.1);
 }

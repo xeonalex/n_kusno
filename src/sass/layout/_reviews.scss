@@ -1,0 +1,95 @@
+.reviews-page {
+	.review__add-link {
+		margin-bottom: 60px;
+	}
+	&__wrap {
+		@extend .single-news-page__wrap;
+	}
+}
+.page {
+	.page__info-text {
+		@extend .ui_descr_normal;
+		margin-bottom: 30px;
+	}
+}
+.review__add-link {
+	@extend .ui_button_accent;
+	@extend .ui_activeLink_normal;
+	@extend .ui_activeLink_white;
+	display: inline-block;
+	text-align: center;
+	padding: 12px 20px;
+	min-width: 280px;
+	min-height: 50px;
+}
+.rating {
+	.br-theme-bars-1to10 .br-widget a {
+		display: none;
+	}
+	a.br-active,
+	a.br-selected {
+		display: block !important;
+	}
+}
+.reviews__item {
+	margin-bottom: 50px;
+}
+.review__author {
+	@extend .ui_head3;
+	display: inline-block;
+	margin-right: 15px;
+	margin-bottom: 5px;
+}
+.review__rating {
+	display: inline-block;
+}
+.review__date {
+	@extend .ui_addition_normal;
+	margin-bottom: 15px;
+}
+.review__text {
+	@extend .ui_text_n;
+	p {
+		margin-bottom: 0;
+	}
+}
+.reviews__show-more {
+	background-color: $line;
+	height : 60px;
+	border-radius : 5px;
+	text-align: center;
+	display: block;
+	padding: 18px 30px;
+	@extend .ui_activeLink_normal;
+
+}
+
+.interactive-card {
+	@extend .ui-block_complicated;
+	margin-bottom: 20px;
+}
+.inventory-sale {
+	background: rgba(42, 156, 222, 1);
+	background : linear-gradient(140.7deg, rgba(42, 156, 222, 1) 0%, rgba(22, 128, 186, 1) 100%);
+	text-align: right;
+	.text {
+		text-align: left;
+		padding: 20px 20px 0;
+		@extend .ui_head2_white;
+	}
+	img {
+		display: inline-block;
+		line-height: 1;
+	}
+}
+.mugs-for-cupcakes {
+	position: relative;
+	background-repeat: no-repeat;
+	background-position: center right;
+	.text {
+		text-align: left;
+		padding: 20px;
+		@extend .ui_head3;
+	}
+}
+

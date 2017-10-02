@@ -1,0 +1,73 @@
+extends _layout.pug
+block main
+	.catalog-page__wrap
+		.catalog-page.page
+			.sidebar__wrap
+				.sidebar__block.no_padding
+					+aboutMenu('big')
+			.page-content__wrap
+				.breadcrubms
+					ul
+						li
+							a(href="#") Главная
+						li
+							a(href="#") Лавка кулинара
+						li
+							a(href="#") Оформление
+						li
+							a(href="#") Украшения
+				h1.page__title Украшения
+				p.page__info-text Украшения для тортов и другой выпечки от ведущих <br> отечественных и зарубежных производителей.
+				.sub-catalog__block
+					.sub-catalog__title Подразделы
+					ul.sub-catalog__list
+						each item in [['Посыпки, шарики'],'Украшения','Десерты','Крем и топпинги','Орешки и семечки','Наполнители']
+							li.sub-catalog__item
+								h3
+									a.sub-catalog__link(href='#')=item
+				.sort__block
+					.sort__params
+						.sort__text Сортировка:
+						ul.sort__params__list
+							li.sort__params__item
+								a.sort__param__link(href='#') По названию
+							li.sort__params__item
+								a.sort__param__link.active(href='#') По рейтингу
+							li.sort__params__item
+								a.sort__param__link(href='#') По цене
+									i
+										+icon('sort_desc')
+					ul.view__modes
+						li.view__mode
+							a.view__mode_block(href='#')
+								+icon('view_block')
+						li.view__mode
+							a.view__mode_line(href='#')
+								+icon('view_line')
+				.goods__list
+					-for(var x=0;x<9;x++)
+						.goods__item
+							.goods__img-wrap
+								img
+								ul.goods__status-list
+									li.goods__status-list Акция
+							.goods__data-wrap
+								.goods__title Агар-агар Algamar Algas Marinas S.A
+								.goods__info США, 283 гр
+								.goods__extended-block
+									.goods__price-block
+										.goods__price_old 479 ₽
+										.goods__price 379 ₽
+										label.cart-details__amount.j_cart-item-amount
+											span.decrease
+												+icon('i_minus')
+											input(type='text' placeholder='1' readonly='true').j_cart-item-amount_input
+											span.increase
+												+icon('i_plus')
+									.goods__hover-block
+										a.goods__add-cart(href='#') Добавить в корзину
+
+
+
+
+
