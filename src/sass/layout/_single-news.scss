@@ -1,0 +1,134 @@
+.single-news-page__wrap {
+	background-image: url(../img/news/single_news_bg.png);
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.page-inner-content__wrap {
+	display: table;
+}
+.content-side {
+	display: table-cell;
+	padding-right: 20px;
+	width: 100%;
+}
+.inner-sidebar {
+	display: table-cell;
+	min-width: 300px;
+	.news__list {
+		margin-left: 0;
+	}
+	.news__item {
+		width: 100%;
+		margin-left: 0;
+	}
+}
+
+.single-news__info {
+	margin-bottom: 20px;
+	.tags__block {
+		display: inline-block;
+		vertical-align: top;
+	}
+	.news__addition {
+		margin-left: 10px;
+		display: inline-block;
+		vertical-align: middle;
+	}
+}
+.news__text-wrap {
+	margin-bottom: 50px;
+}
+.news__img-wrap {
+	margin-top: 40px;
+	margin-bottom: 40px;
+	text-align: center;
+	img {
+		display: inline-block;
+		max-width: 100%;
+	}
+}
+.news__theses {
+	@extend .ui_descr_normal;
+}
+
+.content-side {
+	quote {
+		display: block;
+		border-left: 2px solid $active;
+		padding-left: 20px;
+		margin-bottom: 40px;
+		@extend .ui_text_bw;
+	}
+	h3 {
+		margin-top: 40px;
+	}
+	h3,
+	p {
+		margin-bottom: 20px;
+	}
+	p {
+		@extend .ui_text_sm;
+	}
+	p.simple {
+		@extend .ui_text_n;
+	}
+}
+
+.news__share-block {
+	margin-bottom: 35px;
+}
+.news__share-text  {
+	margin-right: 25px;
+}
+
+.news__share-list,
+.news__share-text  {
+	display: inline-block;
+	vertical-align: middle;
+}
+.news__share-list {
+}
+.news__share-item {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 15px;
+}
+.news__share-link {
+	display: block;
+}
+
+.attention__block {
+	padding: 50px 20px 35px;
+	position: relative;
+	z-index: 1;
+	> * {
+		position: relative;
+		z-index: 1;
+	}
+	&:before {
+		content: '';
+		display: block;
+		top: 0;
+		bottom: 0;
+		left: -30%;
+		right: -30%;
+		position: absolute;
+		background-image: url(../img/news/new_prod_bg.png);
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
+		z-index: 0;
+	}
+}
+.attention__text {
+	@extend .ui_descr_black;
+	margin-bottom: 20px;
+}
+.attention__link {
+	@extend .ui_button_accent;
+	width: 300px;
+	height: 50px;
+	text-align: center;
+	padding: 10px 20px;
+}

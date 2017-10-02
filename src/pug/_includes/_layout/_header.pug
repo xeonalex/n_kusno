@@ -1,7 +1,7 @@
 header.header
 	.container
 		.first-line
-			a.logo(href='#')
+			a.logo(href='index.html')
 				svg.logo__img(xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', width='200', height='67', viewbox='0 0 200 67')
 					title Лого
 					g#circles
@@ -19,9 +19,10 @@ header.header
 				a.tel-block__text(href='#') Отправьте сообщение, если не получилось дозвониться
 			.menu-block
 				menu.menu
-					each item in ['О компании','Контакты','Как купить']
+					-var links = ['about.html','contacts.html','how-to-buy.html']
+					each item,index in ['О компании','Контакты','Как купить']
 						li.menu-item.menu-item_simple
-							a.menu-link(href='#')
+							a.menu-link(href=links[index])
 								span=item
 					li.menu-item.menu-item_w-icon
 						a.menu-link(href='#')

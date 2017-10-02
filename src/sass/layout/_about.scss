@@ -1,0 +1,157 @@
+.about-header__wrap  {
+	height: 370px;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-color: #000;
+	background-size: cover;
+	padding-top: 40px;
+	padding-bottom: 40px;
+	.container {
+		position: relative;
+		padding-left: 340px;
+		height: 100%;
+		width: 100%;
+		display: table;
+	}
+}
+.about-sidebar__wrap {
+	position: absolute;
+	left: 15px;
+	top: 0;
+}
+.sidebar__block{
+	@include ui_block('');
+	@extend .ui_text_bw;
+	padding: 15px;
+	width: 300px;
+	margin-bottom: 20px;
+	&.no_padding {
+		padding: 0;
+	}
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+}
+.about-header__wrap-inner {
+	width: 100%;
+	display: table;
+	position: relative;
+	height: 100%;
+
+}
+
+
+.about-page {
+	.breadcrubms {
+		display: table-row;
+		height: 100%;
+		padding-top: 0;
+	}
+	.ui_head2_normal {
+		margin-bottom: 35px;
+	}
+}
+.about-header__content {
+	display: table-row;
+}
+.about-header__title {
+	@extend .ui_head1_white;
+	margin-bottom: 12px;
+}
+.about-header__subtext {
+	@extend  .ui_descr_white;
+}
+
+.sidebar__menu-item {
+	border-bottom: 1px solid $line;
+}
+.sidebar__menu-link {
+	display: block;
+	padding: 17px 20px;
+	@extend .ui_activeLink_normal;
+	&.active {
+		@extend .ui_activeLink_accent;
+	}
+	&:hover {
+		background-color: $decor;
+	}
+}
+.about-content__wrap {
+	max-width: 900px;
+	padding: 0 15px 115px;
+	margin: 0 auto;
+}
+p.simple {
+	@extend .ui_text_n ;
+}
+.about-text__container {
+	max-width: 650px;
+	padding-left: 30px;
+	margin: 50px auto;
+
+	p.simple {
+		margin-bottom: 20px;
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+
+}
+.about__advantages-list {
+	@include clearfix;
+	margin-bottom: 80px;
+}
+.about__advantages-item {
+	float: left;
+	width: 25%;
+	padding-left: 10px;
+	padding-right: 10px;
+	text-align: center;
+	.icon-wrap {
+		margin-bottom: 25px;
+	}
+}
+
+.about__youll-find__list {
+	display: flex;
+}
+.about__youll-find__item {
+	width: 48%;
+	@include ui_block('');
+	padding: 20px;
+	text-align: center;
+	&:nth-of-type(even) {
+		margin-left: 2%;
+	}
+}
+.about__youll-find__icon {
+	margin-bottom: 10px;
+}
+.about__youll-find__title {
+	@extend .ui_head3;
+	margin-bottom: 10px;
+}
+.about__youll-find__text {
+	@extend .ui_addition_normal;
+	margin-bottom: 10px;
+}
+.about__youll-find__link {
+	@extend .ui_activeLink_normal;
+	@extend .ui_activeLink_accent;
+}
+
+.about__accent-block {
+	margin-bottom: 40px;
+	width: 100%;
+	border: 4px solid $active;
+	background-color: $decor;
+	padding: 35px;
+	border-radius : 5px;
+	.ui_descr_black  {
+		margin-bottom: 15px;
+	}
+	.ui_button_accent {
+		height: 50px;
+		padding: 12px 35px;
+	}
+}

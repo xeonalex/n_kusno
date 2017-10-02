@@ -1,0 +1,74 @@
+extends _layout.pug
+block main
+	.single-news-page__wrap
+		.single-news-page.page
+			.sidebar__wrap
+				.sidebar__block.no_padding
+					+aboutMenu
+				.sidebar__block
+					p.new-goods__sidebar-text Новые поступления в нашем магазине, самые горячие новинки!
+					a(href='#').new-goods__link Посмотреть товары
+			.page-content__wrap
+				.breadcrubms
+					ul
+						li
+							a(href="#") Главная
+						li
+							a(href="#") О компании
+						li
+							a(href="#") Новости
+						li
+							a(href="#") Лимитирование поставок
+				h2.page__title Новости
+				.single-news__info
+					.tags__block
+						a.tag.tag-goods(href='#') Товары
+					span.news__addition 20 июля 2017 года
+				.page-inner-content__wrap
+					.content-side
+						.news__text-wrap
+							.news__theses В связи с введением эмбарго для России, некоторые товары станут недоступны
+							.news__img-wrap
+								img(src='')
+							p.simple Сообщаем, что многие поставщики либо лимитировали, либо подняли цены, либо объявили о прекращениях поставок ряда продукции. В список вошли многие продукты, даже те, которые не содержат орехов. Ниже список, который будет пополняться.
+							p.simple Многие поставщики либо лимитировали, либо подняли цены, либо объявили о прекращениях поставок ряда продукции. В список вошли многие продукты, даже те, которые не содержат орехов. Ниже список, который будет пополняться.
+							quote В список запрёщённых товаров вошли многие продукты, даже те, которые не содержат орехов. А те которые содежат и подавно туда попали.
+							p Марципан Топ продукт, Миндальная пудра Patisfrance, Миндальная мука Lubecker, Фруктовые пюре La Fruitiere, Глазурь для айсинга Мэджик Декор, Глазурь для айсинга Мерлетти, Глазурь сахарная для рисования Суперайс.
+							h3 Список запрещённых товаров
+							p Сообщаем, что многие поставщики либо лимитировали, либо подняли цены, либо объявили о прекращениях поставок ряда продукции. В список вошли многие продукты, даже те, которые не содержат орехов. Ниже список, который будет пополняться.
+							p Многие поставщики либо лимитировали, либо подняли цены, либо объявили о прекращениях поставок ряда продукции. В список вошли многие продукты, даже те, которые не содержат орехов. Ниже список, который будет пополняться.
+						.news__share-block
+							span.news__share-text Поделиться новостью:
+							ul.news__share-list
+								li.news__share-item
+									a.news__share-link(href='#')
+										+icon('i_ok_g')
+								li.news__share-item
+									a.news__share-link(href='#')
+										+icon('i_vk_g')
+						.attention__block
+							.attention__text У нас новые поступления, посмотрите, что нам привезли!
+							a.attention__link(href='#') Посмотреть товары
+					.inner-sidebar
+						ul.news__list
+							li.news__item.news__item_goods
+								.news__item-inner
+									.news__item-text
+										a.news__title(href='#') Новинка — мастика и цветная глазурь
+										.news__addition 20 июля 2017 года
+									.tags__block
+										a.tag.tag-goods(href='#') Товары
+							li.news__item.news__item_sale
+								.news__item-inner
+									.news__item-text
+										a.news__title(href='#') Снижены цена на коробки для тортов и капкейков
+										.news__addition 20 июля 2017 года
+									.tags__block
+										a.tag.tag-sale(href='#') Акции
+							li.news__item.news__item_other
+								.news__item-inner
+									.news__item-text
+										a.news__title(href='#') Лимитирование поставок продукции из США и Европы
+										.news__addition 20 июля 2017 года
+									.tags__block
+										.tag.tag-other Другое

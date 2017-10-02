@@ -2,7 +2,7 @@
     box-shadow: 0 2px 43px -4px rgba(125, 121, 125, 0.2);
     border-bottom: 1px solid #F2F2F2;;
     position: relative;
-
+    z-index: 2;s
     .logo {
         margin-left: -25px;
         margin-top: -10px;
@@ -98,7 +98,7 @@
     font-size : 12px;
     line-height : 21px;
     &:hover {
-        color : $ac_t;
+        color : $active;
     }
 }
 
@@ -110,10 +110,10 @@
     margin-left: 30px;
     &:hover {
         .menu-icon {
-            fill: $ac_t;
+            fill: $active;
         }
         .menu-link {
-            color : $ac_t;
+            color : $active;
             span:after {
                 width: 100%;
             }
@@ -153,7 +153,7 @@
             bottom: 0;
             width: 0;
             height: 2px;
-            background-color: $ac_t;
+            background-color: $active;
             transition: width 0.25s;
         }
     }
@@ -210,7 +210,7 @@
     float: left;
     margin-right: 20px;
     &:hover {
-        color : $ac_t;
+        color : $active;
         span:after {
             width: 100%;
         }
@@ -236,7 +236,7 @@
             bottom: 0;
             width: 0;
             height: 2px;
-            background-color: $ac_t;
+            background-color: $active;
             transition: width 0.25s;
         }
     }
@@ -337,7 +337,7 @@
     .cart-details__text {
         display: block;
         &:hover .cart-details__title {
-            color: $ac_t;
+            color: $active;
         }
     }
     .cart-details__title {
@@ -369,13 +369,17 @@
         height: 26px;
         border-radius : 14px;
         line-height: 1;
+        font-size: 0;
         border: 2px solid #F2F2F2;
         text-align: center;
         input {
             font-size: 19px;
             line-height: 1;
             display: inline-block;
+            vertical-align: middle;
+            text-align: center;
             width: 20px;
+            background: none;
             border: none;
             &:focus {
                 outline: none;
@@ -400,6 +404,7 @@
     border-radius: 5px 5px 0 0 ;
     align-items: center;
     width: 940px;
+    max-width: 100%;
     position: absolute;
     top: -25px;
     bottom: 0;
@@ -420,7 +425,7 @@
         line-height : 26px;
         color : #1E1E1E;
         border: none;
-        border-bottom: 2px solid $ac_t;
+        border-bottom: 2px solid $active;
         &:focus {
             outline: none;
         }
@@ -470,7 +475,7 @@
         @include clearfix;
         &:hover {
             .search-result__title {
-                color: $ac_t;
+                color: $active;
             }
         }
     }

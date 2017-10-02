@@ -1,0 +1,191 @@
+@mixin bshadow($direction) {
+	$y: 5;
+	@if $direction == '-' {
+		$y: $y * (-1);
+	}
+
+	box-shadow: 0 (#{$y}px) 10px 0 rgba(86,58,17,.15);
+}
+
+@mixin ui_block($color) {
+	$border_color: $active;
+	@if $color != '' {
+		$border_color: $color;
+	}
+    border-top: 10px solid #{$border_color};
+    border-radius: 5px;
+    background-color: #fff;
+    @include bshadow('+');
+}
+
+// заголовки
+.ui_head1 {
+	font-size : 40px;
+	line-height : 48px;
+	line-height: 1.2;
+	font-weight: 500;
+}
+.ui_head1_normal {
+	@extend .ui_head1;
+	color : $head_descr;
+}
+
+.ui_head1_white {
+	@extend .ui_head1;
+	color : #ffffff;
+}
+
+.ui_head2 {
+	font-size : 30px;
+	line-height : 36px;
+	line-height: 1.2;
+	font-weight: 500;
+}
+.ui_head2_normal {
+	@extend .ui_head2;
+	color : $head_descr;
+}
+
+.ui_head2_white {
+	@extend .ui_head2;
+	color : #ffffff;
+}
+
+.ui_head3 {
+	font-size : 20px;
+	line-height : 30.8px;
+	line-height: 1.4;
+	font-weight: 500;
+	color: $head_descr;
+
+}
+// текст описания
+//
+
+.ui_descr {
+  font-size : 21px;
+  line-height : 29.4px;
+  line-height: 1.4;
+  font-weight: 400;
+}
+.ui_descr_normal {
+	@extend .ui_descr;
+	color : $descr_adition;
+
+}
+.ui_descr_white {
+	@extend .ui_descr;
+	color: #fff;
+}
+.ui_descr_black {
+	@extend .ui_descr;
+	color: $head_descr;
+}
+
+
+.ui_text_n {
+	font-size : 19px;
+	line-height : 30.4px;
+	line-height: 1.6;
+	font-weight: 300;
+	color : $main_t;
+}
+.ui_text_sm {
+	font-size : 19px;
+	line-height : 26.6x;
+	line-height: 1.4;
+	font-weight: 300;
+	color : $main_t;
+}
+.ui_text_bw	 {
+	font-size : 19px;
+	line-height : 26.6px;
+	line-height: 1.4;
+	font-weight: 400;
+	color : $main_t;
+}
+
+
+.ui_addition {
+  font-size : 15px;
+  line-height : 21px;
+  line-height: 1.4;
+  font-weight: 400;
+}
+.ui_addition_normal {
+	@extend .ui_addition;
+	color : $descr_adition;
+}
+.ui_addition_dark {
+	@extend .ui_addition;
+	color : $main_t;
+}
+
+
+.ui_activeLink {
+	line-height: 1.4;
+	font-weight: 400;
+	// color : $active;
+ //  	&:hover {
+	// 	color: #fff;
+	// }
+	// &:visited {
+	// 	color : $descr_adition;
+	// }
+}
+.ui_activeLink_accent {
+	color : $active;
+
+}
+.ui_activeLink_white {
+	color : #fff;
+
+}
+.ui_activeLink_grey {
+	color : $descr_adition;
+
+}
+.ui_activeLink_normal {
+	@extend .ui_activeLink;
+	font-size : 19px;
+}
+.ui_activeLink_small {
+	@extend .ui_activeLink;
+	font-size : 15px;
+}
+
+
+h1 {
+	@extend .ui_head1_normal;
+}
+h2 {
+	@extend .ui_head2_normal;
+}
+h3 {
+	@extend .ui_head3;
+}
+
+//
+//
+//
+//
+//
+//
+
+
+
+.ui_breadCrumbs {
+	font-size : 12px;
+	color : $descr_adition;
+	line-height: 1.2;
+	font-weight: 400;
+}
+
+.ui_button_accent {
+	display: inline-block;
+	background : $active;
+	border-radius : 5px;
+	@include bshadow('+');
+	@extend .ui_text_sm;
+	color: #fff;
+}

@@ -65,6 +65,13 @@ $(document).ready(function() { // начало document.ready
 	    	return false;
 		});
 
+    // блоки одинаковой высоты
+        $('.news__item').matchHeight({ byRow: true });
+
+        $(window).on('resize', function(event) {
+            $.fn.matchHeight._update()
+        });
+
     $('.show-more').click(function(){
         $(this)
             .toggleClass('show-more--active')

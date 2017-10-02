@@ -1,0 +1,8 @@
+mixin aboutMenu
+	ul.sidebar__menu
+		-var links = ['about.html','news.html']
+		each item, index in ['О компании','Новости','Блог','Отзывы']
+			li.sidebar__menu-item
+				a.sidebar__menu-link( href= links[index] ? links[index] : '#' class= index == 0 ? 'active': '')=item
+		li.sidebar__menu-item
+			a.sidebar__menu-link(href='#') Пожелания <br> по ассортименту

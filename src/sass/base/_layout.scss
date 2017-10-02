@@ -10,8 +10,20 @@
 
 html, body {
     font-family: 'Fira Sans', sans-serif;
+    height: 100%;
+}
+.wrapper {
+  display: table;
+  height: 100%;
+  width: 100%;
+}
+.maincontent {
+  display: table-row;
+  height: 100%;
 }
 
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
