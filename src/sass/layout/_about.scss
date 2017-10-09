@@ -1,19 +1,34 @@
 .about-header__wrap  {
 	height: 370px;
 	background-repeat: no-repeat;
-	background-position: center;
-	background-color: #000;
+	background-position: top center;
 	background-size: cover;
 	padding-top: 40px;
 	padding-bottom: 40px;
+	position: relative;
+	&:before {
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		right: 0;
+		left: 0;
+		background-color: #000;
+		opacity: 0.6;
+	}
 	.container {
 		position: relative;
-		padding-left: 340px;
+		z-index: 1;
+		padding-left: 335px;
 		height: 100%;
 		width: 100%;
 		display: table;
 	}
 }
+
+
+
 .about-sidebar__wrap {
 	position: absolute;
 	left: 15px;
@@ -37,11 +52,24 @@
 	display: table;
 	position: relative;
 	height: 100%;
-
+	.breadcrubms {
+		display: table-row;
+		height: 100%;
+	}
 }
 
 
 .about-page {
+	&__wrap {
+		background-position: 	center;
+		background-repeat: no-repeat;
+		background-size: 	contain;
+		background-image: url(../img/bg/bg_2.png);
+	}
+	.accent-block  {
+		position: relative;
+		left: -110px;
+	}
 	.breadcrubms {
 		display: table-row;
 		height: 100%;
@@ -120,25 +148,28 @@
 	}
 }
 .about-content__wrap {
+	margin-left: 300px;
 	max-width: 900px;
-	padding: 0 15px 115px;
-	margin: 0 auto;
+	padding: 0 30px 115px;
 }
 p.simple {
 	@extend .ui_text_n ;
 }
 .about-text__container {
 	max-width: 650px;
-	padding-left: 30px;
-	margin: 50px auto;
+	margin-bottom: 50px;
+	@extend .ui_text_n ;
 
-	p.simple {
+	p {
 		margin-bottom: 20px;
 		&:last-of-type {
 			margin-bottom: 0;
 		}
 	}
-
+}
+.about__advantages {
+	position: relative;
+	left: -110px;
 }
 .about__advantages-list {
 	@include clearfix;
@@ -154,7 +185,11 @@ p.simple {
 		margin-bottom: 25px;
 	}
 }
-
+.about__youll-find {
+	position: relative;
+	left: -110px;
+	margin-bottom: 50px;
+}
 .about__youll-find__list {
 	display: flex;
 }
@@ -183,9 +218,12 @@ p.simple {
 	@extend .ui_activeLink_accent;
 }
 
-.about__accent-block {
+.accent-block {
 	margin-bottom: 40px;
 	width: 100%;
+	max-width: 840px;
+	margin-left: auto;
+	margin-right: auto;
 	border: 4px solid $active;
 	background-color: $decor;
 	padding: 35px;

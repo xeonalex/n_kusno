@@ -30,8 +30,8 @@ header.header
 							span Уголок покупателя
 		.second-line
 			ul.additional-link__list
-				-var icons = ['i_cake','i_inventory'];
-				each item, index in ['Лавка кулинара', 'Кондитерский инвентарь']
+				-var icons = ['i_cake','i_inventory','i_brush'];
+				each item, index in ['Лавка кулинара','Кондитерский инвентарь','Товары творчества']
 					li.additional-link__item
 						a.additional-link__link(href='#')
 							+icon(icons[index])
@@ -87,13 +87,5 @@ header.header
 											h4.cart-details__title Айсинг для надписей Красный, 85 гр. Wilton 710-2225
 											.cart-details__info США, 2,3 кг
 										.cart-details__price 1299 ₽
-										label.cart-details__amount.j_cart-item-amount
-											span.decrease
-												+icon('i_minus')
-											input(type='text' placeholder='1' readonly='true').j_cart-item-amount_input
-											span.increase
-												+icon('i_plus')
+										+productAmount('cart-details__amount')
 									a.cart-details__remove-link(href='#') Удалить
-
-
-

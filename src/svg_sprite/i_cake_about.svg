@@ -1,1 +1,48 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 216.49 100.6"><defs><style>.cls-1,.cls-3,.cls-5{fill:none;}.cls-1{stroke:#ff564d;}.cls-1,.cls-3,.cls-5,.cls-6{stroke-miterlimit:10;}.cls-1,.cls-5,.cls-6{stroke-width:4px;}.cls-2{fill:#fb3;}.cls-3,.cls-5,.cls-6{stroke:#fb3;}.cls-3{stroke-width:2px;}.cls-4{fill:#ff564d;}.cls-6{fill:#fff;}</style></defs><title>i_cake_about</title><g id="Слой_2" data-name="Слой 2"><g id="Слой_3" data-name="Слой 3"><circle class="cls-1" cx="177.25" cy="74.59" r="9.25"/><circle class="cls-2" cx="210.25" cy="48.59" r="6.25"/><circle class="cls-3" cx="10.25" cy="54.59" r="9.25"/><circle class="cls-4" cx="50.28" cy="25.6" r="6.93"/><path class="cls-1" d="M30.75,77.33c5-1.44,7.24,6.25,12.27,4.81S45.86,73,50.9,71.56s7.24,6.25,12.28,4.81"/><line class="cls-1" x1="161.67" y1="28.31" x2="186.41" y2="8.9"/><polygon class="cls-5" points="85.99 70.39 101.02 98.22 141.31 86.47 139 54.92 85.99 70.39"/><path class="cls-5" d="M125.48,24.36c5.21,10-33.57,19-42.94,26.34S77.78,65.89,86,70.4"/><path class="cls-5" d="M85.79,48.58C78.57,45,73.35,35,87,26.39c9.53-6,20.23-17.41,18.37-23.77,0,0,21.43,4.38,20,23.2"/><path class="cls-5" d="M136.09,55.78c9.54-9.69,9.45-25.77-10.61-31.42"/><line class="cls-5" x1="96.51" y1="66.75" x2="109.41" y2="95.2"/><line class="cls-5" x1="126.23" y1="58.56" x2="130.66" y2="89.48"/><line class="cls-5" x1="111.44" y1="62.97" x2="120.1" y2="92.66"/><circle class="cls-6" cx="96.32" cy="19.06" r="6.63" transform="translate(-1.48 27.75) rotate(-16.27)"/><path class="cls-6" d="M92.35,13.32C89,9.69,84.13,8.81,75,9.17"/></g></g></svg>
+<symbol id="i_cake_about" viewBox="0 0 216.49 100.6" >
+<defs>
+<style>
+  #i_cake_about .acls-1, #i_cake_about .acls-3, #i_cake_about .acls-5 {
+  fill: none;
+}
+#i_cake_about .acls-1 {
+  stroke: #ff564d;
+}
+#i_cake_about .acls-1, #i_cake_about .acls-3, #i_cake_about .acls-5, #i_cake_about .acls-6 {
+  stroke-miterlimit: 10;
+}
+#i_cake_about .acls-1, #i_cake_about .acls-5, #i_cake_about .acls-6 {
+  stroke-width: 4px;
+}
+#i_cake_about .acls-2 {
+  fill: #fb3;
+}
+#i_cake_about .acls-3, #i_cake_about .acls-5, #i_cake_about .acls-6 {
+  stroke: #fb3;
+}
+#i_cake_about .acls-3 {
+  stroke-width: 2px;
+}
+#i_cake_about .acls-4 {
+  fill: #ff564d;
+}
+#i_cake_about .acls-6 {
+  fill: #fff;
+}
+
+</style>
+</defs>
+<g id="aСлой_2" data-name="Слой 2">
+<g id="aСлой_3" data-name="Слой 3">
+<circle class="acls-1" cx="177.25" cy="74.59" r="9.25"/>
+<circle class="acls-2" cx="210.25" cy="48.59" r="6.25"/>
+<circle class="acls-3" cx="10.25" cy="54.59" r="9.25"/>
+<circle class="acls-4" cx="50.28" cy="25.6" r="6.93"/>
+<path class="acls-1" d="M30.75 77.33c5-1.44 7.24 6.25 12.27 4.81S45.86 73 50.9 71.56s7.24 6.25 12.28 4.81M161.67 28.31L186.41 8.9"/>
+<path class="acls-5" d="M85.99 70.39l15.03 27.83 40.29-11.75L139 54.92 85.99 70.39z"/>
+<path class="acls-5" d="M125.48 24.36c5.21 10-33.57 19-42.94 26.34S77.78 65.89 86 70.4"/>
+<path class="acls-5" d="M85.79 48.58C78.57 45 73.35 35 87 26.39c9.53-6 20.23-17.41 18.37-23.77 0 0 21.43 4.38 20 23.2M136.09 55.78c9.54-9.69 9.45-25.77-10.61-31.42M96.51 66.75l12.9 28.45M126.23 58.56l4.43 30.92M111.44 62.97l8.66 29.69"/>
+<circle class="acls-6" cx="96.32" cy="19.06" r="6.63" transform="rotate(-16.27 96.326 19.052)"/>
+<path class="acls-6" d="M92.35 13.32C89 9.69 84.13 8.81 75 9.17"/>
+</g>
+</g>
+</symbol>

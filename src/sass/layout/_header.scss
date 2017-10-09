@@ -2,7 +2,7 @@
     box-shadow: 0 2px 43px -4px rgba(125, 121, 125, 0.2);
     border-bottom: 1px solid #F2F2F2;;
     position: relative;
-    z-index: 2;s
+    z-index: 5;
     .logo {
         margin-left: -25px;
         margin-top: -10px;
@@ -120,7 +120,7 @@
         }
     }
     .menu-icon {
-        fill: #B2B2B2;
+        fill: $icons;
         transition: fill 0.25s;
     }
     &.menu-item_w-icon {
@@ -181,6 +181,7 @@
             display: inline-block;
             font-size : 20px;
             line-height : 24px;
+            margin-right: 8px;
             font-weight: 500;
             color : #1E1E1E;
         }
@@ -289,6 +290,7 @@
         transition: width .25s;
       }
       &:hover {
+        color: $active;
           &:after {
             width: 100%;
           }
@@ -365,38 +367,53 @@
     }
     .cart-details__amount {
         display: block;
-        width: 60px;
-        height: 26px;
-        border-radius : 14px;
-        line-height: 1;
-        font-size: 0;
-        border: 2px solid #F2F2F2;
-        text-align: center;
-        input {
-            font-size: 19px;
-            line-height: 1;
-            display: inline-block;
-            vertical-align: middle;
-            text-align: center;
-            width: 20px;
-            background: none;
-            border: none;
-            &:focus {
-                outline: none;
-            }
-        }
-        .decrease,
-        .increase {
-            display: inline-block;
-            vertical-align: middle;
-            cursor: pointer;
-            padding: 0px 3px;
-        }
     }
     .cart-details__remove-link {
       font-size : 15px;
       line-height : 24px;
       color : #B2B2B2;
+    }
+}
+.amount-select__block {
+    display: inline-block;
+    background-color: #fff;
+    user-select: none;
+    width: 60px;
+    height: 26px;
+    border-radius : 14px;
+    line-height: 1;
+    font-size: 0;
+    border: 2px solid #F2F2F2;
+    text-align: center;
+    input {
+        font-size: 19px;
+        line-height: 1;
+        display: inline-block;
+        vertical-align: middle;
+        text-align: center;
+        width: 20px;
+        background: none;
+        border: none;
+        &:focus {
+            outline: none;
+        }
+    }
+    .decrease,
+    .increase {
+        display: inline-block;
+        vertical-align: middle;
+        cursor: pointer;
+        padding: 0px 3px;
+        height: 22px;
+        line-height: 22px;
+        fill: $icons;
+        &:hover {
+          fill: $active;
+        }
+        svg {
+            display: inline-block;
+            vertical-align: middle;
+        }
     }
 }
 .search-block__wrap {

@@ -1,2 +1,60 @@
-main.main
-	h2 main
+.cooking-store-page__wrap.bg_heading
+	.cooking-store-page.page
+		.part-with-sidebar
+			.sidebar__wrap
+				.sidebar__block.no_padding
+					+aboutMenu('big')
+				+newArrivals
+				+interactiveCardCupcakes
+			.page-content__wrap
+				.about-header__wrap(style='background-image: url(img/bg/bg_main-header.jpg);')
+					.container
+						.about-header__wrap-inner
+							.breadcrubms
+								ul
+									li
+										a(href="#") Главная
+									li
+										a(href="#") Лавка кулинара
+							.about-header__content
+								.about-header__title Кондитерские ингридиенты в лавке<br> кулинара
+								.about-header__subtext Ингридиенты, начинка и украшения
+				.about-text__container
+					p Конечно, в нашем большом городе можно найти практически любые продукты. Но чтобы совершить покупку, нужно сначала найти где, а потом потратить несколько часов, чтобы туда добраться. К сожалению, из-за этого многие вынуждены отказываться от своих кулинарных замыслов! 
+					p Этого не произойдёт, если вы заглянете в нашу Лавку кулинара, где мы собрали некоторые составляющие ваших будущих кулинарных шедевров. А чтобы они стали именно шедеврами с большой буквы, мы приготовили для вас продукты, которые используют в работе профессиональные повара и кондитеры.
+				.popular-goods
+						.section__title Вы недавно смотрели
+						.popular-goods__slider.goods__list.mode_block.owl-carousel.j_popular-goods
+							-for(var x=0;x<6;x++)
+								+goodsBlock('','')
+				.recent-news
+						.section__title Новости
+						.recent-news__slider.owl-carousel.j_recent-news
+							-for(var x=0;x<2;x++)
+								li.news__item.news__item_goods
+									.news__item-inner
+										.news__item-text
+											a.news__title(href='single-news.html') Новинка — мастика и цветная глазурь
+											.news__addition 20 июля 2017 года
+											.news__theses К нам в магазин поступили уникальные продукты из Италии, все они уже в продаже!
+										.tags__block
+											a.tag.tag-goods(href='#') Товары
+								li.news__item.news__item_sale
+									.news__item-inner
+										.news__item-text
+											a.news__title(href='single-news.html') Снижены цена на коробки для тортов и капкейков
+											.news__addition 20 июля 2017 года
+											.news__theses К нам в магазин поступили уникальные продукты из Италии, все они уже в продаже!
+										.tags__block
+											a.tag.tag-sale(href='single-news.html') Акции
+								li.news__item.news__item_other.news__item_w-img
+									.news__item-inner
+										.news__item-text
+											a.news__img-wrap(href='#')
+												img(src='img/content/news/1.jpg')
+											a.news__title(href='#') Лимитирование поставок продукции из США и Европы
+											.news__addition 20 июля 2017 года
+											.news__theses В связи с введением эмбарго для России, некоторые товары...
+										.tags__block
+											.tag.tag-other Другое
+		+recipesSlider('Рецепты у нас в блоге')

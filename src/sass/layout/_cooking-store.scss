@@ -1,0 +1,142 @@
+.cooking-store-page {
+  .recent-news {
+    margin-top: -20px;
+    margin-bottom: 100px;
+  }
+}
+.bg_heading {
+  position: relative;
+  .page-content__wrap {
+    margin-top: 375px;
+  }
+}
+.about-header__wrap {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.popular-goods {
+
+}
+.section__title {
+  @extend .ui_head2_normal;
+  margin-bottom: 30px;
+}
+.popular-goods__slider {
+  .owl-nav {
+    position: relative;
+    top: -75px;
+  }
+}
+
+.recipes__slider,
+.recent-news__slider,
+.popular-goods__slider {
+  .owl-nav {
+    @include clearfix;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .owl-prev {
+    float: left;
+  }
+  .owl-next {
+    float: right;
+  }
+}
+
+.slider-right,
+.slider-left {
+  .icon {
+    fill: $icons;
+  }
+  &:hover {
+    .icon {
+      fill: $active;
+    }
+  }
+}
+
+.recipes__slider {
+  margin-left: -10px;
+  margin-right: -10px;
+  margin-bottom: 60px;
+}
+
+.recipe__item {
+  margin-left: 10px;
+  margin-right: 10px;
+  display: block;
+  @extend .ui-block_card;
+  background-color: #fff;
+  margin-bottom: 15px;
+  .tags__block {
+    padding: 20px;
+  }
+  &:hover .recipe__title{
+    color: $active;
+  }
+}
+.recipe__info {
+  padding: 20px;
+  display: block;
+}
+.recipe__title{
+  @extend .ui_text_bw;
+  margin-bottom: 5px;
+  transition: color 0.3s;
+}
+.recipe__date{
+  @extend .ui_addition_normal;
+  margin-bottom: 10px;
+}
+.recipe__descr{
+  @extend .ui_addition_dark;
+}
+
+.recipe__img {
+  border-radius: 5px 5px 0 0;
+  display: block;
+  overflow: hidden;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  max-height: 235px;
+  &:after {
+    opacity: 1;
+    transition: opacity 0.25s;
+    content: '';
+    display: block;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    z-index: 1;
+    background-color: rgba(0,0,0,0.1);
+  }
+  img {
+    position: relative;
+    z-index: 1;
+  }
+  .play-video {
+    display: block;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    margin-top: -29px;
+    margin-left: -29px;
+    fill: $active;
+  }
+  &:hover {
+    &:after {
+      opacity: 0;
+    }
+  }
+}

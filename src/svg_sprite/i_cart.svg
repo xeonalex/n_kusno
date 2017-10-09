@@ -1,1 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 24"><defs><style>.cls-1{fill:#fb3;}.cls-2{fill:#ffc44d;}.cls-2,.cls-3{stroke:#fff7e6;stroke-miterlimit:10;stroke-width:2px;}.cls-3{fill:none;}</style></defs><title>i_cart</title><g id="Слой_2" data-name="Слой 2"><g id="Слой_3" data-name="Слой 3"><rect class="cls-1" width="22" height="24"/><line class="cls-2" x1="22" y1="4" y2="4"/><path class="cls-3" d="M16,8A5,5,0,0,1,6,8"/></g></g></svg>
+<symbol id="i_cart" viewBox="0 0 22 24" >
+<defs>
+<style>#i_cart .acls-3{fill:#fff7e6}</style>
+</defs>
+<g id="aСлой_3" data-name="Слой 3">
+<path class="acls-1" d="M0 0h22v24H0z"/>
+<path class="acls-2" d="M22 4H0"/>
+<path class="acls-3" d="M0 3h22v2H0zM11 14a6 6 0 0 1-6-6h2a4 4 0 0 0 8 0h2a6 6 0 0 1-6 6z"/>
+</g>
+</symbol>

@@ -1,3 +1,7 @@
+mixin newArrivals
+	.sidebar__block
+		p.sidebar__block-text Новые поступления в нашем магазине, самые горячие новинки!
+		a.button-link(href='#') Посмотреть товары
 mixin aboutMenu(menu)
 	if menu == 'big'
 		ul.sidebar__menu
@@ -18,3 +22,81 @@ mixin aboutMenu(menu)
 					a.sidebar__menu-link( href= links[index] ? links[index] : '#' class= index == 0 ? 'active': '')=item
 			li.sidebar__menu-item
 				a.sidebar__menu-link(href='#') Пожелания <br> по ассортименту
+mixin productAmount(className)
+	label.amount-select__block.j_cart-item-amount(class = className)
+		span.decrease
+			+icon('i_minus')
+		input(type='text' placeholder='1' readonly='true').j_cart-item-amount_input
+		span.increase
+			+icon('i_plus')
+mixin goodsBlock(contentObj,fullMode)
+	if !contentObj 
+		-var contentObj = {img: '6', status: ['Акция'], title: 'Агар-агар Algamar Algas Marinas S.A', info: 'США, 283 гр', 			desrc: 'Эти драже идельно подойдут для больших и малых торжеств. Арахис в глазури можно есть как самостоятельное блюдо, так и украшать...', 			oldPrice: '479', 			price: '379'		}
+		//- -var contentObj = {
+		//- 	img: '6',
+		//- 	status: ['Акция'],
+		//- 	title: 'Агар-агар Algamar Algas Marinas S.A',
+		//- 	info: 'США, 283 гр',
+		//- 	desrc: 'Эти драже идельно подойдут для больших и малых торжеств. Арахис в глазури можно есть как самостоятельное блюдо, так и украшать...',
+		//- 	oldPrice: '479 ₽',
+		//- 	price: '379 ₽'
+		//- }
+	.goods__item
+		.goods__item-inner
+			.goods__img-wrap
+				.goods__img
+					//- img(src='img/content/catalog/'+ (x%2 == 0 ? 6 : 8) +'.jpg')
+					img(src='img/content/catalog/'+contentObj.img+'.jpg')
+				ul.goods__status-list
+					each status in contentObj.status
+						li.goods__status-item.sale=status
+			.goods__data-wrap
+				.goods__title=contentObj.title
+				.goods__info-line
+					span.goods__info=contentObj.info
+					|
+					|
+					span.goods__average-mark
+						span.mark 4.2
+						|
+						|
+						span.votes (12)
+				if fullMode
+					.goods__descr=contentObj.desrc
+			.goods__extended-block
+				.goods__price-block
+					span.goods__price_old=contentObj.oldPrice+' ₽'
+					span.goods__price=contentObj.price+' ₽'
+					br
+					+productAmount('goods__amount')
+				.goods__hover-block
+					a.goods__add-cart(href='#') Добавить в корзину
+mixin interactiveCardCupcakes
+	.interactive-card.mugs-for-cupcakes(style='background-image: url(img/content/cake_icon.png);')
+		.text Скидка <br> на формочки <br> для кексов
+mixin recentlyViewed
+	.recently-viewed
+		.recently-viewed__title Вы недавно смотрели
+		.recently-viewed__slider.goods__list.mode_block.owl-carousel.j_recently-viewed
+			-for(var x=0;x<9;x++)
+				+goodsBlock('','')
+mixin accentBlock
+	.accent-block
+		p.ui_descr_black А ещё у нас есть свой блог, в котором мы публикуем интересные кулинарные истории и необычные рецепты.
+		a(href='#').ui_button_accent Посмотреть блог
+mixin recipesSlider(title)
+	.recipes-block
+		.section__title=title
+		.recipes__slider.owl-carousel.j_recipes
+			-for(var x=0;x<6;x++)
+				.recipe__item(href='#')
+					a.recipe__img(href='#')
+						img(src='img/content/recipe.jpg')
+						i.play-video
+							+icon('play-video')
+					a.recipe__info(href='#')
+						.recipe__title Рецепт шоколадного торта с ягодами
+						.recipe__date 20 июля 2017 года
+						.recipe__descr Видео с пошаговым рецептом одного из самых вкусных десертов.
+					.tags__block
+						a.tag.tag-recipe(href='#') Рецепты

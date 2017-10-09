@@ -1,1 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 13 10"><defs><style>.cls-1{fill:#d9d9d9;}</style></defs><title>sort_desc</title><g id="Слой_2" data-name="Слой 2"><g id="Слой_3" data-name="Слой 3"><rect class="cls-1" width="7" height="2"/><rect class="cls-1" y="4" width="10" height="2"/><rect class="cls-1" y="8" width="13" height="2"/></g></g></svg>
+<symbol id="sort_desc" viewBox="0 0 13 10" >
+<g id="aСлой_3" data-name="Слой 3">
+<path class="acls-1" d="M0 0h7v2H0zM0 4h10v2H0zM0 8h13v2H0z"/>
+</g>
+</symbol>

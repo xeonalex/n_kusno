@@ -1,3 +1,6 @@
+.single-news-page {
+	padding-bottom: 115px;
+}
 .single-news-page__wrap {
 	background-image: url(../img/news/single_news_bg.png);
 	background-position: top center;
@@ -8,11 +11,13 @@
 	display: table;
 }
 .content-side {
+	vertical-align: top;
 	display: table-cell;
 	padding-right: 20px;
 	width: 100%;
 }
 .inner-sidebar {
+	vertical-align: top;
 	display: table-cell;
 	min-width: 300px;
 	.news__list {
@@ -76,7 +81,7 @@
 }
 
 .news__share-block {
-	margin-bottom: 35px;
+	margin-bottom: 45px;
 }
 .news__share-text  {
 	margin-right: 25px;

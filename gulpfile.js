@@ -23,7 +23,8 @@ var gulp = require('gulp'),
   cheerio = require('gulp-cheerio'),
   replace = require('gulp-replace'),
   filter    = require('gulp-filter'),
-  svg2png   = require('gulp-svg2png');
+  svg2png   = require('gulp-svg2png'),
+  svgSymbols = require('gulp-svg-symbols');
 
 var path = {
   name: "boiler",
@@ -43,7 +44,7 @@ var path = {
     js: 'src/js/*.js',//В стилях и скриптах нам понадобятся только main файлы
     jsVendor: 'src/js/vendor/*.js',//В стилях и скриптах нам понадобятся только main файлы
     scss: 'src/sass/**/*.scss',
-    img: ['src/img/**/*.*', '!src/img/**/*.tmp*'],//  Синтаксис img/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
+    img: ['src/img/**/*.*', '!src/img/**/*.tmp*','!src/img/sprites/**'],//  Синтаксис img/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
     fonts: 'src/fonts/*',
     favicon: 'src/favicon/*',
     // svg
@@ -180,6 +181,7 @@ gulp.task('svgSpriteBuild', function () {
       $('[fill]').removeAttr('fill');
       $('[stroke]').removeAttr('stroke');
       $('[style]').removeAttr('style');
+      $('style').remove();
     },
     parserOptions: {xmlMode: true}
   }))
@@ -187,14 +189,11 @@ gulp.task('svgSpriteBuild', function () {
   .pipe(replace('&gt;', '>'))
   // build svg sprite
   .pipe(svgSprite({
-    // svg: {
-    //   sprite: '../img/sprites/sprite.svg',
-    // }
     mode: {
       inline: true,
       symbol: {
         // куда покласти сам спрайт
-        inline: true,
+        // inline: true,
         sprite: '../img/sprites/sprite.svg',
         render: {
           scss: {
@@ -208,16 +207,17 @@ gulp.task('svgSpriteBuild', function () {
       }
     }
   }))
-  .pipe(gulp.dest('src/'));
+  .pipe(gulp.dest('build/sprite/'));
 });
 
 gulp.task('svgSpritePNG', function () {
   return gulp.src('src/img/sprites/sprite.svg')
     // .pipe(svg2png())
-    // .pipe(gulp.dest(path.build.svg_sprite));
+    .pipe(gulp.dest(path.build.svg_sprite));
 });
 
-gulp.task('svgSprite', ['svgSpriteBuild','svgSpritePNG','img']);
+// gulp.task('svgSprite', ['svgSpriteBuild','svgSpritePNG']);
+gulp.task('svgSprite', []);
 
 
 //Сжатие изображений

@@ -1,4 +1,5 @@
 .reviews-page {
+	padding-bottom: 180px;
 	.review__add-link {
 		margin-bottom: 60px;
 	}
@@ -9,6 +10,7 @@
 .page {
 	.page__info-text {
 		@extend .ui_descr_normal;
+		max-width: 65.96%;
 		margin-bottom: 30px;
 	}
 }
@@ -92,4 +94,3 @@
 		@extend .ui_head3;
 	}
 }
-

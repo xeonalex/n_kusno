@@ -1,12 +1,24 @@
 .icon {
 	display: inline-block;
-	fill: currentColor;
+	fill: inherit;
 	vertical-align: middle;
+	transition: fill 0.3s;
+}
+.icon-i_brush {
+	width: 21px;
+	height: 21px;
+	fill: $active;
+}
+.icon-play-video {
+	width: 58px;
+	height: 58px;
 }
 
 .icon-i_cake {
 	height:(21)*1px;
 	width:(20)*1px;
+	fill: $active;
+
 }
 .icon-i_cake_about {
 	height:(100.6)*1px;
@@ -19,16 +31,23 @@
 .icon-i_cart {
 	height:(24)*1px;
 	width:(22)*1px;
+	fill: $active;
 }
 .icon-i_cross {
 	height:(15.41)*1px;
 	width:(15.41)*1px;
+	fill: $icons;
+	&:hover {
+		fill:$active;
+	}
 }
 .icon-i_dandruff {
 	height:(19.21)*1px;
 	width:(19.21)*1px;
+	fill: $active;
 }
 .icon-i_inventory {
+	fill: $active;
 	height:(20.14)*1px;
 	width:(20.14)*1px;
 }
@@ -39,10 +58,18 @@
 .icon-i_ok {
 	height:(43.92)*1px;
 	width:(44)*1px;
+	fill: $active;
+	&:hover {
+		fill: #507299;
+	}
 }
 .icon-i_ok_g {
 	height:(30.57)*1px;
 	width:(18.38)*1px;
+	fill: $icons;
+	&:hover {
+		fill: $active;
+	}
 }
 .icon-i_person {
 	height:(20)*1px;
@@ -52,17 +79,34 @@
 	height:(8)*1px;
 	width:(8)*1px;
 }
+.icon-i_slider_arr_l {
+	height:(12.35)*1px;
+	width:(49.6)*1px;
+}
+.icon-i_slider_arr_r {
+	height:(12.35)*1px;
+	width:(49.6)*1px;
+}
 .icon-i_star_adv {
 	height:(124)*1px;
 	width:(130.81)*1px;
 }
 .icon-i_vk {
+	fill: $active;
+
 	height:(43.92)*1px;
 	width:(44)*1px;
+	&:hover {
+		fill: #507299;
+	}
 }
 .icon-i_vk_g {
 	height:(17.48)*1px;
 	width:(30.95)*1px;
+	fill: $icons;
+	&:hover {
+		fill: #507299;
+	}
 }
 .icon-sort_desc {
 	height:(10)*1px;
@@ -71,8 +115,16 @@
 .icon-view_block {
 	height:(16)*1px;
 	width:(16)*1px;
+	fill: $icons;
+	&:hover {
+		fill: $active;
+	}
 }
 .icon-view_line {
 	height:(16)*1px;
 	width:(16)*1px;
+	fill: $icons;
+	&:hover {
+		fill: $active;
+	}
 }

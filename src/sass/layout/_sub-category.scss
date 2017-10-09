@@ -1,0 +1,49 @@
+.announcement__block{
+  @extend .ui-block_complicated;
+  background : linear-gradient(140.7deg, rgba(42, 156, 222, 1) 0%, rgba(22, 128, 186, 1) 100%);
+  padding: 25px 30px;
+  margin-bottom: 50px;
+
+}
+.announcement__title{
+  @extend .ui_head2_white;
+  margin-bottom: 10px;
+}
+.announcement__text{
+  @extend .ui_descr_white;
+}
+
+.recently-viewed__slider {
+  position: relative;
+  z-index: 1;
+  .owl-stage-outer {
+    z-index: 1;
+  }
+  .owl-nav {
+    z-index: 0;
+    position: absolute;
+    bottom: 60px;
+    width: 100%;
+    @include clearfix;
+    padding-left: 10px;
+    padding-right: 10px;
+    .owl-next ,
+    .owl-prev {
+      fill: $line;
+      &:hover {
+        fill: $active;
+      }
+    }
+
+    .owl-prev {
+      float: left;
+    }
+    .owl-next {
+      float: right;
+    }
+  }
+}
+.recently-viewed__title {
+  @extend .ui_head2_normal;
+  margin-bottom: 30px;
+}

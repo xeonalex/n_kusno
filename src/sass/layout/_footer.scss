@@ -149,11 +149,17 @@
     display: block;
     width: 44px;
     height: 44px;
-    background-image: url("../img/icons/vk.svg");
+    &:hover {
+      fill: #507299;
+    }
+    // background-image: url("../img/icons/vk.svg");
 }
 .social-ok {
     display: block;
     width: 44px;
     height: 44px;
-    background-image: url("../img/icons/ok.svg");
+    &:hover {
+      fill: #507299;
+    }
+    // background-image: url("../img/icons/ok.svg");
 }

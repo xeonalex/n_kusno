@@ -2,42 +2,41 @@ extends _layout.pug
 block main
 	.reviews-page__wrap
 		.reviews-page.page
-			.sidebar__wrap
-				.sidebar__block.no_padding
-					+aboutMenu
-			.page-content__wrap
-				.breadcrubms
-					ul
-						li
-							a(href="#") Главная
-						li
-							a(href="#") О компании
-						li
-							a(href="#") Отзывы
-						li
-							a(href="#") Лимитирование поставок
-				h1.page__title Отзывы
-				.page-inner-content__wrap
-					.content-side
-						p.page__info-text Поделитесь с нами вашими впечатлениями о работе магазина, например о качестве и скорости доставки, вежливости сотрудников, аккуратностью упаковки.
-						a.review__add-link(href='#') Добавить отзыв
-						ul.reviews__list
-							each item in [1,2,3]
-								li.reviews__item
-									.review__author Елизавета Больдерштейн
-									.review__rating
-										select.j_rating.j_rating_read(data-rating='4')
-											each item,index in [1,2,3,4,5]
-												option(value= index+1 )
-									.review__date 20 апреля 2017 года
-									.review__text
-										p Отличный магазин! Заказ делала первый раз и не последний! Менеджер Дарья, все мне подробно рассказала и объяснила. Так как пришлось самим связываться с ТК, Дарья мне помогла, отвечая на мои бесконечные звонки и вопросы. Товар пришел качественно упакован, как в плотный картон, в мягкую бумага так и пленку! Заказывали принтер и пищевую бумагу.
-										p Спасибо за сотрудничество!
-						a.reviews__show-more(href='#') Показать больше отзывов
-					.inner-sidebar
-						.interactive-card.inventory-sale
-							.text Распродажа инвентаря для украшения тортов
-							img.bg(src='img/content/cake_sale.png')
-						.interactive-card.mugs-for-cupcakes(style='background-image: url(img/content/cake_icon.png);')
-							.text Скидка <br> на формочки <br> для кексов
-
+			.part-with-sidebar
+				.sidebar__wrap
+					.sidebar__block.no_padding
+						+aboutMenu
+				.page-content__wrap
+					.breadcrubms
+						ul
+							li
+								a(href="#") Главная
+							li
+								a(href="#") О компании
+							li
+								a(href="#") Отзывы
+							li
+								a(href="#") Лимитирование поставок
+					h1.page__title Отзывы
+					.page-inner-content__wrap
+						.content-side
+							p.page__info-text Поделитесь с нами вашими впечатлениями о работе магазина, например о качестве и скорости доставки, вежливости сотрудников, аккуратностью упаковки.
+							a.review__add-link(href='#') Добавить отзыв
+							ul.reviews__list
+								each item in [1,2,3]
+									li.reviews__item
+										.review__author Елизавета Больдерштейн
+										.review__rating
+											select.j_rating.j_rating_read(data-rating='4')
+												each item,index in [1,2,3,4,5]
+													option(value= index+1 )
+										.review__date 20 апреля 2017 года
+										.review__text
+											p Отличный магазин! Заказ делала первый раз и не последний! Менеджер Дарья, все мне подробно рассказала и объяснила. Так как пришлось самим связываться с ТК, Дарья мне помогла, отвечая на мои бесконечные звонки и вопросы. Товар пришел качественно упакован, как в плотный картон, в мягкую бумага так и пленку! Заказывали принтер и пищевую бумагу.
+											p Спасибо за сотрудничество!
+							a.reviews__show-more(href='#') Показать больше отзывов
+						.inner-sidebar
+							.interactive-card.inventory-sale
+								.text Распродажа инвентаря для украшения тортов
+								img.bg(src='img/content/cake_sale.png')
+							+interactiveCardCupcakes

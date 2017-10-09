@@ -1,1 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19.21 19.21"><defs><style>.cls-1{fill:none;stroke:#fb3;stroke-miterlimit:10;stroke-width:2px;}</style></defs><title>i_dandruff</title><g id="Слой_2" data-name="Слой 2"><g id="Слой_3" data-name="Слой 3"><circle class="cls-1" cx="12.21" cy="7" r="6"/><line class="cls-1" x1="8.21" y1="11" x2="0.71" y2="18.5"/></g></g></svg>
+<symbol id="i_dandruff" viewBox="0 0 19.21 19.21" >
+<g id="aСлой_3" data-name="Слой 3">
+<path class="acls-1" d="M12.21 14a7 7 0 1 1 7-7 7 7 0 0 1-7 7zm0-12a5 5 0 1 0 5 5 5 5 0 0 0-5-5z"/>
+<path class="acls-1" transform="rotate(-45 4.457 14.744)" d="M-.85 13.75H9.76v2H-.85z"/>
+</g>
+</symbol>

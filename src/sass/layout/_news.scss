@@ -1,3 +1,19 @@
+.news-page {
+	&__wrap {
+		background-image: 	url(../img/news/single_news_bg.png);
+		background-position: 	top center;
+		background-repeat: no-repeat;
+		background-size: 	contain;
+
+		background-image: 	url(../img/news/single_news_bg.png),
+							url(../img/bg/bg_2.png);
+		background-position: 	top center,
+								center;
+		background-repeat: no-repeat;
+		background-size: 	contain,
+							contain;
+	}
+}
 .new-goods__link {
 	@extend .ui_button_accent ;
 	@extend .ui_text_bw;
@@ -9,19 +25,26 @@
 .new-goods__sidebar-text {
 	margin-bottom: 50px;
 }
-.page {
+.part-with-sidebar {
 	@include clearfix;
+}
+.page {
 	@extend .container;
 	padding-top: 40px;
-	padding-bottom: 180px;
+	padding-bottom: 20px;
 	.breadcrubms {
 		padding-top: 0;
 	}
+}
+.news-page {
+	padding-bottom: 200px;
 }
 .page-content__wrap {
 	margin-left: 320px;
 }
 .sidebar__wrap {
+	position: relative;
+	z-index: 2;
 	float: left;
 }
 
@@ -94,13 +117,16 @@
 .news__list {
 	@include clearfix;
 	margin-left: -1.4%;
+	.news__item {
+		width: 31.9%;
+		margin-left: 1.4%;
+		float: left;
+	}
+
 }
 
 .news__item {
 	margin-bottom: 20px;
-	float: left;
-	width: 31.9%;
-	margin-left: 1.4%;
 	padding: 30px 20px 20px;
 	&_goods {
 		@include ui_block('rgba(42, 222, 108, 1)')
@@ -128,7 +154,8 @@
 		margin-left: -20px;
 		margin-right: -20px;
 		border-radius: 5px 5px 0 0 ;
-		background-color: rgba(0,0,0,0.1);
+		overflow: hidden;
+		// background-color: rgba(0,0,0,0.1);
 		height: 200px;
 		margin-bottom: 15px;
 	}
@@ -180,5 +207,8 @@
 	}
 	&-other {
 		background-color: rgba(42, 156, 222, 1);
+	}
+	&-recipe {
+		background-color: rgb(164, 190, 255);
 	}
 }

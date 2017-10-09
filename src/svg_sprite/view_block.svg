@@ -1,1 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><defs><style>.cls-1{fill:none;stroke:#fb3;stroke-miterlimit:10;stroke-width:2px;}</style></defs><title>view_block</title><g id="Слой_2" data-name="Слой 2"><g id="Слой_3" data-name="Слой 3"><rect class="cls-1" x="1" y="1" width="5" height="5"/><rect class="cls-1" x="10" y="1" width="5" height="5"/><rect class="cls-1" x="1" y="10" width="5" height="5"/><rect class="cls-1" x="10" y="10" width="5" height="5"/></g></g></svg>
+<symbol id="view_block" viewBox="0 0 16 16" >
+<g id="aСлой_3" data-name="Слой 3">
+<path class="acls-1" d="M7 7H0V0h7zM2 5h3V2H2zM16 7H9V0h7zm-5-2h3V2h-3zM7 16H0V9h7zm-5-2h3v-3H2zM16 16H9V9h7zm-5-2h3v-3h-3z"/>
+</g>
+</symbol>

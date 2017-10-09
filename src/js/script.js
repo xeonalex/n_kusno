@@ -4,6 +4,12 @@ console.log('hello from script.js');
 
 $(document).ready(function() { // начало document.ready
 
+    // установка класса для типа отображения списка в каталоге
+    var curMode = $('#j_cat-prod-list').data('mode')
+    $('#j_cat-prod-list').addClass($('#j_cat-prod-list').data('mode'));
+    $('a[class*="'+curMode+'"]').closest('.view__mode').addClass('current');
+
+
     // // загрузим SVG спрайт
     $.get("img/sprites/sprite.svg", function(data) {
         var div = document.createElement("div");
@@ -32,6 +38,111 @@ $(document).ready(function() { // начало document.ready
 	    	$('.header').removeClass('search_activated');
 	    	$('.j_search-result').slideUp();
 	    });
+  //
+
+  $('.j_recipes').owlCarousel({
+    nav: true,
+    onInitialize: function(event){
+    },
+    onInitialized: function(event){
+      var element   = event.target;
+
+      $(element).find('.owl-prev').text('').append($('<span class="slider-left"><svg class="icon-i_slider_arr_l icon" ><use xlink:href="#i_slider_arr_l"></use></svg></span>'));
+      $(element).find('.owl-next').text('').append($('<span class="slider-right"><svg class="icon-i_slider_arr_r icon" ><use xlink:href="#i_slider_arr_r"></use></svg></span>'));
+    },
+    responsive : {
+      // breakpoint from 0 up
+      0 : {
+      },
+      // breakpoint from 480 up
+      480 : {
+      },
+      // breakpoint from 768 up
+      1024 : {
+        items: 4
+      }
+    }
+  });
+
+  $('.j_recent-news').owlCarousel({
+    nav: true,
+    onInitialize: function(event){
+    },
+    onInitialized: function(event){
+      var element   = event.target;
+
+      $(element).find('.owl-prev').text('').append($('<span class="slider-left"><svg class="icon-i_slider_arr_l icon" ><use xlink:href="#i_slider_arr_l"></use></svg></span>'));
+      $(element).find('.owl-next').text('').append($('<span class="slider-right"><svg class="icon-i_slider_arr_r icon" ><use xlink:href="#i_slider_arr_r"></use></svg></span>'));
+    },
+    responsive : {
+      // breakpoint from 0 up
+      0 : {
+      },
+      // breakpoint from 480 up
+      480 : {
+      },
+      // breakpoint from 768 up
+      1024 : {
+        items: 3
+      }
+    }
+  });
+
+  $('.j_popular-goods').owlCarousel({
+    nav: true,
+    onInitialize: function(event){
+      $(event.target).addClass('visible'); // кратковременный клас для корректного отображения карточек при ховере
+    },
+    onInitialized: function(event){
+      var element   = event.target;
+      var wrap = $(element).find('.owl-stage-outer');
+      wrap.css('height', wrap.height());
+      $(element).removeClass('visible'); // кратковременный клас для корректного отображения карточек при ховере
+
+      $(element).find('.owl-prev').text('').append($('<span class="slider-left"><svg class="icon-i_slider_arr_l icon" ><use xlink:href="#i_slider_arr_l"></use></svg></span>'));
+      $(element).find('.owl-next').text('').append($('<span class="slider-right"><svg class="icon-i_slider_arr_r icon" ><use xlink:href="#i_slider_arr_r"></use></svg></span>'));
+    },
+    responsive : {
+      // breakpoint from 0 up
+      0 : {
+      },
+      // breakpoint from 480 up
+      480 : {
+      },
+      // breakpoint from 768 up
+      1024 : {
+        items: 3
+      }
+    }
+  });
+
+  $('.j_recently-viewed').owlCarousel({
+    nav: true,
+    onInitialize: function(event){
+      $('.j_recently-viewed').addClass('visible'); // кратковременный клас для корректного отображения карточек при ховере
+    },
+    onInitialized: function(event){
+      var element   = event.target;
+      var wrap = $(element).find('.owl-stage-outer');
+      wrap.css('height', wrap.height());
+      $('.j_recently-viewed').removeClass('visible'); // кратковременный клас для корректного отображения карточек при ховере
+
+      $(element).find('.owl-prev').text('').append($('<span class="slider-left"><svg class="icon-i_slider_arr_l icon" ><use xlink:href="#i_slider_arr_l"></use></svg></span>'));
+      $(element).find('.owl-next').text('').append($('<span class="slider-right"><svg class="icon-i_slider_arr_r icon" ><use xlink:href="#i_slider_arr_r"></use></svg></span>'));
+    },
+    responsive : {
+      // breakpoint from 0 up
+      0 : {
+      },
+      // breakpoint from 480 up
+      480 : {
+      },
+      // breakpoint from 768 up
+      1024 : {
+        items: 4
+      }
+    }
+  });
 
 	// детали корзины
 		$('.j_cart-init').click(function(event) {
@@ -54,19 +165,27 @@ $(document).ready(function() { // начало document.ready
 	    	event.preventDefault();
 	    	var parent = $(this).closest('.j_cart-item-amount'),
 	    		input = parent.find('.j_cart-item-amount_input');
-			input.val(+input.val()-1);
+          console.log(input.val());
+          if (input.val()) {
+            input.val(input.val() <= 1 ? 1 : input.val()-1 );
+          } else {
+            input.val(1);
+          }
 	    	return false;
 		});
 		$('.j_cart-item-amount .increase').click(function(event) {
 	    	event.preventDefault();
 	    	var parent = $(this).closest('.j_cart-item-amount'),
 	    		input = parent.find('.j_cart-item-amount_input');
-			input.val(+input.val()+1);
+        if (input.val() == false) {
+          input.val(1);
+        }
+  			input.val(+input.val()+1);
 	    	return false;
 		});
 
     // блоки одинаковой высоты
-        $('.news__item, .goods__item').matchHeight({ byRow: true });
+        $('.news__item, .j_equal-height .goods__item').matchHeight({ byRow: true });
 
         $(window).on('resize', function(event) {
             $.fn.matchHeight._update()
@@ -82,6 +201,25 @@ $(document).ready(function() { // начало document.ready
         });
     });
 
+    $('.view__mode_block').click(function(e){
+        e.preventDefault();
+        $('.view__mode').removeClass('current');
+        $('.view__mode_block').closest('.view__mode').addClass('current');
+        $('#j_cat-prod-list') .removeClass($('#j_cat-prod-list').data('mode'))
+                              .data('mode','mode_block')
+                              .addClass('mode_block');
+        return false;
+    });
+
+    $('.view__mode_line').click(function(e){
+        e.preventDefault();
+        $('.view__mode').removeClass('current');
+        $('.view__mode_line').closest('.view__mode').addClass('current');
+        $('#j_cat-prod-list') .removeClass($('#j_cat-prod-list').data('mode'))
+                              .data('mode','mode_line')
+                              .addClass('mode_line');
+        return false;
+    });
     $('.show-more').click(function(){
         $(this)
             .toggleClass('show-more--active')

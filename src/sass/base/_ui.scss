@@ -183,6 +183,9 @@ h3 {
 
 .ui_button_accent {
 	display: inline-block;
+	text-align: center;
+	min-height: 50px;
+	padding: 12px 20px;
 	background : $active;
 	border-radius : 5px;
 	@include bshadow('+');
@@ -199,7 +202,7 @@ h3 {
 
 .ui-block_card { //Карточки новостей, товаров и некторые другие
 	@extend .ui-block;
-	border: 2px solid $line;
+	border: 2px solid transparentize($line, 0);;
 }
 .ui-block_second-level { // Второй уровень каталога
 	@extend .ui-block;
