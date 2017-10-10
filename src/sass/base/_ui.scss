@@ -125,6 +125,8 @@
 .ui_activeLink {
 	line-height: 1.4;
 	font-weight: 400;
+	transition: color 0.3s;
+	
 	// color : $active;
  //  	&:hover {
 	// 	color: #fff;

@@ -7,16 +7,7 @@ block main
 					.sidebar__block.no_padding
 						+aboutMenu
 				.page-content__wrap
-					.breadcrubms
-						ul
-							li
-								a(href="#") Главная
-							li
-								a(href="#") О компании
-							li
-								a(href="#") Новости
-							li
-								a(href="#") Лимитирование поставок
+					+breadcrumbs(['Главная','О компании','Новости','Лимитирование поставок'])
 					h1.page__title Новости
 					.news-tag__block
 						ul.news-tag__list

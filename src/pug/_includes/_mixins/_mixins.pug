@@ -1,3 +1,20 @@
+mixin reviewItem(item)
+	li.reviews__item
+		.review__author Елизавета Больдерштейн
+		.review__rating
+			select.j_rating.j_rating_read(data-rating='4')
+				each item,index in [1,2,3,4,5]
+					option(value= index+1 )
+		.review__date 20 апреля 2017 года
+		.review__text
+			p Отличный магазин! Заказ делала первый раз и не последний! Менеджер Дарья, все мне подробно рассказала и объяснила. Так как пришлось самим связываться с ТК, Дарья мне помогла, отвечая на мои бесконечные звонки и вопросы. Товар пришел качественно упакован, как в плотный картон, в мягкую бумага так и пленку! Заказывали принтер и пищевую бумагу.
+			p Спасибо за сотрудничество!
+mixin breadcrumbs(list) 
+	.breadcrubms
+		ul
+			each listItem in list
+				li
+					a(href="#")=listItem
 mixin newArrivals
 	.sidebar__block
 		p.sidebar__block-text Новые поступления в нашем магазине, самые горячие новинки!
@@ -66,7 +83,11 @@ mixin goodsBlock(contentObj,fullMode)
 			.goods__extended-block
 				.goods__price-block
 					span.goods__price_old=contentObj.oldPrice+' ₽'
+					|
+					|
 					span.goods__price=contentObj.price+' ₽'
+					|
+					|
 					br
 					+productAmount('goods__amount')
 				.goods__hover-block
@@ -74,9 +95,9 @@ mixin goodsBlock(contentObj,fullMode)
 mixin interactiveCardCupcakes
 	.interactive-card.mugs-for-cupcakes(style='background-image: url(img/content/cake_icon.png);')
 		.text Скидка <br> на формочки <br> для кексов
-mixin recentlyViewed
+mixin recentlyViewed(title)
 	.recently-viewed
-		.recently-viewed__title Вы недавно смотрели
+		.recently-viewed__title=title
 		.recently-viewed__slider.goods__list.mode_block.owl-carousel.j_recently-viewed
 			-for(var x=0;x<9;x++)
 				+goodsBlock('','')

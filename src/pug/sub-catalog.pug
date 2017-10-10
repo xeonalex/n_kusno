@@ -1,15 +1,6 @@
 extends catalog.pug
 block catalog-top-part
-  .breadcrubms
-    ul
-      li
-        a(href="#") Главная
-      li
-        a(href="#") Лавка кулинара
-      li
-        a(href="#") Оформление
-      li
-        a(href="#") Украшения
+  +breadcrumbs(['Главная','Лавка кулинара','Оформление','Украшения'])
   h1.page__title Украшения
   p.page__info-text Украшения для тортов и другой выпечки от ведущих <br> отечественных и зарубежных производителей.
   .announcement__block

@@ -4,6 +4,19 @@ console.log('hello from script.js');
 
 $(document).ready(function() { // начало document.ready
 
+    // установка класса для активного таба
+      $('.j_tabs__link').click(function(event) {
+        event.preventDefault();
+          /* Act on the event */
+          $('.j_tabs__link.active').removeClass('active');
+
+          $('.tab__content-wrap.active').removeClass('active').attr('style', '');
+          $($(this).addClass('active').attr('href')).addClass('active').fadeIn();
+        return false;
+      });
+
+      $('.j_tabs__link.active').click();
+
     // установка класса для типа отображения списка в каталоге
     var curMode = $('#j_cat-prod-list').data('mode')
     $('#j_cat-prod-list').addClass($('#j_cat-prod-list').data('mode'));
@@ -196,6 +209,7 @@ $(document).ready(function() { // начало document.ready
         var flag = $(el).hasClass('j_rating_read');
         $(el).barrating('show', {
             theme: 'bars-1to10',
+            showValues: false,
             initialRating: ''+$(el).data('rating'),
             readonly: flag
         });

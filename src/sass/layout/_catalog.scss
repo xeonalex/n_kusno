@@ -388,16 +388,16 @@
 		height: 17px;
 		margin-right: 0.3em;
 	}
-	.mark {
-		@extend .ui_addition_dark;
-		display: inline-block;
-		vertical-align: middle;
-	}
-	.votes {
-		@extend .ui_addition_normal;
-		display: inline-block;
-		vertical-align: middle;
-	}
+}
+.mark {
+	@extend .ui_addition_dark;
+	display: inline-block;
+	vertical-align: middle;
+}
+.votes {
+	@extend .ui_addition_normal;
+	display: inline-block;
+	vertical-align: middle;
 }
 .goods__info {
 	display: inline-block;

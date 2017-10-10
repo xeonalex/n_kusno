@@ -1,0 +1,88 @@
+extends _layout.pug
+block main
+	.prod-page__wrap
+		.prod-page.page
+			+breadcrumbs(['Главная','О компании','Новости','Лимитирование поставок'])
+			h1.page__title Драже арахис в глазури Фиксики
+			.prod__rank-line
+				.prod__rank
+					.prod__rating
+						select.j_rating.j_rating_read(data-rating='4.2')
+							each item,index in [1,2,3,4,5]
+								option(value= index+1 )
+					|
+					|
+					span.average-mark
+						span.mark 4.2
+						|
+						|
+						span.votes (12)
+				|
+				|
+				a.prod__write-review(href='#') Написать отзыв
+			.prod__block
+				.prod__img-wrap
+					img(src='img/content/catalog/1.jpg')
+				.prod__data
+					.goods__price-block
+						span.goods__price_old 479 ₽
+						|
+						|
+						span.goods__price 379 ₽
+						|
+						|
+						+productAmount('goods__amount')
+					.prod__text 
+						p Арахис в глазури можно есть как самостоятельное блюдо, так и украшать ими торты, капкейки и любые кулинарные творения.
+						p 
+							| Производство: Россия <br>
+							| Вес: 45 гр <br>
+							| Товар доступен с 
+							|
+							|
+							a(href='#') доставкой 
+							|
+							|
+							|и в 
+							|
+							|
+							a(href='#') розничном магазине
+					.prod__links
+						a.add-cart_link(href='#') Добавить в корзину
+						a.add-favorite_link(href='#') Добавить в избранное
+				.prod__note
+					.delivery-info
+						.text Перед покупкой обязательно прочитайте правила доставки и оплаты товара
+						a.link(href='#') О доставке и оплате 
+			+recentlyViewed('С этим товаром покупают')
+			.prod__detailed-block
+				.section__title Подробнее о товаре
+				.page-inner-content__wrap
+					.content-side
+						.prod__details-wrap
+							.j_tabs-wrap
+								ul.tabs-titles
+									-var links = ['#t_descr','#t_reviews','#t_delivery']
+									each item,i in ['Описание','Отзывы','Доставка']
+										li.tabs__link-wrap
+											a.j_tabs__link.tabs__link(href=links[i] class=item == 'Отзывы' ? 'active' : '')=item
+								.tabs-content
+									#t_descr.tab__content-wrap
+										| t_reviews
+									#t_reviews.tab__content-wrap
+										.prod__reviews-wrap
+											.prod__reviews-right
+												a(href='#').prod__reviews-add Добавить отзыв
+											.prod__reviews-left
+												ul.reviews__list
+													each item in [1,2,3]
+														+reviewItem(item)
+												a.reviews__show-more(href='#') Показать больше отзывов
+									#t_delivery.tab__content-wrap
+										| t_delivery
+					.inner-sidebar
+						.interactive-card.inventory-sale
+							.text Распродажа инвентаря для украшения тортов
+							img.bg(src='img/content/cake_sale.png')
+						+interactiveCardCupcakes
+			+recentlyViewed('Вы недавно смотрели')

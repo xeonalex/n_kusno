@@ -1,51 +1,46 @@
 extends _layout.pug
 block footer
 block main
-    .contacts_page
-        .contacts-wrapper
-            .container
-                .breadcrubms
-                    ul
-                        li
-                            a(href="#") Главная
-                        li
-                            a(href="#") Контакты
-                .contacts-content
-                    h4.htb-title
-                        | Контакты
-                    p.htb-text.
-                        Чтобы наше общение было наиболее успешным, пожалуйста, <br>
-                        указывайте номер заказа, и сохраняйте историю переписки.
-                    a(href="#").btn Написать сообщение
-                    .map-adress
-                        .contacts-info
-                            .c-block-shop
-                                h3.block-home
-                                    | Розничный магазин
-                                p.
-                                    Сущевский вал, 46 <br>
-                                    м. Марьина роща <br>
-                                    Марьинский у-г, 3 этаж <br>
-                                    С 10:00 до 23:00
-                                a(href="#").c-tel Панорама магазина
-                                a(href="#").c-tel Трансляция из магазина
-                            .c-block-shop
-                                h3.block-phone
-                                    | Телефоны
-                                p
-                                    a(href="tel:74959225955") +7 (495) 922-59-55
-                                    a(href="tel:74956447572") +7 (495) 644-75-72
-                                a(href="#").c-tel Панорама магазина
-                                a(href="#").c-tel Трансляция из магазина
-                            .c-block-shop
-                                h3.block-mail
-                                    | Электронная почта
-                                p
-                                    a(href="mailto:voprosrukovodstvo@mail.ru") voprosrukovodstvo@mail.ru
-                            ul.social-list
-                                li.social-item
-                                    a(href="#").social-link.social-vk
-                                li.social-item
-                                    a(href="#").social-link.social-ok
-        .map-container
-            #map_canvas
+	.contacts_page
+			.contacts-wrapper
+					.container
+							+breadcrumbs(['Главная','Контакты'])
+							.contacts-content
+									h4.htb-title
+											| Контакты
+									p.htb-text.
+											Чтобы наше общение было наиболее успешным, пожалуйста, <br>
+											указывайте номер заказа, и сохраняйте историю переписки.
+									a(href="#").btn Написать сообщение
+									.map-adress
+											.contacts-info
+													.c-block-shop
+															h3.block-home
+																	| Розничный магазин
+															p.
+																	Сущевский вал, 46 <br>
+																	м. Марьина роща <br>
+																	Марьинский у-г, 3 этаж <br>
+																	С 10:00 до 23:00
+															a(href="#").c-tel Панорама магазина
+															a(href="#").c-tel Трансляция из магазина
+													.c-block-shop
+															h3.block-phone
+																	| Телефоны
+															p
+																	a(href="tel:74959225955") +7 (495) 922-59-55
+																	a(href="tel:74956447572") +7 (495) 644-75-72
+															a(href="#").c-tel Панорама магазина
+															a(href="#").c-tel Трансляция из магазина
+													.c-block-shop
+															h3.block-mail
+																	| Электронная почта
+															p
+																	a(href="mailto:voprosrukovodstvo@mail.ru") voprosrukovodstvo@mail.ru
+													ul.social-list
+															li.social-item
+																	a(href="#").social-link.social-vk
+															li.social-item
+																	a(href="#").social-link.social-ok
+			.map-container
+					#map_canvas

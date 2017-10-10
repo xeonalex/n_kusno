@@ -1,0 +1,19 @@
+.cart-page__wrap {
+  background-image: 	url(../img/news/single_news_bg.png);
+  background-position: 	top center;
+  background-repeat: no-repeat;
+  background-size: 	contain;
+}
+
+.cart-sections__wrapper {
+  @include clearfix;
+  .left-side {
+    margin-right: 405px;
+    padding-right: 20px;
+  }
+  .left-side {
+    width: 405px;
+    float: right;
+  }
+  
+}

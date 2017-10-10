@@ -7,16 +7,7 @@ block main
 					.sidebar__block.no_padding
 						+aboutMenu
 				.page-content__wrap
-					.breadcrubms
-						ul
-							li
-								a(href="#") Главная
-							li
-								a(href="#") О компании
-							li
-								a(href="#") Отзывы
-							li
-								a(href="#") Лимитирование поставок
+					+breadcrumbs(['Главная','О компании','Отзывы','Лимитирование поставок'])
 					h1.page__title Отзывы
 					.page-inner-content__wrap
 						.content-side
@@ -24,16 +15,7 @@ block main
 							a.review__add-link(href='#') Добавить отзыв
 							ul.reviews__list
 								each item in [1,2,3]
-									li.reviews__item
-										.review__author Елизавета Больдерштейн
-										.review__rating
-											select.j_rating.j_rating_read(data-rating='4')
-												each item,index in [1,2,3,4,5]
-													option(value= index+1 )
-										.review__date 20 апреля 2017 года
-										.review__text
-											p Отличный магазин! Заказ делала первый раз и не последний! Менеджер Дарья, все мне подробно рассказала и объяснила. Так как пришлось самим связываться с ТК, Дарья мне помогла, отвечая на мои бесконечные звонки и вопросы. Товар пришел качественно упакован, как в плотный картон, в мягкую бумага так и пленку! Заказывали принтер и пищевую бумагу.
-											p Спасибо за сотрудничество!
+									+reviewItem(item)
 							a.reviews__show-more(href='#') Показать больше отзывов
 						.inner-sidebar
 							.interactive-card.inventory-sale

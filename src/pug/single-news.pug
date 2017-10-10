@@ -10,16 +10,7 @@ block main
 						p.new-goods__sidebar-text Новые поступления в нашем магазине, самые горячие новинки!
 						a(href='#').new-goods__link Посмотреть товары
 				.page-content__wrap
-					.breadcrubms
-						ul
-							li
-								a(href="#") Главная
-							li
-								a(href="#") О компании
-							li
-								a(href="#") Новости
-							li
-								a(href="#") Лимитирование поставок
+					+breadcrumbs(['Главная','О компании','Новости','Лимитирование поставок'])
 					h1.page__title Новости
 					.single-news__info
 						.tags__block
