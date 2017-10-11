@@ -1,60 +1,60 @@
 extends _layout.pug
 block main
-	.catalog-page__wrap
-		.catalog-page.page
-			.part-with-sidebar
-				.sidebar__wrap
-					.sidebar__block.no_padding
-						+aboutMenu('big')
-					+newArrivals
-					+interactiveCardCupcakes
-				.page-content__wrap
-					block catalog-top-part
-						+breadcrumbs(['Главная','Лавка кулинара','Оформление'])
-						h1.page__title Оформление
-						p.page__info-text В этом разделе мы предлагаем различные декоративные <br> элементы для ваших кулинарных творений.
-						.sub-catalog__block
-							.sub-catalog__title Подразделы
-							ul.sub-catalog__list
-								-var img = ['2.jpg','1.jpg','1.jpg','4.jpg','3.jpg','5.jpg'];
-								each item,index in [['Посыпки,<br> шарики'],'Украшения','Десерты','Крем <br> и топпинги','Орешки <br> и семечки','Наполнители']
-									li.sub-catalog__item
-										h3
-											a.sub-catalog__link(href='sub-catalog.html') !{item}
-										img.sub-catalog__item-bg(src='img/content/catalog/'+img[index])
-					.sort__block
-						.sort__params
-							.sort__text Сортировка:
-							ul.sort__params__list
-								li.sort__params__item
-									a.sort__param__link(href='#') По названию
-								li.sort__params__item
-									a.sort__param__link.active(href='#') По рейтингу
-								li.sort__params__item
-									a.sort__param__link(href='#') По цене
-										i
-											+icon('sort_desc')
-						ul.view__modes
-							li.view__mode
-								a.view__mode_block(href='#')
-									+icon('view_block')
-							li.view__mode
-								a.view__mode_line(href='#')
-									+icon('view_line')
-					.goods__list.catalog__products-list.j_equal-height#j_cat-prod-list(data-mode='mode_block')
-						-for(var x=0;x<9;x++)
-							+goodsBlock('','+')
-					.pagination__line
-						.pagination__prev-wrap
-							a.pagination__prev(href='#') Предыдущая страница
-						.pagination__list-wrap
-							ul.pagination__list
-								each item in [1,2,3,4,5]
-									li.pagination__item(class= item == 1 ? "active" : '')
-										a.pagination__link(href='#')=item
-						.pagination__next-wrap
-							a.pagination__next(href='#') Следующая страница
-					.page-aricle__wrap
-						p Это SEO текст. Ароматизаторы всё шире и шире применяются в пищевой промышленности. Рост спроса на ароматизаторы вызван развитием современных технологий получения пищевых продуктов на основе глубокой переработки сырья.
-						p  После такой переработки, целью которой является получение стандартизованных концентратов белков, жиров и углеводов, пищевые продукты почти полностью освобождаются от «балластных» веществ, в том числе и от летучих ароматных веществ, определяющих их аромат (соевое масло, другие рафинированные масла, соевый белок, мука, крахмал, сахар, белково-витаминный концентрат и др.).
-			+recentlyViewed('Вы недавно смотрели')
+  .catalog-page__wrap
+    .catalog-page.page
+      .part-with-sidebar
+        .sidebar__wrap
+          .sidebar__block.no_padding
+            +aboutMenu('big')
+          +newArrivals
+          +interactiveCardCupcakes
+        .page-content__wrap
+          block catalog-top-part
+            +breadcrumbs(['Главная','Лавка кулинара','Оформление'])
+            h1.page__title Оформление
+            p.page__info-text В этом разделе мы предлагаем различные декоративные <br> элементы для ваших кулинарных творений.
+            .sub-catalog__block
+              .sub-catalog__title Подразделы
+              ul.sub-catalog__list
+                -var img = ['2.jpg','1.jpg','1.jpg','4.jpg','3.jpg','5.jpg'];
+                each item,index in [['Посыпки,<br> шарики'],'Украшения','Десерты','Крем <br> и топпинги','Орешки <br> и семечки','Наполнители']
+                  li.sub-catalog__item
+                    h3
+                      a.sub-catalog__link(href='sub-catalog.html') !{item}
+                    img.sub-catalog__item-bg(src='img/content/catalog/'+img[index])
+          .sort__block
+            .sort__params
+              .sort__text Сортировка:
+              ul.sort__params__list
+                li.sort__params__item
+                  a.sort__param__link(href='#') По названию
+                li.sort__params__item
+                  a.sort__param__link.active(href='#') По рейтингу
+                li.sort__params__item
+                  a.sort__param__link(href='#') По цене
+                    i
+                      +icon('sort_desc')
+            ul.view__modes
+              li.view__mode
+                a.view__mode_block(href='#')
+                  +icon('view_block')
+              li.view__mode
+                a.view__mode_line(href='#')
+                  +icon('view_line')
+          .goods__list.catalog__products-list.j_equal-height#j_cat-prod-list(data-mode='mode_block')
+            -for(var x=0;x<9;x++)
+              +goodsBlock('','+')
+          .pagination__line
+            .pagination__prev-wrap
+              a.pagination__prev(href='#') Предыдущая страница
+            .pagination__list-wrap
+              ul.pagination__list
+                each item in [1,2,3,4,5]
+                  li.pagination__item(class= item == 1 ? "active" : '')
+                    a.pagination__link(href='#')=item
+            .pagination__next-wrap
+              a.pagination__next(href='#') Следующая страница
+          .page-aricle__wrap
+            p Это SEO текст. Ароматизаторы всё шире и шире применяются в пищевой промышленности. Рост спроса на ароматизаторы вызван развитием современных технологий получения пищевых продуктов на основе глубокой переработки сырья.
+            p  После такой переработки, целью которой является получение стандартизованных концентратов белков, жиров и углеводов, пищевые продукты почти полностью освобождаются от «балластных» веществ, в том числе и от летучих ароматных веществ, определяющих их аромат (соевое масло, другие рафинированные масла, соевый белок, мука, крахмал, сахар, белково-витаминный концентрат и др.).
+      +recentlyViewed('Вы недавно смотрели')

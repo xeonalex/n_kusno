@@ -1,48 +1,48 @@
 extends _layout.pug
 block main
-	.news-page__wrap
-		.news-page.page
-			.part-with-sidebar
-				.sidebar__wrap
-					.sidebar__block.no_padding
-						+aboutMenu
-				.page-content__wrap
-					+breadcrumbs(['Главная','О компании','Новости','Лимитирование поставок'])
-					h1.page__title Новости
-					.news-tag__block
-						ul.news-tag__list
-							-var colors= ['goods','sale','other']
-							each item,index in ['Товары','Акции','Другое']
-								li.news-tag__item
-									a.news-tag__link(href='#' class= 'news-tag__link_'+colors[index])=item
-							li.news-tag__item
-								a.news-tag__all-link(href='#') Показать все тэги
-					// .page-content__inner-wrap
-					ul.news__list
-						each item in [1,2,3]
-							li.news__item.news__item_goods
-								.news__item-inner
-									.news__item-text
-										a.news__title(href='single-news.html') Новинка — мастика и цветная глазурь
-										.news__addition 20 июля 2017 года
-										.news__theses К нам в магазин поступили уникальные продукты из Италии, все они уже в продаже!
-									.tags__block
-										a.tag.tag-goods(href='#') Товары
-							li.news__item.news__item_sale
-								.news__item-inner
-									.news__item-text
-										a.news__title(href='single-news.html') Снижены цена на коробки для тортов и капкейков
-										.news__addition 20 июля 2017 года
-										.news__theses К нам в магазин поступили уникальные продукты из Италии, все они уже в продаже!
-									.tags__block
-										a.tag.tag-sale(href='single-news.html') Акции
-							li.news__item.news__item_other.news__item_w-img
-								.news__item-inner
-									.news__item-text
-										a.news__img-wrap(href='#')
-											img(src='img/content/news/1.jpg')
-										a.news__title(href='#') Лимитирование поставок продукции из США и Европы
-										.news__addition 20 июля 2017 года
-										.news__theses В связи с введением эмбарго для России, некоторые товары...
-									.tags__block
-										.tag.tag-other Другое
+  .news-page__wrap
+    .news-page.page
+      .part-with-sidebar
+        .sidebar__wrap
+          .sidebar__block.no_padding
+            +aboutMenu
+        .page-content__wrap
+          +breadcrumbs(['Главная','О компании','Новости','Лимитирование поставок'])
+          h1.page__title Новости
+          .news-tag__block
+            ul.news-tag__list
+              -var colors= ['goods','sale','other']
+              each item,index in ['Товары','Акции','Другое']
+                li.news-tag__item
+                  a.news-tag__link(href='#' class= 'news-tag__link_'+colors[index])=item
+              li.news-tag__item
+                a.news-tag__all-link(href='#') Показать все тэги
+          // .page-content__inner-wrap
+          ul.news__list
+            each item in [1,2,3]
+              li.news__item.news__item_goods
+                .news__item-inner
+                  .news__item-text
+                    a.news__title(href='single-news.html') Новинка — мастика и цветная глазурь
+                    .news__addition 20 июля 2017 года
+                    .news__theses К нам в магазин поступили уникальные продукты из Италии, все они уже в продаже!
+                  .tags__block
+                    a.tag.tag-goods(href='#') Товары
+              li.news__item.news__item_sale
+                .news__item-inner
+                  .news__item-text
+                    a.news__title(href='single-news.html') Снижены цена на коробки для тортов и капкейков
+                    .news__addition 20 июля 2017 года
+                    .news__theses К нам в магазин поступили уникальные продукты из Италии, все они уже в продаже!
+                  .tags__block
+                    a.tag.tag-sale(href='single-news.html') Акции
+              li.news__item.news__item_other.news__item_w-img
+                .news__item-inner
+                  .news__item-text
+                    a.news__img-wrap(href='#')
+                      img(src='img/content/news/1.jpg')
+                    a.news__title(href='#') Лимитирование поставок продукции из США и Европы
+                    .news__addition 20 июля 2017 года
+                    .news__theses В связи с введением эмбарго для России, некоторые товары...
+                  .tags__block
+                    .tag.tag-other Другое

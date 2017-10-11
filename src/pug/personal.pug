@@ -1,0 +1,86 @@
+extends _layout.pug
+block main
+  .single-news-page__wrap.personal-page
+    .single-news-page.page
+      .part-with-sidebar
+        .sidebar__wrap
+          .sidebar__block.no_padding
+            +aboutMenu('personal')
+          .personal__list
+            h2.personal-sm-title
+              | Товары специально для вас
+            .goods__list.catalog__products-list.j_equal-height#j_cat-prod-list(data-mode='mode_block')
+              +goodsBlock('','')
+              +goodsBlockSimple
+        .page-content__wrap
+          +breadcrumbs(['Главная','Уголок покупателя'])
+          h1.page__title Привет Александр! 
+          .page-inner-content__wrap
+            .content-side
+              .news__text-wrap
+                .news__theses.
+                  Этот раздел содержит вашу личную информацию. Здесь вы можете выбрать предпочтительные формы доставки и оплаты для ускорения процесса покупки, отлеживать ваши текущие заказы, а также просматривать историю покупок и любимые товары.
+                .personal-data-wrapper
+                  .personal-data
+                    .personal-header
+                      h3.personal-data-title Личные данные
+                      a(href="#").personal-settings Изменить данные
+                    .personal-body
+                      .info-row
+                        .info-col
+                          span.personal-sm Имя
+                          span.personal-info Александр
+                        .info-col
+                          span.personal-sm Логин
+                          span.personal-info Alexander_1991
+                      .info-row
+                        .info-col
+                          span.personal-sm Телефон
+                          span.personal-info +7 921 555 12 85
+                        .info-col
+                          span.personal-sm E-mail
+                          span.personal-info avtonomov@mail.ru
+                      .info-row
+                        .info-col
+                          span.personal-sm Фамилия
+                          span.personal-info Автономовский
+                        .info-col
+                          span.personal-sm Пароль
+                          span.personal-info ****
+                  .personal-delivery
+                    .personal-header
+                      h3.personal-data-title Адреса доставки
+                      a(href="#").personal-settings Добавить адрес
+                    .personal-body
+                      .info-row
+                        .info-col.info-col-wide
+                          span.personal-info Санкт-Петербург, ул. Боровая, д. 5, к. 2, кв. 25 Индекс 196245
+                        .info-col.info-col-sm
+                          a(href="#").personal-sm Изменить
+                          a(href="#").personal-sm Удалить
+                      .info-row
+                        .info-col.info-col-wide
+                          span.personal-info Санкт-Петербург, Ул. Октя́брьской ж.д. ли́нии, д. 2, стр. 2 <br> Индекс 123843 
+                        .info-col.info-col-sm
+                          a(href="#").personal-sm Изменить
+                          a(href="#").personal-sm Удалить
+            .inner-sidebar
+              h2.personal-sm-title
+                | Рецепты для вас
+              ul.news__list
+                li.news__item.news__item_recipe
+                  .news__item-inner
+                    .news__item-text
+                      a.news__title(href='#') Как приготовить самые нежные кексы на свете?
+                      .news__addition.personal-addition 20 июля 2017 года
+                    .tags__block
+                      a.tag.tag-recipe(href='#') Акции
+                li.news__item.news__item_recipe
+                  .news__item-inner
+                    .news__item-text
+                      a.news__title(href='#') Рецепт шоколадного торта с ягодами
+                      .news__addition.personal-addition 20 июля 2017 года
+                    .tags__block
+                      a.tag.tag-recipe(href='#') Акции
+      +recentlyViewed('Вы недавно смотрели')
+      +recipesSlider('Рецепты у нас в блоге')
