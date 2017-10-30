@@ -7,11 +7,13 @@
 		@extend .single-news-page__wrap;
 	}
 }
+.page__info-text {
+	@extend .ui_descr_black;
+	margin-bottom: 30px;
+}
 .page {
 	.page__info-text {
-		@extend .ui_descr_normal;
 		max-width: 65.96%;
-		margin-bottom: 30px;
 	}
 }
 .review__add-link {
@@ -19,10 +21,6 @@
 	@extend .ui_activeLink_normal;
 	@extend .ui_activeLink_white;
 	display: inline-block;
-	text-align: center;
-	padding: 12px 20px;
-	min-width: 280px;
-	min-height: 50px;
 }
 .rating {
 	.br-theme-bars-1to10 .br-widget a {
@@ -64,7 +62,7 @@
 	display: block;
 	padding: 18px 30px;
 	@extend .ui_activeLink_normal;
-
+	color: $head_descr;
 }
 
 .interactive-card {
@@ -81,6 +79,7 @@
 		@extend .ui_head2_white;
 	}
 	img {
+		vertical-align: middle;
 		display: inline-block;
 		line-height: 1;
 	}

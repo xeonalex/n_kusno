@@ -37,7 +37,7 @@
 .sidebar__block{
 	@include ui_block('');
 	@extend .ui_text_bw;
-	padding: 15px;
+	padding: 20px;
 	width: 300px;
 	margin-bottom: 20px;
 	&.no_padding {
@@ -90,12 +90,18 @@
 	@extend  .ui_descr_white;
 }
 .sidebar__menu {
+	> .sidebar__menu-item:last-of-type {
+		padding-bottom: 10px;
+	}
 }
 .sidebar__menu-item {
 	border-bottom: 1px solid $line;
 	&_extended {
 		position: relative;
 		&:hover {
+			> .sidebar__menu-link {
+				background-color: $decor;
+			}
 			> .sidebar__sub-menu {
 				// display: block;
 				visibility: visible;
@@ -113,8 +119,8 @@
 				right: 15px;
 				bottom: 0;
 				margin: auto;
-				width: 5px;
-				height: 9px;
+				width: 7px;
+				height: 11px;
 				background-image: url(../img/icons/menu_arrow.svg);
 				background-repeat: no-repeat;
 				background-position: center;
@@ -123,7 +129,17 @@
 	}
 }
 .sidebar__sub-menu {
+	&:before {
+		content: '';
+		position: absolute;
+		display: block;
+		left: 0;
+		top: 0;
+		bottom: 0;
+		box-shadow: 0 0 25px 3px rgba(86,58,17,.15);
+	}
 	opacity: 0;
+	overflow: hidden;
 	visibility: hidden;
 	position: absolute;
 	transition: left 0.5s,
@@ -134,17 +150,20 @@
 	background-color: #fff;
 	width: 300px;
 	@extend .ui-block_second-level;
+	box-shadow: 5px 2px 5px rgba(86, 58, 17, 0.2);
 	border-radius: 0 5px 5px 0;
 }
 .sidebar__menu-link {
 	display: block;
 	padding: 17px 20px;
 	@extend .ui_activeLink_normal;
+	color: $main_t;
 	&.active {
 		@extend .ui_activeLink_accent;
 	}
 	&:hover {
 		background-color: $decor;
+		text-decoration: none;
 	}
 }
 .about-content__wrap {
@@ -230,10 +249,6 @@ p.simple {
 	border-radius : 5px;
 	.ui_descr_black  {
 		margin-bottom: 15px;
-	}
-	.ui_button_accent {
-		height: 50px;
-		padding: 12px 35px;
 	}
 }
 

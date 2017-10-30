@@ -5,7 +5,7 @@ block main
 			.part-with-sidebar
 				.sidebar__wrap
 					.sidebar__block.no_padding
-						+aboutMenu('')
+						+aboutMenu(0)
 				.page-content__wrap
 					.about-header__wrap(style='background-image: url(img/bg/bg_main-header.jpg);')
 						.container
@@ -15,7 +15,7 @@ block main
 							.about-header__wrap-inner
 								+breadcrumbs(['Главная','О компании'])
 								.about-header__content
-									.about-header__title Добро пожаловать в наш магазин
+									h1.about-header__title Добро пожаловать в наш магазин
 									.about-header__subtext Заказывайте вкусные, полезные и просто приятные продукты <br> с доставкой прямо на вашу кухню.
 			.about-content__wrap
 				.about-text__container

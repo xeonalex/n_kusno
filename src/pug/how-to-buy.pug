@@ -4,9 +4,9 @@ block main
 			.container
 					+breadcrumbs(['Главная','О компании','Как купить'])
 					.how-to-buy
-							h4.htb-title
+							h1.htb-title
 									| Как купить
-							p.htb-text
+							p.page__info-text
 									| Доставка товаров, представленных в нашем <br>
 									| интернет-магазине, осуществляется при заказе на сумму от <br> 500 рублей
 
@@ -16,7 +16,7 @@ block main
 									.htb-info
 											p Пожалуйста, проверяйте правильность доставки перед приёмом заказа. После приёма, мы не сможем рассмотреть ваши жалобы!
 					.payment-methods
-							h4.htb-title.htb-title--low
+							h4.htb-title.htb-title--low.payment-methods__title
 									| Способы оплаты
 							.methods-items
 									.methods-item
@@ -41,7 +41,7 @@ block main
 					.ways-of-delivery
 							h4.htb-title.htb-title--low
 									| Способы доставки
-							p.htb-text
+							//- p.htb-text
 							.delivery-items
 									.delivery-item
 											.d-info
@@ -52,7 +52,7 @@ block main
 													p.sub-title.
 															Доставка в пределы и за пределы МКАД, <br> оплата производится наличными
 											.show-more
-													p Посмотреть детали
+												a(href='#') Посмотреть детали
 											.more-details
 													p.
 															Доставка в Москву и Санкт Петербург —
@@ -77,7 +77,7 @@ block main
 													p.sub-title.
 															Товар доставляется в постамат, откуда вы сами забираете заказ в удобное вам время
 											.show-more
-													p Посмотреть детали
+												a(href='#') Посмотреть детали
 											.more-details
 													p.
 															Доставка в Москву и Санкт Петербург —
@@ -102,7 +102,7 @@ block main
 													p.sub-title.
 															Доставка осуществляется транспортной компанией Деловые линии.
 											.show-more
-													p Посмотреть детали
+												a(href='#') Посмотреть детали
 											.more-details
 													p.
 															Доставка в Москву и Санкт Петербург —
@@ -171,22 +171,16 @@ block main
 											пункты самовывоза после <br> 15 часов, на следующий
 											день после передачи в курьерскую службу.
 			.map-container
-					.container
-							.map-adress
-									.adress-content
-											h4
-													| Розничный магазин
-											p.
-													Сущевский вал, 46 <br>
-													Марьинский у-г, 3 этаж <br>
-													Работает с 10:00 до 20:45
-											a(href="tel:74959225955") +7 (495) 922-59-55
-									ul.adress-list
-											li На Лучниковом пер.
-											li У м. Петровско-Разумовская
-											li На Новочеркасском б-ре
-											li На Братиславской
-											li На Дубравной
-											li У Электрозаводской
-											li У Чертановской
-					#map_canvas
+				#map_canvas
+				.container
+						.map-adress.j_accordeon-wrap
+							ul.adress-list
+								each item in ['Розничный магазин','На Лучниковом пер.','У м. Петровско-Разумовская','На Новочеркасском б-ре','На Братиславской','На Дубравной','На Дубравной','У Электрозаводской','У Чертановской']
+									li.j_accordeon-item
+										a(href='#').address-title.j_accordeon-init=item
+										.adress-content.j_accordeon-object
+											p
+												|	Сущевский вал, 46 <br>
+												|	Марьинский у-г, 3 этаж <br>
+												|	Работает с 10:00 до 20:45
+											a(href="tel:74959225955").address-tel +7 (495) 922-59-55

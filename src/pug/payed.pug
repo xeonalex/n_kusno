@@ -1,0 +1,14 @@
+extends _layout.pug
+block main 
+  .successful-payment__wrapper.bg_heading
+    .successful-payment-page.page
+      h1.page__title Оплата прошла успешно!
+      .successful-payment__text Поздравляем, вы успешно оплатили заказ. В ближайшее время с вами свяжется наш оператор для уточнения деталей доставки. Также мы отправили информацию о заказе к вам на почту. Спасибо за покупку.
+      .successful-payment__links-wrap
+        a.continue-shopping(href='#', data-text='Продолжить покупки')
+          span.btnTxt Продолжить покупки
+        a.back-to-mainpage(href='#') Вернуться на главную
+      .ui_head3.successful-payment__order-title Детали заказа
+      +orderBlock
+    .page
+      +recentlyViewed('Вам могут понравится')

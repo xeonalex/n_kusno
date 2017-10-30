@@ -1,0 +1,47 @@
+extends _layout.pug
+block main
+  .single-news-page__wrap.personal-page
+    .single-news-page.page
+      .part-with-sidebar
+        .sidebar__wrap
+          .sidebar__block.no_padding
+            +aboutMenu(['personal',2])
+          .personal__list
+            h2.personal-sm-title
+              | Товары специально для вас
+            .goods__list.catalog__products-list#j_cat-prod-list(data-mode='mode_block')
+              +goodsBlock('','')
+              +goodsBlockSimple
+        .page-content__wrap
+          +breadcrumbs(['Главная','Уголок покупателя'])
+          block innerContentOuter
+            h1.page__title История заказов
+          .page-inner-content__wrap
+            .content-side
+              .orders__years-list
+                each item,i in [2017,2016,2015,2014]
+                  .orders__year-item
+                    a.orders__year-link(href='#' class= i== 0 ? 'active' : '')=item
+              .orders__by-year-wrap
+                each item in [1,2,3]
+                  +orderBlock
+            .inner-sidebar
+              h2.personal-sm-title
+                | Рецепты для вас
+              ul.news__list
+                li.news__item.j_equal-height.news__item_recipe
+                  .news__item-inner
+                    .news__item-text
+                      a.news__title(href='#') Как приготовить самые нежные кексы на свете?
+                      .news__addition.personal-addition 20 июля 2017 года
+                    .tags__block
+                      a.tag.tag-recipe(href='#') Акции
+                li.news__item.j_equal-height.news__item_recipe
+                  .news__item-inner
+                    .news__item-text
+                      a.news__title(href='#') Рецепт шоколадного торта с ягодами
+                      .news__addition.personal-addition 20 июля 2017 года
+                    .tags__block
+                      a.tag.tag-recipe(href='#') Акции
+      +recentlyViewed('Вы недавно смотрели')
+      +recipesSlider('Рецепты у нас в блоге')

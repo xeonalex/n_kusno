@@ -4,7 +4,7 @@
 	@if $direction == '-' {
 		$y: $y * (-1);
 	}
-	box-shadow: 0 (#{$y}px) 10px 0 rgba(86,58,17,.15);
+	box-shadow: 0 (#{$y}px) 25px 0 rgba(86,58,17,.15);
 }
 @mixin ui_block($color) {
 	$border_color: $active;
@@ -15,7 +15,48 @@
 	border-top: 10px solid #{$border_color};
 	border-radius: 5px;
 	background-color: #fff;
+
 	@include bshadow( '+');
+}
+@mixin ui_block_news($color) {
+	$border_color: $active;
+
+	@if $color != '' {
+		$border_color: $color;
+	}
+
+	border-top: none;
+	position: relative;
+	z-index: 1;
+	overflow: hidden;
+	&:after {
+		z-index: 0;
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		left: 0;
+		height: 10px;
+		border-radius: 5px 5px 0 0;
+		background-color: #{$border_color};
+	}
+	&:before {
+		z-index: 0;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		content: '';
+		border: 2px solid $line;
+
+	}
+	&:hover {
+		&:before {
+			display: none;
+		}
+	}
 }
 // заголовки
 
@@ -91,7 +132,7 @@
 	font-size: 19px;
 	line-height: 30.4px;
 	line-height: 1.6;
-	font-weight: 300;
+	font-weight: 400;
 	color: $main_t;
 }
 
@@ -99,7 +140,7 @@
 	font-size: 19px;
 	line-height: 26.6x;
 	line-height: 1.4;
-	font-weight: 300;
+	font-weight: 400;
 	color: $main_t;
 }
 
@@ -107,7 +148,7 @@
 	font-size: 19px;
 	line-height: 26.6px;
 	line-height: 1.4;
-	font-weight: 400;
+	font-weight: 500;
 	color: $main_t;
 }
 
@@ -192,12 +233,65 @@ h3 {
 	display: inline-block;
 	text-align: center;
 	min-height: 50px;
-	padding: 12px 20px;
+	min-width: 220px;
+	padding: 12px 30px;
 	background: $active;
 	border-radius: 5px;
 	@include bshadow( '+');
 	@extend .ui_text_sm;
 	color: #fff;
+  transition: box-shadow .1s ease, transform .1s ease;
+	position: relative;
+
+	&:focus {
+	  outline: none;
+	}
+
+	&:active {
+		transform: scale(0.95);
+	  box-shadow: 0px 2px 10px rgba(86, 58, 17, .2);
+	}
+
+	&:hover {
+		text-decoration: none;
+		.btnTxt{
+		  top: -16px;
+		  opacity: 0;
+		  transition:
+		    opacity .2s ease-out,
+		    top .2s ease-out;
+		}
+		&:after{
+			top: 2px;
+			opacity: 1;
+			transition:
+			opacity .3s ease-out,
+			top .3s ease-out;
+		}
+	}
+
+	.btnTxt {
+	  position: relative;
+	  top: 0px;
+	  opacity: 1;
+
+	  transition:
+	    opacity .3s ease-out,
+	    top .3s ease-out;
+	}
+	&:after {
+	  content: attr(data-text);
+		display: block;
+	  position: absolute;
+	  top: 20px;
+		left: 0;
+		right: 0;
+		padding: 10px 20px;
+	  opacity: 0;
+	  transition:
+	    opacity .2s ease-out,
+	    top .2s ease-out;
+	}
 }
 // ui block effect
 //
@@ -221,11 +315,73 @@ h3 {
 .ui-block_complicated {
 	// Сложные интерактивные карточки, ховеры и др.
 	@extend .ui-block;
-	box-shadow: 0 5px 10px rgba(86, 58, 17, 0.15);
+	box-shadow: 0 5px 25px rgba(86, 58, 17, 0.15);
 }
 
 .ui-block_fields {
 	// Поля раскрытых дроп-даунов, поиска и корзины
 	@extend .ui-block;
 	box-shadow: 0 8px 20px rgba(86, 58, 17, 0.1);
+}
+
+
+ /*
+		ЧЕКБОКСЫ
+		СЕЛЕКТЫ
+
+  */
+label.ui_radio {
+	display: block;
+  input {
+    display: none;
+    &:checked {
+      + .radio-wrap {
+				.flag:after {
+						opacity: 1;
+				}
+				.text {
+					@extend .ui_activeLink_accent;
+				}
+			}
+    }
+  }
+	&:hover {
+		.radio-wrap .flag:after {
+			opacity: 0.5;
+		}
+	}
+  .radio-wrap {
+		min-height: 24px;
+		padding-top: 5px;
+		position: relative;
+    padding-left: 30px;
+    .text {
+			@extend .ui_addition_dark;
+		}
+    .flag {
+			width: 24px;
+			border-radius: 50%;
+      height: 24px;
+      border: 2px solid $active;
+      position: absolute;
+			top: 3px;
+			left: 0;
+      &:after {
+        opacity: 0;
+				transition: opacity 0.3s;
+        content: '';
+        display: block;
+        width: 12px;
+        height: 12px;
+				background-color: $active;
+				border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-top: -6px;
+        margin-left: -6px;
+      }
+    }
+  }
+
 }

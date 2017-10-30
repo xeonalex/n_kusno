@@ -4,9 +4,41 @@
 	vertical-align: middle;
 	transition: fill 0.3s;
 }
+.icon-i_favorite_n{
+	width: 20px;
+	height: 19px;
+	fill: $active;
+}
+.icon-i_favorite_a{
+	width: 24px;
+	height: 23px;
+	fill: $active;
+}
+
+.icon-i_tel {
+	width: 16px;
+	height: 18px;
+	fill: $active;
+}
+.icon-i_mail {
+	fill: $active;
+	width: 20px;
+	height: 14px;
+}
+.icon-i_house {
+	width: 19px;
+	height: 17px;
+	fill: $active;
+}
+
 .icon-i_brush {
 	width: 21px;
 	height: 21px;
+	fill: $active;
+}
+.icon-loading {
+	width: 38px;
+	height: 38px;
 	fill: $active;
 }
 .icon-play-video {
@@ -60,7 +92,7 @@
 	width:(44)*1px;
 	fill: $active;
 	&:hover {
-		fill: #507299;
+		fill: #F58220;
 	}
 }
 .icon-i_ok_g {
@@ -68,7 +100,7 @@
 	width:(18.38)*1px;
 	fill: $icons;
 	&:hover {
-		fill: $active;
+		fill: #F58220;
 	}
 }
 .icon-i_person {

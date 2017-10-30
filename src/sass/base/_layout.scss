@@ -27,3 +27,17 @@ html, body {
     margin: 0;
     padding: 0;
 }
+
+.price_s {
+  @extend .ui_head3;
+}
+.price_b {
+  @extend .ui_head2;
+}
+
+a {
+  color: $active;
+  &:hover {
+    text-decoration: underline;
+  }
+}

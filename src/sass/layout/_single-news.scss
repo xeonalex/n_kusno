@@ -50,11 +50,13 @@
 	text-align: center;
 	img {
 		display: inline-block;
+		line-height: 1;
+		vertical-align: middle;
 		max-width: 100%;
 	}
 }
 .news__theses {
-	@extend .ui_descr_normal;
+	@extend .ui_descr_black;
 }
 
 .content-side {

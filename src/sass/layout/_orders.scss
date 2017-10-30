@@ -1,0 +1,25 @@
+.information__block {
+  padding: 20px;
+  background-color: $line;
+  border-radius: 5px;
+  margin-bottom: 35px;
+  .text {
+    @extend .ui_text_sm;
+    margin-bottom: 30px;
+  }
+  .tel {
+    display: block;
+    @extend .ui_head2_normal;
+    margin-bottom: 5px;
+    color: $descr_adition;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+.callback-request {
+  color: $descr_adition;
+}
+.content-side > .page__info-text {
+  max-width: 100%;
+}

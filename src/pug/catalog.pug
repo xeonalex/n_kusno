@@ -5,7 +5,7 @@ block main
       .part-with-sidebar
         .sidebar__wrap
           .sidebar__block.no_padding
-            +aboutMenu('big')
+            +aboutMenu(['big'])
           +newArrivals
           +interactiveCardCupcakes
         .page-content__wrap
@@ -41,7 +41,7 @@ block main
               li.view__mode
                 a.view__mode_line(href='#')
                   +icon('view_line')
-          .goods__list.catalog__products-list.j_equal-height#j_cat-prod-list(data-mode='mode_block')
+          .goods__list.catalog__products-list#j_cat-prod-list(data-mode='mode_block')
             -for(var x=0;x<9;x++)
               +goodsBlock('','+')
           .pagination__line

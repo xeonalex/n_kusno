@@ -1,3 +1,9 @@
+.contacts_page {
+  background-image: url("../img/bg/contacts_bg.png");
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
 .contacts-content {
     .htb-text {
         margin-bottom: 30px;
@@ -6,7 +12,12 @@
     position: relative;
     .map-adress {
         top: -80px;
+        bottom: auto;
     }
+}
+.contacts__message-link {
+  @extend .ui_button_accent;
+  min-width: 230px;
 }
 .btn {
     @include transition(.25s);
@@ -24,6 +35,7 @@
         color: $active;
     }
 }
+
 .contacts-info {
     padding: 20px;
 }
@@ -38,16 +50,9 @@
         font-weight: 500;
         margin-bottom: 10px;
         position: relative;
-        padding-left: 30px;
-        &:before {
-            content: "";
-            position: absolute;
-            background-repeat: no-repeat;
-            background-position: center;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            margin: auto;
+        .icon {
+          vertical-align: baseline;
+          margin-right: 5px;
         }
     }
     p {
@@ -62,32 +67,14 @@
     }
     .c-tel {
         font-size: 19px;
-        color: #fb3;
+        color: $active;
         display: block;
         margin-bottom: 5px;
     }
 }
-.block-home {
-    &:before {
-        content: "";
-        background-image: url("../img/icons/home.svg");
-        width: 18px;
-        height: 16px;
-    }
+.contacts-tel {
+  color: $main_t;
 }
-.block-phone {
-    &:before {
-        content: "";
-        background-image: url("../img/icons/phone.svg");
-        width: 13px;
-        height: 15px;
-    }
-}
-.block-mail {
-    &:before {
-        content: "";
-        background-image: url("../img/icons/mail.svg");
-        width: 18px;
-        height: 12px;
-    }
+.contacts-mail {
+  color: $main_t;
 }

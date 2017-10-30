@@ -1,3 +1,45 @@
+mixin newsList
+  li.news__item.j_equal-height.news__item_goods
+    .news__item-inner
+      .news__item-text
+        a.news__title(href='single-news.html') Новинка — мастика и цветная глазурь
+        .news__addition 20 июля 2017 года
+        .news__theses К нам в магазин поступили уникальные продукты из Италии, все они уже в продаже!
+      .tags__block
+        a.tag.tag-goods(href='#') Товары
+  li.news__item.j_equal-height.news__item_sale
+    .news__item-inner
+      .news__item-text
+        a.news__title(href='single-news.html') Снижены цена на коробки для тортов и капкейков
+        .news__addition 20 июля 2017 года
+        .news__theses К нам в магазин поступили уникальные продукты из Италии, все они уже в продаже!
+      .tags__block
+        a.tag.tag-sale(href='single-news.html') Акции
+  li.news__item.j_equal-height.news__item_other.news__item_w-img
+    .news__item-inner
+      .news__item-text
+        a.news__img-wrap(href='#')
+          img(src='img/content/news/1_300x190.jpg')
+        a.news__title(href='#') Лимитирование поставок продукции из США и Европы
+        .news__addition 20 июля 2017 года
+        .news__theses В связи с введением эмбарго для России, некоторые товары...
+      .tags__block
+        .tag.tag-other Другое
+mixin cartList
+  ul.cart-details__list
+    each item in [1,2]
+      li.cart-details__item
+        .cart-details__img-wrap
+          img(src='img/content/search-results/1.jpg')
+        .cart-details__item-content(href="#")
+          .cart-details__descr
+            a.cart-details__text(href='#')
+              h4.cart-details__title Засахаренные апельсины дольки Italcanditi
+              .cart-details__info США, 2,3 кг
+            .cart-details__price 1299 ₽
+            .cart-details__amount-wrap
+              +productAmount('cart-details__amount')
+          a.cart-details__remove-link(href='#') Удалить
 mixin reviewItem(item)
   li.reviews__item
     .review__author Елизавета Больдерштейн
@@ -18,9 +60,10 @@ mixin breadcrumbs(list)
 mixin newArrivals
   .sidebar__block
     p.sidebar__block-text Новые поступления в нашем магазине, самые горячие новинки!
-    a.button-link(href='#') Посмотреть товары
+    a.button-link(href='#' data-text='Посмотреть товары') 
+      span.btnTxt Посмотреть товары
 mixin aboutMenu(menu)
-  if menu == 'big'
+  if (Array.isArray(menu) && menu[0] == 'big')
     ul.sidebar__menu
       -var links = [];
       each item, index in ['Расподажа','Ингридиенты',['Оформление',['Посыпки, шарики','Украшения','Десерты','Крем и топпинги']],'Шоколад и какао','Мастика','Кулинарые добавки','Ароматизаторы','Айсинг','Красители','Специи']
@@ -31,18 +74,18 @@ mixin aboutMenu(menu)
               each link in item[1]
                 li.sidebar__menu-item
                   a.sidebar__menu-link( href='#')=link
-  else if menu == 'personal'
+  else if (Array.isArray(menu) && menu[0] == 'personal')
     ul.sidebar__menu
-      -var links = ['#','#','#','#']
+      -var links = ['personal.html','orders.html','order-history.html','#']
       each item, index in ['Личный кабинет','Ваши заказы','История заказов','Любимые товары']
         li.sidebar__menu-item
-          a.sidebar__menu-link( href= links[index] ? links[index] : '#' class= index == 0 ? 'active': '')=item
+          a.sidebar__menu-link( href= links[index] ? links[index] : '#' class= index == menu[1] ? 'active': '')=item
   else
     ul.sidebar__menu
       -var links = ['about.html','news.html','#','reviews.html']
       each item, index in ['О компании','Новости','Блог','Отзывы']
         li.sidebar__menu-item
-          a.sidebar__menu-link( href= links[index] ? links[index] : '#' class= index == 0 ? 'active': '')=item
+          a.sidebar__menu-link( href= links[index] ? links[index] : '#' class= index == menu ? 'active': '')=item
       li.sidebar__menu-item
         a.sidebar__menu-link(href='#') Пожелания <br> по ассортименту
 mixin productAmount(className)
@@ -54,26 +97,17 @@ mixin productAmount(className)
       +icon('i_plus')
 mixin goodsBlock(contentObj,fullMode)
   if !contentObj 
-    -var contentObj = {img: '6', status: ['Акция'], title: 'Агар-агар Algamar Algas Marinas S.A', info: 'США, 283 гр', 			desrc: 'Эти драже идельно подойдут для больших и малых торжеств. Арахис в глазури можно есть как самостоятельное блюдо, так и украшать...', 			oldPrice: '479', 			price: '379'		}
-    //- -var contentObj = {
-    //- 	img: '6',
-    //- 	status: ['Акция'],
-    //- 	title: 'Агар-агар Algamar Algas Marinas S.A',
-    //- 	info: 'США, 283 гр',
-    //- 	desrc: 'Эти драже идельно подойдут для больших и малых торжеств. Арахис в глазури можно есть как самостоятельное блюдо, так и украшать...',
-    //- 	oldPrice: '479 ₽',
-    //- 	price: '379 ₽'
-    //- }
+    -var contentObj = {img: 'algamar_300x190',imgLineMode: 'algamar_280x172', status: ['Акция'], title: 'Агар-агар Algamar Algas Marinas S.A', info: 'США, 283 гр', 			desrc: 'Эти драже идельно подойдут для больших и малых торжеств. Арахис в глазури можно есть как самостоятельное блюдо, так и украшать...', 			oldPrice: '479', 			price: '379'		}
   .goods__item
     .goods__item-inner
       .goods__img-wrap
-        .goods__img
+        .goods__img(data-mode-img='img/content/catalog/cropped/'+contentObj.imgLineMode+'.jpg')
           //- img(src='img/content/catalog/'+ (x%2 == 0 ? 6 : 8) +'.jpg')
-          img(src='img/content/catalog/'+contentObj.img+'.jpg')
+          img(src='img/content/catalog/cropped/'+contentObj.img+'.jpg')
         ul.goods__status-list
           each status in contentObj.status
             li.goods__status-item.sale=status
-      .goods__data-wrap
+      .goods__data-wrap.j_equal-height
         .goods__title=contentObj.title
         .goods__info-line
           span.goods__info=contentObj.info
@@ -97,7 +131,8 @@ mixin goodsBlock(contentObj,fullMode)
           br
           +productAmount('goods__amount')
         .goods__hover-block
-          a.goods__add-cart(href='#') Добавить в корзину
+          a.goods__add-cart(href='#', data-text='Добавить в корзину') 
+            span.btnTxt Добавить в корзину
 mixin goodsBlockSimple
   if !contentObj 
     -var contentObj = {img: '6', title: 'Агар-агар Algamar Algas Marinas S.A', info: 'США, 283 гр', 			desrc: 'Эти драже идельно подойдут для больших и малых торжеств. Арахис в глазури можно есть как самостоятельное блюдо, так и украшать...', staticPrice: '379'		}
@@ -106,7 +141,7 @@ mixin goodsBlockSimple
         .goods__img-wrap
           .goods__img
             img(src='img/content/catalog/'+contentObj.img+'.jpg')
-        .goods__data-wrap
+        .goods__data-wrap.j_equal-height
           .goods__title=contentObj.title
           .goods__info-line
             span.goods__info=contentObj.info
@@ -127,7 +162,8 @@ mixin goodsBlockSimple
             br
             +productAmount('goods__amount')
           .goods__hover-block
-            a.goods__add-cart(href='#') Добавить в корзину
+            a.goods__add-cart(href='#', data-text='Добавить в корзину') 
+              span.btnTxt Добавить в корзину
 mixin interactiveCardCupcakes
   .interactive-card.mugs-for-cupcakes(style='background-image: url(img/content/cake_icon.png);')
     .text Скидка <br> на формочки <br> для кексов
@@ -140,7 +176,8 @@ mixin recentlyViewed(title)
 mixin accentBlock
   .accent-block
     p.ui_descr_black А ещё у нас есть свой блог, в котором мы публикуем интересные кулинарные истории и необычные рецепты.
-    a(href='#').ui_button_accent Посмотреть блог
+    a.ui_button_accent(href='#' data-text='Посмотреть блог')
+      span.btnTxt Посмотреть блог
 mixin recipesSlider(title)
   .recipes-block
     .section__title=title
@@ -148,7 +185,7 @@ mixin recipesSlider(title)
       -for(var x=0;x<6;x++)
         .recipe__item(href='#')
           a.recipe__img(href='#')
-            img(src='img/content/recipe.jpg')
+            img(src='img/content/recipe_300x190.jpg')
             i.play-video
               +icon('play-video')
           a.recipe__info(href='#')
@@ -157,3 +194,30 @@ mixin recipesSlider(title)
             .recipe__descr Видео с пошаговым рецептом одного из самых вкусных десертов.
           .tags__block
             a.tag.tag-recipe(href='#') Рецепты
+mixin orderBlock 
+  .order__block 
+    .order__block-inner
+      .order__number Заказ 265487
+      dl.order__details-list
+        each item in [['Дата заказа','10 сентября 2017 года'],['Доставка','В пункт самовывоза по адресу ул. Октя́брьской Железной дороги, д. 2, стр. 2'],['Дата доставки','12 сентября 2017 года (вторник)'],['Стоимость','22 320 ₽ ']]
+          dt.order__detail-title=item[0]
+          dd.order__detail-data=item[1]
+    .j_toggle-wrap
+      .j_toggle-object
+        .order__goods-list 
+        each item in [['1.jpg','Засахаренные апельсины дольки Italcanditi','США, 2,3 кг','579 ₽','12'],['1.jpg','Засахаренные апельсины дольки Italcanditi','США, 2,3 кг','579 ₽','12'],['1.jpg','Засахаренные апельсины дольки Italcanditi','США, 2,3 кг','579 ₽','12']]
+          .order__goods-item 
+            .order__goods-img-wrap
+              img(src='img/content/search-results/'+item[0])
+            .order__goods-info-wrap
+              .order__goods-desrc-wrap
+                .order__goods-name=item[1]
+                .order__goods-addition=item[2]
+              .order__goods-data-wrap
+                .order__goods-price=item[3]
+                .order__goods-amount
+                  +icon('i_cross')
+                  span.amount=item[4]
+      .order__show-details-line
+        .order__amount Заказ на 4 товара
+        a.order__show-list-link.j_toggle-init(href='#' data-replacement='Скрыть список') Показать список 

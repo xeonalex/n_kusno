@@ -5,11 +5,11 @@ block main
       .part-with-sidebar
         .sidebar__wrap
           .sidebar__block.no_padding
-            +aboutMenu('personal')
+            +aboutMenu(['personal',0])
           .personal__list
             h2.personal-sm-title
               | Товары специально для вас
-            .goods__list.catalog__products-list.j_equal-height#j_cat-prod-list(data-mode='mode_block')
+            .goods__list.catalog__products-list#j_cat-prod-list(data-mode='mode_block')
               +goodsBlock('','')
               +goodsBlockSimple
         .page-content__wrap
@@ -18,8 +18,7 @@ block main
           .page-inner-content__wrap
             .content-side
               .news__text-wrap
-                .news__theses.
-                  Этот раздел содержит вашу личную информацию. Здесь вы можете выбрать предпочтительные формы доставки и оплаты для ускорения процесса покупки, отлеживать ваши текущие заказы, а также просматривать историю покупок и любимые товары.
+                .news__theses Этот раздел содержит вашу личную информацию. Здесь вы можете выбрать предпочтительные формы доставки и оплаты для ускорения процесса покупки, отлеживать ваши текущие заказы, а также просматривать историю покупок и любимые товары.
                 .personal-data-wrapper
                   .personal-data
                     .personal-header
@@ -68,14 +67,14 @@ block main
               h2.personal-sm-title
                 | Рецепты для вас
               ul.news__list
-                li.news__item.news__item_recipe
+                li.news__item.j_equal-height.news__item_recipe
                   .news__item-inner
                     .news__item-text
                       a.news__title(href='#') Как приготовить самые нежные кексы на свете?
                       .news__addition.personal-addition 20 июля 2017 года
                     .tags__block
                       a.tag.tag-recipe(href='#') Акции
-                li.news__item.news__item_recipe
+                li.news__item.j_equal-height.news__item_recipe
                   .news__item-inner
                     .news__item-text
                       a.news__title(href='#') Рецепт шоколадного торта с ягодами

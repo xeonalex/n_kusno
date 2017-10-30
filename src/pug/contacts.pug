@@ -6,17 +6,21 @@ block main
 					.container
 							+breadcrumbs(['Главная','Контакты'])
 							.contacts-content
-									h4.htb-title
+									h1.htb-title
 											| Контакты
-									p.htb-text.
-											Чтобы наше общение было наиболее успешным, пожалуйста, <br>
-											указывайте номер заказа, и сохраняйте историю переписки.
-									a(href="#").btn Написать сообщение
+									p.page__info-text
+										| Чтобы наше общение было наиболее успешным, пожалуйста, <br>
+										| указывайте номер заказа, и сохраняйте историю переписки.
+									a(href="#" data-text='Написать сообщение').contacts__message-link
+										span.btnTxt Написать сообщение
 									.map-adress
 											.contacts-info
 													.c-block-shop
 															h3.block-home
-																	| Розничный магазин
+																+icon('i_house')
+																|
+																|
+																| Розничный магазин
 															p.
 																	Сущевский вал, 46 <br>
 																	м. Марьина роща <br>
@@ -26,21 +30,27 @@ block main
 															a(href="#").c-tel Трансляция из магазина
 													.c-block-shop
 															h3.block-phone
-																	| Телефоны
+																+icon('i_tel')
+																|
+																|
+																| Телефоны
 															p
-																	a(href="tel:74959225955") +7 (495) 922-59-55
-																	a(href="tel:74956447572") +7 (495) 644-75-72
-															a(href="#").c-tel Панорама магазина
-															a(href="#").c-tel Трансляция из магазина
+																	a.contacts-tel(href="tel:74959225955") +7 (495) 922-59-55
+																	a.contacts-tel(href="tel:74956447572") +7 (495) 644-75-72
 													.c-block-shop
 															h3.block-mail
-																	| Электронная почта
+																+icon('i_mail')
+																|
+																|
+																| Электронная почта
 															p
-																	a(href="mailto:voprosrukovodstvo@mail.ru") voprosrukovodstvo@mail.ru
+																	a.contacts-mail(href="mailto:voprosrukovodstvo@mail.ru") voprosrukovodstvo@mail.ru
 													ul.social-list
-															li.social-item
-																	a(href="#").social-link.social-vk
-															li.social-item
-																	a(href="#").social-link.social-ok
+														li.social-item
+															a(href="#").social-link.social-vk
+																+icon('i_vk','')
+														li.social-item
+															a(href="#").social-link.social-ok
+																+icon('i_ok','')
 			.map-container
 					#map_canvas

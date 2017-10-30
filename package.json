@@ -38,7 +38,7 @@
     "gulp": "latest",
     "gulp-autoprefixer": "latest",
     "gulp-concat": "latest",
-    "gulp-imagemin": "latest",
+    "gulp-imagemin": "^3.4.0",
     "gulp-pug": "latest",
     "gulp-sass": "latest",
     "gulp-sourcemaps": "latest",

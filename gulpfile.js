@@ -44,7 +44,7 @@ var path = {
     js: 'src/js/*.js',//В стилях и скриптах нам понадобятся только main файлы
     jsVendor: 'src/js/vendor/*.js',//В стилях и скриптах нам понадобятся только main файлы
     scss: 'src/sass/**/*.scss',
-    img: ['src/img/**/*.*', '!src/img/**/*.tmp*','!src/img/sprites/**'],//  Синтаксис img/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
+    img: ['src/img/**/*','!src/img/**/*.tmp*','!src/img/sprites/*.svg'],//  Синтаксис img/**/*.* означает - взять все файлы всех расширений из папки и из вложенных каталогов
     fonts: 'src/fonts/*',
     favicon: 'src/favicon/*',
     // svg
@@ -64,41 +64,6 @@ var path = {
     svg: 'src/svg_sprite/*.svg'
   }
 };
-
-
-svgConfig = {
-	shape				: {
-		dimension		: {			// Set maximum dimensions
-			maxWidth	: 32,
-			maxHeight	: 32
-		},
-		spacing			: {			// Add padding
-			padding		: 10
-		},
-		dest			: 'out/intermediate-svg'	// Keep the intermediate files
-	},
-	mode				: {
-		view			: {			// Activate the «view» mode
-			bust		: false,
-			render		: {
-				scss	: true		// Activate Sass output (with default options)
-			}
-		},
-		symbol			: true		// Activate the «symbol» mode
-	}
-  // mode					: {
-	// 	css					: false,		// Create a «css» sprite
-  //   view				: {		// Create a «view» sprite
-  //     bust		: false,
-	// 		render		: {
-	// 			scss	: true		// Activate Sass output (with default options)
-  //     }
-  //   },
-	// 	defs				: false,		// Create a «defs» sprite
-	// 	symbol			: true,		// Create a «symbol» sprite
-	// 	stack				: true		// Create a «stack» sprite
-	// }
-}
 
 
 // робимо архів нашого білда
@@ -167,49 +132,6 @@ gulp.task('sass-dev', function () {
     .pipe(browserSync.stream());
 });
 
-gulp.task('svgSpriteBuild', function () {
-  return gulp.src(path.src.svg)
-// minify svg
-  .pipe(svgmin({
-    js2svg: {
-      pretty: true
-    }
-  }))
-  // remove all fill, style and stroke declarations in out shapes
-  .pipe(cheerio({
-    run: function ($) {
-      $('[fill]').removeAttr('fill');
-      $('[stroke]').removeAttr('stroke');
-      $('[style]').removeAttr('style');
-      $('style').remove();
-    },
-    parserOptions: {xmlMode: true}
-  }))
-   // cheerio plugin create unnecessary string '&gt;', so replace it.
-  .pipe(replace('&gt;', '>'))
-  // build svg sprite
-  .pipe(svgSprite({
-    mode: {
-      inline: true,
-      symbol: {
-        // куда покласти сам спрайт
-        // inline: true,
-        sprite: '../img/sprites/sprite.svg',
-        render: {
-          scss: {
-            dimensions: '-dms',
-            // куда покласти стилі для спрайта
-            dest: path.src.svgStyles,
-            // шаблон за яким будуть створені стилі
-            template: path.src.templates
-          }
-        }
-      }
-    }
-  }))
-  .pipe(gulp.dest('build/sprite/'));
-});
-
 gulp.task('svgSpritePNG', function () {
   return gulp.src('src/img/sprites/sprite.svg')
     // .pipe(svg2png())
@@ -217,13 +139,26 @@ gulp.task('svgSpritePNG', function () {
 });
 
 // gulp.task('svgSprite', ['svgSpriteBuild','svgSpritePNG']);
-gulp.task('svgSprite', []);
+gulp.task('svgSprite', function () {
+  return gulp.src('src/svg_sprite/sprite/sprite.svg')
+    .pipe(gulp.dest(path.build.svg_sprite));
+});
 
 
 //Сжатие изображений
 gulp.task('img', function () {
   return gulp.src(path.src.img)
-    .pipe(imagemin({ optimizationLevel: 3, progressive: true }))
+    .pipe(imagemin([
+        imagemin.gifsicle({interlaced: true}),
+        imagemin.jpegtran({progressive: true}),
+        imagemin.optipng({optimizationLevel: 5}),
+        imagemin.svgo({
+            plugins: [
+                {removeViewBox: false},
+                {cleanupIDs: false}
+            ]
+        })
+    ]))
     .pipe(gulp.dest(path.build.img));
 });
 //Копируем JS

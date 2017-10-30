@@ -6,6 +6,261 @@ block main
 			h1.page__title Корзина и оформление заказа
 			.cart-sections__wrapper
 				.right-side
+					.cart__summary-block
+						.cart__summary-line
+							.default-block
+								.text-side
+									.cart__summary-topic Стоимость заказа
+									a.cart__summary-addition Цена за 4 товара
+								.summ-side
+									span.amount 2526 ₽
+						.cart__summary-line
+							.default-block
+								.text-side
+									.cart__summary-topic Введите личные данные
+									a.cart__summary-addition Не введено
+								.summ-side
+							.filled-up-block
+								.text-side
+									.cart__summary-topic Вы вошли как Никита
+									a.cart__summary-addition Зарегистрированный пользователь
+								.summ-side
+									span.amount 2526 ₽
+						.cart__summary-line
+							.default-block
+								.text-side
+									.cart__summary-topic Выберите способ доставки
+									a.cart__summary-addition Не выбрано
+								.summ-side
+									span.amount 2526 ₽
+							.filled-up-block
+								.text-side
+									.cart__summary-topic Доставка в пункт самовывоза
+									a.cart__summary-addition м. Петровско-Разумовская, Ул. Окт...
+								.summ-side
+									span.amount 100 ₽
+						.cart__summary-line
+							.default-block
+								.text-side
+									.cart__summary-topic Выберите способ оплаты
+									a.cart__summary-addition Не выбрано
+								.summ-side
+									span.amount 2526 ₽
+							.filled-up-block
+								.text-side
+									.cart__summary-topic Оплата кредитной картой
+									a.cart__summary-addition Скидка 1%
+								.summ-side
+									span.amount 100 ₽
+						.cart__summary-complete
+							.summ-line
+								.text Всего к оплате
+								a.summ 2626 ₽
+							a.cart__confirmation-link(href='#',data-text='Подтвердить заказ')
+								span.btnTxt Подтвердить заказ
 				.left-side
 					.cart-section__wrap
 						.section__title Подробнее о товаре
+						.cart-section__block
+							+cartList
+							.order-check__summary-line
+								.order-check__summary
+									p.text Всего за
+										|
+										|
+										span.amount 4
+										|
+										|товары:
+										|
+										|
+										span.summ 2526 ₽
+					.cart-section__wrap
+						.section__title Введите личные данные
+						.cart-personal-data__wrapper
+							.cart-section__block.authorization.j_equal-height
+								.loading-indicator
+									+icon('loading')
+								form.user-authorization__form
+									.user-authorization__form-inner
+										.cart-section__heading Войти
+										label(for='email') 
+											p.text Электронная почта
+											input(type='text' name='email' placeholder='Ваша почта')
+										label(for='email') 
+											p.text Пароль
+											input(type='text' name='passw' placeholder='Ваш пароль')
+									.submit-line
+										button.user-authorization__submit(type='submit', data-text='Войти') 
+											span.btnTxt Войти
+										a.forgot-password__link(href='#') Забыли пароль?
+							.cart-section__block.unregistrated.j_equal-height
+								.fake-table
+									.fake-row__100
+										.cart-section__heading Войти
+										p.cart-unregistrated-text Зарегистрируйтесь на сайте и экономьте время при заказах. Вам будут доcтупны история заказов и список часто покупаемых товаров.
+									.fake-row
+										a.reg-link(href='#', data-text='Зарегистрироваться')
+											span.btnTxt Зарегистрироваться
+										a.buy-without-registration(href='#') Купить без регистрации
+						.cart-section__block
+							.cart-section__inner
+								.cart-user-unregistrated
+									.cart-with-priseside
+										.text-side
+											.cart-section__heading Здравствуйте!
+											p.delivery-method__text Чтобы оформить покупку введите свои личные данные
+										.price-side
+											.cart-user-datails Незарегистрированный пользователь
+								form.cart-user-unregistrated__form
+									.dtr
+										label.dtc_05
+											p.text Имя
+											input(type='text' name='reg_user' placeholder='Ваше имя')
+										label.dtc_05
+											p.text Телефон
+											input(type='text' name='reg_tel' placeholder='Ваше телефон')
+									.dtr
+										label.dtc_05
+											p.text Электронная почта
+											input(type='text' name='reg_email' placeholder='Ваш е-mail')
+										.dtc_05
+						.cart-section__block
+							.cart-section__inner
+								.cart-user-registrated
+									.cart-with-priseside.dtr_100
+										.text-side
+											.cart-section__heading Привет Никита!
+											p.delivery-method__text Вы вошли как зарегистрированный пользователь, адрес доставки  будет заполнен автоматически, но вы можете изменить его в любой момент. Приятных покупок.
+										.price-side
+											a.cart-user-datails(href='#') Зарегистрированный пользователь
+									.dtr
+										a.cart-change-user(href='#') Сменить пользователя
+
+					.cart-section__wrap
+						.section__title Выберите способ доставки
+						.cart-section__block.j_tabs-wrap
+							ul.tabs-titles
+								-var links = ['#t_mail','#t_pickup','#t_by-courier','#t_pickpoint','#t_sdek','#t_euroset']
+								each item,i in ['Почтой','Самовывоз','Курьером','Pickpoint','СДЭК','Евросеть']
+									li.tabs__link-wrap
+										a.j_tabs__link.tabs__link(href=links[i] class= i == '3' ? 'active' : '')=item							
+							.tabs-content
+								#t_mail.tab__content-wrap 
+									.cart-with-priseside
+										.text-side
+											.cart-section__heading Доставка почтой
+											p.delivery-method__text В указанную дату планируется сбор заказа, с учетом его оплаты и факта зачисления денег на счет. Посылки отправляются по вторникам и пятницам. После подтверждения заказа оператор отправит Вам счет на оплату с реквизитами.
+										.price-side
+											.delivery-method__price 
+												| Стоимость:
+												| 
+												| 
+												span.price_s 790 ₽
+												
+									form.mail-type__form
+										p.cart-section__subtitle Почтовая служба
+										.mail-select-wrap
+											label.ui_radio
+												input(type='radio' name='mail_type' value='1' checked)
+												.radio-wrap
+													i.flag
+													.text Почта России
+											label.ui_radio
+												input(type='radio' name='mail_type' value='2')
+												.radio-wrap
+													i.flag
+													.text Почта ЕМС											
+										p.cart-section__subtitle Адрес доставки
+										p.ui_addition_normal.mail-type__addition Заполнен автоматически из профиля. 
+											|
+											|
+											a(href='#').addition__link Выбрать другой
+										.dtr
+											label.dtc_05
+												p.text Город
+												input(type='text' name='mail_city')
+											label.dtc_05
+												p.text Улица
+												input(type='text' name='mail_street')
+										.dtr
+											.dtc_05
+												label.dtc_05
+													p.text Дом
+													input(type='text' name='mail_house')
+												label.dtc_05
+													p.text Корпус
+													input(type='text' name='mail_housing')
+											.dtc_05
+												label.dtc_05
+													p.text Квартира
+													input(type='text' name='mail_flat')
+												label.dtc_05
+													p.text Индекс
+													input(type='text' name='mail_zipcode')
+								#t_pickup.tab__content-wrap
+									.cart-with-priseside
+										.text-side
+											.cart-section__heading Доставка почтой
+											p.delivery-method__text Оператор выставит счет с реквизитами, сборка и доставка заказа после получения на вашу почту автоматического письма о приходе денег
+										.price-side
+											.delivery-method__price 
+												| Стоимость:
+												| 
+												| 
+												span.price_s 100 ₽
+									form.pickup__form.dtr
+										label.dtc_05
+											p.text Выберите пункт из списка или 
+												|
+												|
+												a(href='#').addition__link Выбрать другой
+											.j_select-wrap_pickup
+												select.j_select-pickup(data-placeholder='Список пунктов')
+													each item,i in ['м. Лубянка|Лучников пер., д. 4, стр.2, офис 22','м. Петровско-Разумовская|Лучников пер., д. 4, стр.2, офис 22']
+														option(value=i)=item
+										label.dtc_05
+											p.text Выберите дату доставки
+											.j_select-wrap
+												select.j_select(data-placeholder='Доступные даты')
+													each item,i in ['24 сентября 2017 (вс)','25 сентября 2017 (пн)','26 сентября 2017 (вт)']
+														option(value=i)=item
+								#t_by-courier.tab__content-wrap courier
+								#t_pickpoint.tab__content-wrap
+									.cart-with-priseside
+										.text-side
+											.cart-section__heading Доставка в PickPoint
+											p.delivery-method__text Посылка отправляется в Пик Пойнт через 1-2 дня после сборки. Оплата товара происходит в момент выдачи заказа. Вы можете отслеживать сами передвижение посылки на официальном сайте pickpoint.ru, набрав номер заказа в меню Мониторинг доставки.
+										.price-side
+											.delivery-method__price 
+												| Стоимость:
+												| 
+												| 
+												span.price_s 420 ₽		
+									.cart-with-priseside
+										.text-side
+											p.posthat-method__text Дата сборки 27 сентября (среда)
+											p.posthat-method__text Постамат: ТЦ Далпорт Сити. Санкт-Петербург, Московский пр-кт, д. 222, лит. В
+											a.choose-posthat(href='#') Выберите постамат
+											a.change-posthat(href='#') Сменить постамат
+										.price-side
+								#t_sdek.tab__content-wrap t_sdek
+								#t_euroset.tab__content-wrap t_euroset
+					.cart-section__wrap
+						.section__title Выберите способ оплаты
+						.cart-pay_type__wrapper
+							.cart-section__block.pay_type
+								.cart-section__inner
+									label.ui_radio
+										input(type='radio' name='pay_type' value='cash')
+										.radio-wrap
+											i.flag
+											.text Наличными
+									p.cart__pay-type__text Оплата наличными при доставке товара курьером
+							.cart-section__block.pay_type
+								.cart-section__inner
+									label.ui_radio
+										input(type='radio' name='pay_type' value='card')
+										.radio-wrap
+											i.flag
+											.text По карте
+									p.cart__pay-type__text Оплата наличными при доставке товара курьером

@@ -37,6 +37,7 @@
     padding-bottom: 2px;
     &:hover {
         border-bottom: 2px solid #fb3;
+        text-decoration: none;
     }
 }
 .f_left-list {
@@ -50,21 +51,22 @@
 }
 .f_left-list-2 {
     width: 415px;
-    // margin-right: 195px;
 }
 .f_left-list-3 {
-    // margin-right: 55px;
     min-width: 190px;
 }
 .f_left-list-4 {
-    // margin-right: 55px;
+    text-align: right;
     min-width: 165px;
+    .social-list {
+      text-align: center;
+    }
 }
 .f-l-title {
     font-size: 19px;
     color: #1e1e1e;
     display: block;
-    margin-bottom: 14px;
+    margin-bottom: 12px;
 }
 .f_left-link {
     cursor: pointer;
@@ -75,12 +77,13 @@
     line-height: 21px;
     &:hover {
         color: #fb3;
+        text-decoration: none;
     }
 }
 .f_left-item {
     margin-bottom: 7px;
     &:last-child {
-        margin-top: 15px;
+        margin-top: 10px;
         .f_left-link {
             color: #fb3;
             font-weight: 400;
@@ -104,13 +107,14 @@
     span {
         color: #1e1e1e;
         font-size: 19px;
-        a {
+        .created-by {
             @include transition(.25s);
             color: #fb3;
             border-bottom: 2px solid transparent;
             padding-bottom: 2px;
             &:hover {
                 border-bottom: 2px solid #fb3;
+                text-decoration: none;
             }
         }
     }
@@ -120,9 +124,12 @@
         display: block;
         font-size: 19px;
         color: #1e1e1e;
-        margin-bottom: 15px;
+        margin-bottom: 11px;
         &:last-child {
-            margin-bottom: 5px;
+            margin-bottom: 10px;
+        }
+        &:hover {
+          text-decoration: none;
         }
     }
     .tel-block__text {
@@ -130,7 +137,7 @@
         font-size: 15px;
         color: #fb3;
         display: inline-block;
-        margin-bottom: 25px;
+        margin-bottom: 14px;
         border-bottom: 2px solid transparent;
         padding-bottom: 2px;
         &:hover {

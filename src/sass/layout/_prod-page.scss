@@ -47,6 +47,12 @@
   padding-left: 20px;
   padding-right: 20px;
   width: 43.65%;
+  .goods__price {
+    font-size: 40px;
+  }
+  .goods__price_old {
+    font-size: 30px;
+  }
 
   .goods__price ,
   .goods__price_old {
@@ -115,9 +121,6 @@
   .link {
     @extend .ui_activeLink_normal;
     @extend .ui_activeLink_grey;
-    &:hover {
-      text-decoration: underline;
-    }
   }
 }
 .prod__detailed-block {

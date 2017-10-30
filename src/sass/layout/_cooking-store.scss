@@ -25,6 +25,9 @@
   margin-bottom: 30px;
 }
 .popular-goods__slider {
+  .owl-stage-outer:hover .owl-stage {
+    z-index: 1;
+  }
   .owl-nav {
     position: relative;
     top: -75px;
@@ -66,10 +69,20 @@
 }
 
 .recipe__item {
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 8px;
+  margin-right: 8px;
   display: block;
-  @extend .ui-block_card;
+  @include ui_block_news('');
+	border-radius: 5px;
+  box-shadow: none;
+  transition: box-shadow 0.3s;
+  &:hover {
+    @include bshadow( '+');
+  }
+  
+  &:after {
+    display: none;
+  }
   background-color: #fff;
   margin-bottom: 15px;
   .tags__block {
@@ -82,6 +95,9 @@
 .recipe__info {
   padding: 20px;
   display: block;
+  &:hover {
+    text-decoration: none;
+  }
 }
 .recipe__title{
   @extend .ui_text_bw;
@@ -100,9 +116,6 @@
   border-radius: 5px 5px 0 0;
   display: block;
   overflow: hidden;
-  top: -2px;
-  left: -2px;
-  right: -2px;
   width: 100%;
   position: relative;
   z-index: 1;

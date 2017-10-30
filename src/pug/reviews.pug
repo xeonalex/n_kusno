@@ -5,14 +5,15 @@ block main
 			.part-with-sidebar
 				.sidebar__wrap
 					.sidebar__block.no_padding
-						+aboutMenu
+						+aboutMenu(3)
 				.page-content__wrap
 					+breadcrumbs(['Главная','О компании','Отзывы','Лимитирование поставок'])
 					h1.page__title Отзывы
 					.page-inner-content__wrap
 						.content-side
 							p.page__info-text Поделитесь с нами вашими впечатлениями о работе магазина, например о качестве и скорости доставки, вежливости сотрудников, аккуратностью упаковки.
-							a.review__add-link(href='#') Добавить отзыв
+							a.review__add-link(href='#' data-text='Добавить отзыв')
+								span.btnTxt Добавить отзыв
 							ul.reviews__list
 								each item in [1,2,3]
 									+reviewItem(item)

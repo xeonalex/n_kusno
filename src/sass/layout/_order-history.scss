@@ -1,0 +1,19 @@
+.orders__years-list {
+  @include clearfix;
+  margin-bottom: 30px;
+
+}
+.orders__year-item {
+  float: left;
+  margin-right: 25px;
+  &:last-of-type {
+    margin-right: 0;
+  }
+}
+.orders__year-link {
+  &.active {
+    @extend .ui_activeLink_accent;
+  }
+  @extend .ui_activeLink_normal;
+  @extend .ui_activeLink_grey;
+}
