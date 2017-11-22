@@ -6,13 +6,13 @@
 }
 
 .prod__rank-line {
-  margin-bottom: 40px;
+  margin-bottom: 10px;
 }
 
 .prod__write-review,
 .prod__rank {
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: baseline;
 }
 
 .br-theme-bars-1to10 .br-widget .br-current-rating {
@@ -22,14 +22,6 @@
   margin-right: 5px;
 }
 
-.prod__write-review {
-  @extend .ui_activeLink_grey;
-  @extend .ui_activeLink_small;
-  &:hover {
-    @extend .ui_activeLink_accent;
-    text-decoration: underline;
-  }
-}
 .average-mark,
 .prod__rating {
   display: inline-block;
@@ -38,31 +30,22 @@
 
 .prod__block {
   margin-bottom: 80px;
-  display: table;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
   width: 100%;
 }
 .prod__data {
-  display: table-cell;
-  vertical-align: top;
-  padding-left: 20px;
-  padding-right: 20px;
-  width: 43.65%;
-  .goods__price {
-    font-size: 40px;
-  }
-  .goods__price_old {
-    font-size: 30px;
-  }
-
-  .goods__price ,
-  .goods__price_old {
-    margin-right: 10px;
-  }
-  .goods__price-block {
-    padding-bottom: 15px;
-  }
-  .add-cart_link {
-    margin-right: 25px;
+  width: 32.3%;
+  .prod__write-review {
+    @extend .ui_addition_normal;
+    display: inline-block;
+    vertical-align: baseline;
+    line-height: 1.6;
+    &:hover {
+      @extend .ui_activeLink_accent;
+      text-decoration: underline;
+    }
   }
 }
 .prod__text {
@@ -79,8 +62,7 @@
 .prod__img-wrap {
   background-color: #fff;
   @extend .ui-block_card;
-  width: 32.15%;
-  display: table-cell;
+  width: 32.3%;
   vertical-align: top;
   height: 305px;
   text-align: center;
@@ -92,18 +74,52 @@
     max-height: 100%;
   }
 }
+.prod__actions-block {
+  position: relative;
+  width: 32.3%;
+  order: 1;
+  @include ui_block('');
+  padding: 20px;
+  .goods__price-block {
+    padding-bottom: 15px;
+  }
+  .text {
+    @extend .ui_text_sm;
+    margin-bottom: 15px;
+    &:last-of-type {
+      margin-bottom: 25px;
+    }
+  }
+  .goods__price {
+    font-size: 40px;
+  }
+  .goods__price_old {
+    font-size: 30px;
+  }
+
+  .goods__price ,
+  .goods__price_old {
+    margin-right: 10px;
+  }
+
+}
 .prod__note {
   display: table-cell;
   vertical-align: top;
 }
 .add-favorite_link {
   display: inline-block;
+  width: 100%;
   vertical-align: middle;
+  text-align: center;
+  padding: 10px;
+  margin-top: 10px;
   @extend .ui_activeLink_accent;
   @extend .ui_activeLink_normal;
 }
 .add-cart_link {
   @extend .ui_button_accent;
+  width: 100%;
 }
 
 .prod__text  {
@@ -127,10 +143,12 @@
   margin-bottom: 115px;
 }
 .prod__details-wrap {
-  @include ui_block('');
-  border-top: 10px solid $active;
 }
-
+.prod__reviews-wrap {
+  .section__title .title  {
+    margin-right: 20px;
+  }
+}
 .tab__content-wrap {
   padding: 20px 20px 50px;
 }
@@ -163,9 +181,7 @@
 }
 
 .prod__reviews-add {
-  display: block;
-  @extend .ui_activeLink_accent;
-  @extend .ui_activeLink_normal;
+  @extend .ui_button_accent;
   &:hover {
     text-decoration: underline;
   }
@@ -177,9 +193,70 @@
   @include clearfix;
 }
 .prod__reviews-left {
-  margin-right: 260px;
-  padding-right: 20px;
 }
-.prod__reviews-right {
-  float: right;
+.prod__reviews-details-line {
+  margin-bottom: 40px;
+  .text {
+    @extend .ui_text_n;
+    margin-bottom: 15px;
+  }
+}
+
+.prod__content-wrapper {
+  margin-bottom: 60px;
+  max-width: 620px;
+  .section__title {
+    margin-bottom: 20px;
+  }
+}
+
+.prod__details-show-more {
+  background-color: $line;
+  height : 60px;
+  border-radius : 5px;
+  text-align: center;
+  display: block;
+  margin-top: 20px;
+  padding: 18px 30px;
+  @extend .ui_activeLink_normal;
+  color: $head_descr;
+}
+.prod__details-content {
+  p {
+    @extend .ui_text_n;
+    margin-bottom: 10px;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+  h3 {
+    margin-bottom: 20px;
+  }
+}
+
+.prod__details-slider {
+  margin: 30px 0;
+  
+  .owl-nav {
+    margin-top: 10px;
+    display: table;
+    width: 100%;
+  }
+  .owl-prev {
+    display: table-cell;
+    max-width: 48px;
+  }
+  .owl-status_c {
+    display: table-cell;
+    width: 100%;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+    @extend .ui_text_sm;
+    color: $descr_adition;
+  }
+  .owl-next {
+    display: table-cell;
+    max-width: 48px;
+  }
 }

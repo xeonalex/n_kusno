@@ -4,86 +4,91 @@ block main
 		.prod-page.page
 			+breadcrumbs(['Главная','О компании','Новости','Лимитирование поставок'])
 			h1.page__title Драже арахис в глазури Фиксики
-			.prod__rank-line
-				.prod__rank
-					.prod__rating
-						select.j_rating.j_rating_read(data-rating='4.2')
-							each item,index in [1,2,3,4,5]
-								option(value= index+1 )
-					|
-					|
-					span.average-mark
-						span.mark 4.2
-						|
-						|
-						span.votes (12)
-				|
-				|
-				a.prod__write-review(href='#') Написать отзыв
-			.prod__block
-				.prod__img-wrap
-					img(src='img/content/catalog/1.jpg')
-				.prod__data
-					.goods__price-block
-						span.goods__price_old 479 ₽
-						|
-						|
-						span.goods__price 379 ₽
-						|
-						|
-						+productAmount('goods__amount')
-					.prod__text 
-						p Арахис в глазури можно есть как самостоятельное блюдо, так и украшать ими торты, капкейки и любые кулинарные творения.
-						p 
-							| Производство: Россия <br>
-							| Вес: 45 гр <br>
-							| Товар доступен с 
+			.j_scroll-fixed__wrap
+				.prod__block
+					.prod__img-wrap
+						img(src='img/content/catalog/1.jpg')
+					.prod__actions-block.j_scroll-fixed__object
+						.goods__price-block
+							span.goods__price_old 479 ₽
 							|
 							|
-							a(href='#') доставкой 
+							span.goods__price 379 ₽
+							+productAmount('goods__amount')
+						p.text Товар доступен с
 							|
 							|
-							|и в 
+							a(href='#') доставкой
+							|
+							|
+							|и в
 							|
 							|
 							a(href='#') розничном магазине
-					.prod__links
-						a.add-cart_link(href='#',data-text='Добавить в корзину')
-							span.btnTxt Добавить в корзину
-						a.add-favorite_link(href='#') Добавить в избранное
-				.prod__note
-					.delivery-info
-						.text Перед покупкой обязательно прочитайте правила доставки и оплаты товара
-						a.link(href='#') О доставке и оплате 
-			+recentlyViewed('С этим товаром покупают')
-			.prod__detailed-block
-				.section__title Подробнее о товаре
-				.page-inner-content__wrap
-					.content-side
-						.prod__details-wrap
-							.j_tabs-wrap
-								ul.tabs-titles
-									-var links = ['#t_descr','#t_reviews','#t_delivery']
-									each item,i in ['Описание','Отзывы','Доставка']
-										li.tabs__link-wrap
-											a.j_tabs__link.tabs__link(href=links[i] class=item == 'Отзывы' ? 'active' : '')=item
-								.tabs-content
-									#t_descr.tab__content-wrap
-										| t_reviews
-									#t_reviews.tab__content-wrap
-										.prod__reviews-wrap
-											.prod__reviews-right
-												a(href='#').prod__reviews-add Добавить отзыв
-											.prod__reviews-left
-												ul.reviews__list
-													each item in [1,2,3]
-														+reviewItem(item)
-												a.reviews__show-more(href='#') Показать больше отзывов
-									#t_delivery.tab__content-wrap
-										| t_delivery
-					.inner-sidebar
-						.interactive-card.inventory-sale
-							.text Распродажа инвентаря для украшения тортов
-							img.bg(src='img/content/cake_sale.png')
-						+interactiveCardCupcakes
-			+recentlyViewed('Вы недавно смотрели')
+						.prod__links
+							a.add-cart_link(href='#',data-text='Добавить в корзину')
+								span.btnTxt Добавить в корзину
+							a.add-favorite_link(href='#') Добавить в избранное
+					.prod__data
+						.prod__text
+							p Арахис в глазури можно есть как самостоятельное блюдо, так и украшать ими торты, капкейки и любые кулинарные творения.
+							.prod__rank-line
+								.prod__rank
+									.prod__rating
+										select.j_rating.j_rating_read(data-rating='4.2')
+											each item,index in [1,2,3,4,5]
+												option(value= index+1 )
+									|
+									|
+									span.average-mark
+										span.mark 4.2
+										|
+										|
+										span.votes (12)
+								|
+								|
+								a.prod__write-review(href='#') Написать отзыв
+							p
+								| Производство: Россия <br>
+								| Вес: 45 гр <br>
+				.prod__content-wrapper
+					.prod__detailed-block.j_toggle-wrap
+						.section__title О товаре
+						.prod__details-content
+							p По всей вероятности никто не будет спорить о том факте, что вкус у вареной сгущенки просто великолепный. Однако сейчас достать настоящую сгущенку, сделанную из цельного молока, очень трудно. Такую сгущенку, с кучей разной химии и из растительных жиров варить практически бесполезно, Вы затратите много времени, но карамели из нее у Вас так и не получится. Но не стоит отчаиваться. 
+							.prod__details-slider.j_prod-imgs.owl-carousel
+								each item in [1,2,3]
+									.prod__details-slider__item
+										img(src='img/content/catalog/prod_slider.jpg')
+							h3 Производство карамели
+							p Карамельную массу готовят увариванием сахара и крахмальной патоки в соотношении 2 : 1. В процессе уваривания кристаллический сахар переходит в аморфное состояние, и карамельная масса в уваренном состоянии представляет собой вязкую прозрачную жидкость. Патока, или инвертный сахар, препятствует образованию кристаллов. При охлаждении до 70—90 С карамельная масса приобретает пластичность, в этом состоянии ее подкрашивают, ароматизируют, добавляют кислоты и проминают для равномерного распределения добавок, удаления пузырьков воздуха, образующего в готовых изделиях раковины.
+							.j_toggle-object
+							a.j_toggle-init.prod__details-show-more
+								| Показать весь текст
+
+					.prod__reviews-wrap
+						.section__title 
+							span.title О товаре
+							.prod__rank
+								.prod__rating
+									select.j_rating.j_rating_read(data-rating='4.2')
+										each item,index in [1,2,3,4,5]
+											option(value= index+1 )
+								|
+								|
+								span.average-mark
+									span.mark 4.2
+									|
+									|
+									span.votes (12)
+						.prod__reviews-details-line
+							p.text Напишите отзыв к 5 товарам и получите скидку 2%. Учитываются отзывы за последнюю неделю.
+							a.prod__reviews-add(href='#',data-text='Добавить отзыв')
+								span.btnTxt Добавить отзыв
+						.prod__reviews-left
+							ul.reviews__list
+								each item in [1,2,3]
+									+reviewItem(item)
+							a.reviews__show-more(href='#') Показать больше отзывов
+			+recentlyViewed('С этим товаром покупают','j_recently-viewed-1')
+			+recentlyViewed('Вы недавно смотрели','j_recently-viewed-2')

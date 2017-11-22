@@ -2,14 +2,22 @@ console.log('hello from script.js');
 
 // svg4everybody();
 
-$(document).ready(function() { // начало document.ready
-
+$(window).on('load', function() { // начало document.ready
+  var vWidth = document.documentElement.clientWidth;
 
   $(window).resize(function(event) {
+    vWidth = document.documentElement.clientWidth;
     /* Act on the event */
     $('.j_equal-height').matchHeight({
       byRow: true
     });
+    if (vWidth>= 1020 ) { // оключаем меню если оно было активированное в то время как при ресайзе окно перешло за брейкпоинт
+      console.log($('.mobile-menu__wrapper.opened')[0]);
+      if ($('.mobile-menu__wrapper.opened')[0]) {
+        $('.j_m-menu_close').click();
+      }
+    }
+
   });
 
   // toggle
@@ -32,6 +40,40 @@ $(document).ready(function() { // начало document.ready
       return false;
     });
 
+  // mobile menu
+  $('.j_m-menu_close').click(function(event) {
+    /* Act on the event */
+    event.preventDefault();
+    $('html').removeClass('menu-opened')
+    $('.mobile-menu__wrapper .first-screen').addClass('close');
+    setTimeout(function () {
+      $('.mobile-menu__wrapper').removeClass('opened');
+      $('.mobile-menu__wrapper .first-screen').removeClass('close');
+    }, 800);
+    return false;
+  });
+  $('.j_mm-open').click(function(event) {
+    /* Act on the event */
+    event.preventDefault();
+    $('html').addClass('menu-opened')
+    $('.mobile-menu__wrapper').addClass('opened');
+    return false;
+  });
+  $('.j_mm-expand-menu').click(function(event) {
+    /* Act on the event */
+    event.preventDefault();
+    $(this).closest('.mobile-menu__item_extended').addClass('opened');
+    return false;
+
+  });
+
+  $('.j_mm__go-back').click(function(event) {
+    /* Act on the event */
+    event.preventDefault();
+    $(this).closest('.mobile-menu__item_extended').removeClass('opened');
+    return false;
+
+  });
   // селект для места самовывоза
     function getOptionMarkup(text) {
       text = text.split('|');
@@ -129,6 +171,34 @@ $(document).ready(function() { // начало document.ready
     document.body.insertBefore(div, document.body.childNodes[0]);
   });
 
+  // фикс блок при скролле
+  if ($('.j_scroll-fixed__object')[0]) {
+    $('.j_scroll-fixed__object').data('scrollStart', $('.j_scroll-fixed__object').offset().top )
+    $(window).on('scroll', function (e) {
+      var windowMarginTop = 20;
+      var fixedObj = $('.j_scroll-fixed__object');
+      var parent = $('.j_scroll-fixed__object').closest('.j_scroll-fixed__wrap');
+      var fixedObjMarginTop = fixedObj.data('scrollStart') - parent.offset().top;
+      fixedObjMarginTop = fixedObjMarginTop > 0 ? fixedObjMarginTop : 0;
+      // console.log(fixedObjMarginTop);
+      var parentEndPos = parent.innerHeight()+parent.offset().top - fixedObj.innerHeight();
+      if (fixedObj.data('scrollStart') < document.documentElement.scrollTop ) {
+        if ( parentEndPos - fixedObjMarginTop > document.documentElement.scrollTop ) {
+          fixedObj.css('top', document.documentElement.scrollTop + windowMarginTop - fixedObj.data('scrollStart'));
+        }
+      } else {
+        fixedObj.css('top', 0);
+      }
+    })
+  }
+
+  // ховер для нормального отображения стрелок слайдера
+  $('.j_nav-index-fix').on('mouseenter','.goods__item', function (e) {
+    $(this).closest('.owl-stage-outer').next().css({'z-index': -1})
+  })
+  $('.j_nav-index-fix').on('mouseleave','.goods__item', function (e) {
+    $(this).closest('.owl-stage-outer').next().removeAttr('style');
+  })
   // форма поиска
   $('.j_search-init').click(function(event) {
     event.preventDefault();
@@ -161,17 +231,34 @@ $(document).ready(function() { // начало document.ready
       $(element).find('.owl-next').text('').append($('<span class="slider-right"><svg class="icon-i_slider_arr_r icon" ><use xlink:href="#i_slider_arr_r"></use></svg></span>'));
     },
     responsive: {
-      // breakpoint from 0 up
-      0: {},
-      // breakpoint from 480 up
-      480: {},
-      // breakpoint from 768 up
+      0: {
+        items: 1
+      },
+      760: {
+        items: 3
+      },
       1024: {
         items: 4
       }
     }
   });
+  $('.j_prod-imgs').owlCarousel({
+    items: 1,
+    nav: true,
+    onInitialize: function(event) {},
+    onInitialized: function(event) {
+      var element = event.target;
 
+      $(element).find('.owl-prev').text('').append($('<span class="slider-left"><svg class="icon-i_slider_arr_l icon" ><use xlink:href="#i_slider_arr_l"></use></svg></span>'));
+      $(element).find('.owl-next').text('').append($('<span class="slider-right"><svg class="icon-i_slider_arr_r icon" ><use xlink:href="#i_slider_arr_r"></use></svg></span>'));
+
+
+      $(element).find('.owl-prev').after('<div class="owl-status_c">'+(++event.item.index)+'/'+event.item.count+'</div>')
+    },
+    onChanged: function(event) {
+      $(event.target).find('.owl-status_c').text((++event.item.index)+'/'+event.item.count)
+    }
+  });
   $('.j_recent-news').owlCarousel({
     nav: true,
     onInitialize: function(event) {},
@@ -182,10 +269,13 @@ $(document).ready(function() { // начало document.ready
       $(element).find('.owl-next').text('').append($('<span class="slider-right"><svg class="icon-i_slider_arr_r icon" ><use xlink:href="#i_slider_arr_r"></use></svg></span>'));
     },
     responsive: {
+      0: {
+        items: 1,
+      },
       // breakpoint from 0 up
-      0: {},
-      // breakpoint from 480 up
-      480: {},
+      501: {
+        items: 3
+      },
       // breakpoint from 768 up
       1024: {
         items: 3
@@ -195,6 +285,7 @@ $(document).ready(function() { // начало document.ready
 
   $('.j_popular-goods').owlCarousel({
     nav: true,
+    autoWidth: false,
     onInitialize: function(event) {
       $(event.target).addClass('visible'); // кратковременный клас для корректного отображения карточек при ховере
     },
@@ -209,35 +300,77 @@ $(document).ready(function() { // начало document.ready
     },
     responsive: {
       // breakpoint from 0 up
-      0: {},
+      0: {
+        items: 1
+      },
       // breakpoint from 480 up
-      480: {},
+      501: {
+        items: 3
+      },
       // breakpoint from 768 up
       1024: {
         items: 3
       }
     }
   });
-
-  $('.j_recently-viewed').owlCarousel({
+  $('.recipes__slider').owlCarousel({
+    nav: true
+  });
+  $('#j_recently-viewed-1').owlCarousel({
     nav: true,
+    items: 2,
     onInitialize: function(event) {
-      $('.j_recently-viewed').addClass('visible'); // кратковременный клас для корректного отображения карточек при ховере
+      $('.recently-viewed__slider').addClass('visible'); // кратковременный клас для корректного отображения карточек при ховере
     },
     onInitialized: function(event) {
       var element = event.target;
       var wrap = $(element).find('.owl-stage-outer');
       wrap.css('height', wrap.height()+10);
-      $('.j_recently-viewed').removeClass('visible'); // кратковременный клас для корректного отображения карточек при ховере
+      $('.recently-viewed__slider').removeClass('visible'); // кратковременный клас для корректного отображения карточек при ховере
+
+      $(element).find('.owl-prev').text('').append($('<span class="slider-left"><svg class="icon-i_slider_arr_l icon" ><use xlink:href="#i_slider_arr_l"></use></svg></span>'));
+      $(element).find('.owl-next').text('').append($('<span class="slider-right"><svg class="icon-i_slider_arr_r icon" ><use xlink:href="#i_slider_arr_r"></use></svg></span>'));
+    },
+    responsiveBaseElement: $('#j_recently-viewed-1').closest('.recently-viewed')[0],
+    responsive: {
+      // breakpoint from 0 up
+      0: {
+        items: 1
+      },
+      // breakpoint from 480 up
+      480: {
+        items: 3
+      },
+      // breakpoint from 768 up
+      1024: {
+        items: 4
+      }
+    }
+  });
+
+  $('#j_recently-viewed-2').owlCarousel({
+    nav: true,
+    onInitialize: function(event) {
+      $('.recently-viewed__slider').addClass('visible'); // кратковременный клас для корректного отображения карточек при ховере
+    },
+    onInitialized: function(event) {
+      var element = event.target;
+      var wrap = $(element).find('.owl-stage-outer');
+      wrap.css('height', wrap.height()+10);
+      $('.recently-viewed__slider').removeClass('visible'); // кратковременный клас для корректного отображения карточек при ховере
 
       $(element).find('.owl-prev').text('').append($('<span class="slider-left"><svg class="icon-i_slider_arr_l icon" ><use xlink:href="#i_slider_arr_l"></use></svg></span>'));
       $(element).find('.owl-next').text('').append($('<span class="slider-right"><svg class="icon-i_slider_arr_r icon" ><use xlink:href="#i_slider_arr_r"></use></svg></span>'));
     },
     responsive: {
       // breakpoint from 0 up
-      0: {},
+      0: {
+        items: 1
+      },
       // breakpoint from 480 up
-      480: {},
+      480: {
+        items: 3
+      },
       // breakpoint from 768 up
       1024: {
         items: 4

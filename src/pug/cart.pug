@@ -4,9 +4,9 @@ block main
 		.cart-page.page
 			+breadcrumbs(['Главная','Корзина'])
 			h1.page__title Корзина и оформление заказа
-			.cart-sections__wrapper
+			.cart-sections__wrapper.j_scroll-fixed__wrap
 				.right-side
-					.cart__summary-block
+					.cart__summary-block.j_scroll-fixed__object
 						.cart__summary-line
 							.default-block
 								.text-side
@@ -132,7 +132,7 @@ block main
 											.cart-section__heading Привет Никита!
 											p.delivery-method__text Вы вошли как зарегистрированный пользователь, адрес доставки  будет заполнен автоматически, но вы можете изменить его в любой момент. Приятных покупок.
 										.price-side
-											a.cart-user-datails(href='#') Зарегистрированный пользователь
+											.cart-user-datails Зарегистрированный пользователь
 									.dtr
 										a.cart-change-user(href='#') Сменить пользователя
 

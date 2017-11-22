@@ -1,0 +1,27 @@
+extends _layout.pug
+block main
+	.search-page__wrap
+		.container
+			+breadcrumbs(['Главная','Поиск по магазину'])
+			form.search-block__form
+				input(type='text' placeholder='Введите запрос').search-block__field
+				button(type='submit').search-block__submit Искать
+			.search-page__results-wrap
+				.search-page__results-amount Найдено 34 товара
+				.search-page__results-list.goods__list.mode_block
+					-for(var x=0;x<16;x++)
+						.search-page__results-item
+							+goodsBlockSimple
+			.pagination__line
+				.pagination__list-wrap
+					ul.pagination__list
+						li.pagination__item
+							a.pagination__link.pagination__prev(href='#')
+								+icon('i-pagination_arr')
+						each item in [1,2,3,4,5]
+							li.pagination__item(class= item == 1 ? "active" : '')
+								a.pagination__link(href='#')=item
+						li.pagination__item
+							a.pagination__link(href='#')
+								+icon('i-pagination_arr')
+				.pagination__show-all-wrap

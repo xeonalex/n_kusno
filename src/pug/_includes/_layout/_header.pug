@@ -1,6 +1,8 @@
 header.header
 	.container
 		.first-line
+			a(href='#').mob-menu__open.j_mm-open
+				+icon('i_mob-menu')
 			a.logo(href='index.html')
 				svg.logo__img(xmlns='http://www.w3.org/2000/svg', xmlns:xlink='http://www.w3.org/1999/xlink', width='200', height='67', viewbox='0 0 200 67')
 					title Лого
@@ -25,8 +27,8 @@ header.header
 				a.tel-block__text(href='#') Отправьте сообщение, если не получилось дозвониться
 			.menu-block
 				menu.menu
-					-var links = ['about.html','contacts.html','how-to-buy.html']
-					each item,index in ['О компании','Контакты','Как купить']
+					-var links = ['about.html','contacts.html','managmant-contact.html','how-to-buy.html']
+					each item,index in ['О компании','Контакты','Cвязь с руководством','Как купить']
 						li.menu-item.menu-item_simple
 							a.menu-link(href=links[index])
 								span=item
@@ -34,6 +36,39 @@ header.header
 						a.menu-link(href='#')
 							+icon('i_person','menu-icon')
 							span Уголок покупателя
+		.mobile-menu__wrapper
+			.j_m-menu_close
+			.first-screen.j_mm-screen
+				ul.mobile-menu
+					li.mobile-menu__item.mobile-menu_w-icon
+						a.mobile-menu__link(href='#')
+							+icon('i_person','menu-icon')
+							span Уголок покупателя
+						a(href='#').mobile-menu__close.j_m-menu_close
+							+icon('i_cross')
+					-var links = [];
+					each item, index in [['Лавка кулинара',['Шоколад и какао','Мастика','Кулинарые добавки','Ароматизаторы','Айсинг','Красители','Специи']],'Кондитерский инвентарь',['Товары творчества',['Посыпки, шарики','Украшения','Десерты','Крем и топпинги']],'Поиск по магазину']
+						li.mobile-menu__item(class= Array.isArray(item[1]) ? 'mobile-menu__item_extended' : '')
+							a.mobile-menu__link(class= Array.isArray(item[1]) ? 'j_mm-expand-menu' : '' href= links[index] ? links[index] : '#')= Array.isArray(item[1]) ? item[0] : item
+							if Array.isArray(item[1])
+								ul.sub-mobile-menu.j_mm-screen
+									li.mobile-menu__item
+										a.mobile-menu__link.mobile-menu__go-back.j_mm__go-back(href='#')
+											span=item[0]
+									each link in item[1]
+										li.mobile-menu__item
+											a.mobile-menu__link( href='#')=link
+				ul.menu
+					-var links = ['about.html','contacts.html','managmant-contact.html','how-to-buy.html']
+					each item,index in ['О компании','Контакты','Cвязь с руководством','Как купить']
+						li.menu-item.menu-item_simple
+							a.menu-link(href=links[index])
+								span=item
+				.tel-block
+					p
+						a.tel(href="tel:74959225955") +7 (495) 922-59-55
+						a.tel(href="tel:74956447572") +7 (495) 922-59-55
+					a.tel-block__text(href='#') Отправьте сообщение, если не получилось дозвониться
 		.second-line
 			ul.additional-link__list
 				-var icons = ['i_cake','i_inventory','i_brush'];
@@ -75,7 +110,7 @@ header.header
 					span.amount 0
 				a.cart-block.j_cart-init(href='#')
 					span.cart-text Корзина
-					span.cart-summ 2046₽
+					span.cart-summ 2 046 ₽
 					.cart-amount
 						+icon('i_cart')
 						span.amount 9
@@ -85,7 +120,7 @@ header.header
 						+icon_clean('i_cross')
 					.cart-block
 						a.cart-details__link Перейти в корзину
-						span.cart-summ 2046₽
+						span.cart-summ 2 046 ₽
 						.cart-amount
 							+icon('i_cart')
 							span.amount 12

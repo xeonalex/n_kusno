@@ -60,8 +60,9 @@ mixin breadcrumbs(list)
 mixin newArrivals
   .sidebar__block
     p.sidebar__block-text Новые поступления в нашем магазине, самые горячие новинки!
-    a.button-link(href='#' data-text='Посмотреть товары') 
+    a.button-link(href='#' data-text='Посмотреть товары' data-text-mobile='Посмотреть') 
       span.btnTxt Посмотреть товары
+      span.btnTxt-mob Посмотреть
 mixin aboutMenu(menu)
   if (Array.isArray(menu) && menu[0] == 'big')
     ul.sidebar__menu
@@ -74,6 +75,21 @@ mixin aboutMenu(menu)
               each link in item[1]
                 li.sidebar__menu-item
                   a.sidebar__menu-link( href='#')=link
+  if (Array.isArray(menu) && menu[0] == 'mobile')
+    ul.sidebar__menu
+      -var links = [];
+      each item, index in [['Лавка кулинара',['Шоколад и какао','Мастика','Кулинарые добавки','Ароматизаторы','Айсинг','Красители','Специи']],'Кондитерский инвентарь',['Товары творчества',['Посыпки, шарики','Украшения','Десерты','Крем и топпинги']],'Поиск по магазину']
+        li.sidebar__menu-item(class= Array.isArray(item[1]) ? 'sidebar__menu-item_extended' : '')
+          a.sidebar__menu-link( href= links[index] ? links[index] : '#')= Array.isArray(item[1]) ? item[0] : item
+          if Array.isArray(item[1])
+            ul.sidebar__sub-menu
+              li.sidebar__menu-item
+                a.sidebar__menu-link.mobile-menu__go-back(href='#')
+                  //- +icon('')
+                  span=item[0]
+              each link in item[1]
+                li.sidebar__menu-item
+                  a.sidebar__menu-link( href='#')=link
   else if (Array.isArray(menu) && menu[0] == 'personal')
     ul.sidebar__menu
       -var links = ['personal.html','orders.html','order-history.html','#']
@@ -82,12 +98,10 @@ mixin aboutMenu(menu)
           a.sidebar__menu-link( href= links[index] ? links[index] : '#' class= index == menu[1] ? 'active': '')=item
   else
     ul.sidebar__menu
-      -var links = ['about.html','news.html','#','reviews.html']
-      each item, index in ['О компании','Новости','Блог','Отзывы']
+      -var links = ['about.html','news.html','#','reviews.html','store-notices.html','']
+      each item, index in ['О компании','Новости','Блог','Отзывы','Уведомления магазина','Пожелания <br> по ассортименту']
         li.sidebar__menu-item
-          a.sidebar__menu-link( href= links[index] ? links[index] : '#' class= index == menu ? 'active': '')=item
-      li.sidebar__menu-item
-        a.sidebar__menu-link(href='#') Пожелания <br> по ассортименту
+          a.sidebar__menu-link( href= links[index] ? links[index] : '#' class= index == menu ? 'active': '')!=item
 mixin productAmount(className)
   label.amount-select__block.j_cart-item-amount(class = className)
     span.decrease
@@ -108,7 +122,7 @@ mixin goodsBlock(contentObj,fullMode)
           each status in contentObj.status
             li.goods__status-item.sale=status
       .goods__data-wrap.j_equal-height
-        .goods__title=contentObj.title
+        a.goods__title(href='#' title=contentObj.title)=contentObj.title
         .goods__info-line
           span.goods__info=contentObj.info
           |
@@ -135,12 +149,12 @@ mixin goodsBlock(contentObj,fullMode)
             span.btnTxt Добавить в корзину
 mixin goodsBlockSimple
   if !contentObj 
-    -var contentObj = {img: '6', title: 'Агар-агар Algamar Algas Marinas S.A', info: 'США, 283 гр', 			desrc: 'Эти драже идельно подойдут для больших и малых торжеств. Арахис в глазури можно есть как самостоятельное блюдо, так и украшать...', staticPrice: '379'		}
+    -var contentObj = {img: 'algamar_300x190', title: 'Агар-агар Algamar Algas Marinas S.A', info: 'США, 283 гр', 			desrc: 'Эти драже идельно подойдут для больших и малых торжеств. Арахис в глазури можно есть как самостоятельное блюдо, так и украшать...', staticPrice: '379'		}
     .goods__item
       .goods__item-inner
         .goods__img-wrap
           .goods__img
-            img(src='img/content/catalog/'+contentObj.img+'.jpg')
+            img(src='img/content/catalog/cropped/'+contentObj.img+'.jpg')
         .goods__data-wrap.j_equal-height
           .goods__title=contentObj.title
           .goods__info-line
@@ -167,10 +181,22 @@ mixin goodsBlockSimple
 mixin interactiveCardCupcakes
   .interactive-card.mugs-for-cupcakes(style='background-image: url(img/content/cake_icon.png);')
     .text Скидка <br> на формочки <br> для кексов
-mixin recentlyViewed(title)
+mixin newArrivalsList
+  .sidebar__block.arrivals-list__card
+    .sidebar__block-title 
+      +icon('i_star','')
+      |
+      |
+      span.vm Новые поступления
+    ul.arrivals__list
+      each item in ['Коробки для высоких <br> тортов','Цветочная выльца и <br> блёстки','Натуральные красители','Формы для конфет']
+        li.arrivals__item!=item
+      li.arrivals__item
+        a.arrivals__link Посмотреть все поступления   
+mixin recentlyViewed(title,idCarousel)
   .recently-viewed
     .recently-viewed__title=title
-    .recently-viewed__slider.goods__list.mode_block.owl-carousel.j_recently-viewed
+    .recently-viewed__slider.j_nav-index-fix.goods__list.mode_block.owl-carousel(id=idCarousel)
       -for(var x=0;x<9;x++)
         +goodsBlock('','')
 mixin accentBlock

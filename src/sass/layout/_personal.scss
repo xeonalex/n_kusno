@@ -31,17 +31,22 @@
 
 .personal-data {
   margin-top: 35px;
+  .info-col {
+    &:first-child {
+      width: 206px;
+    }
+  }
 }
 
 .personal-data,
 .personal-delivery {
   @include ui_block( '');
   margin-bottom: 20px;
-  padding: 20px;
+  padding: 25px 20px 20px;
 }
 
 .personal-header {
-  margin-bottom: 22px;
+  margin-bottom: 16px;
 }
 
 .personal-data-title,
@@ -64,7 +69,7 @@
 
 .info-row {
   display: table;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 
   &:last-child {
     margin-bottom: 0;
@@ -72,12 +77,11 @@
 }
 
 .info-col {
-  width: 250px;
   display: table-cell;
 
   span {
     display: block;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
   }
 
   a {
@@ -86,12 +90,21 @@
 }
 
 .info-col-wide {
+  display: table-cell;
   width: 80%;
+  span {
+    display: block;
+    margin-bottom: 5px;
+  }
 }
 
 .info-col-sm {
+  display: table-cell;
   width: 20%;
-
+  span {
+    display: block;
+    margin-bottom: 5px;
+  }
   a {
     text-align: right;
   }

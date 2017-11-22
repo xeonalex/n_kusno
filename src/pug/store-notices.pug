@@ -1,0 +1,26 @@
+extends _layout.pug
+block main
+	.srote-notes__wrap
+		.srote-notes-page.page
+			.part-with-sidebar
+				.sidebar__wrap
+					.sidebar__block.no_padding
+						+aboutMenu(3)
+				.page-content__wrap
+					+breadcrumbs(['Главная','О компании','Уведомления магазина'])
+					h1.page__title Уведомления магазина
+					.page-inner-content__wrap
+						.content-side
+							p.page__info-text Здесь мы сообщаем о новых поступления, задержках, режимах работы и других важных вещах в формате коротких уведомлений
+							ul.store-notices__list
+								each item in [1,2,3,4]
+									li.store-notices__item
+										h3.store-notice__title Возможны задержки в сборке заказов в связи с переездом склада
+										.store-notices__date 20 апреля 2017 года
+										.store-notice__content-wrap
+											p Здесь мы сообщаем о новых поступления, задержках, режимах работы и других важных вещах в формате коротких уведомлений
+						.inner-sidebar
+							.interactive-card.inventory-sale
+								.text Распродажа инвентаря для украшения тортов
+								img.bg(src='img/content/cake_sale.png')
+							+interactiveCardCupcakes

@@ -8,6 +8,7 @@ block main
             +aboutMenu(['big'])
           +newArrivals
           +interactiveCardCupcakes
+          +newArrivalsList
         .page-content__wrap
           block catalog-top-part
             +breadcrumbs(['Главная','Лавка кулинара','Оформление'])
@@ -23,6 +24,11 @@ block main
                       a.sub-catalog__link(href='sub-catalog.html') !{item}
                     img.sub-catalog__item-bg(src='img/content/catalog/'+img[index])
           .sort__block
+            .sort__manufacturers
+              .j_select-wrap
+                select.j_select(data-placeholder='Производители')
+                  each item,i in ['Baker Flowers','Reynald','Spis Express']
+                    option(value=i)=item
             .sort__params
               .sort__text Сортировка:
               ul.sort__params__list
@@ -42,19 +48,25 @@ block main
                 a.view__mode_line(href='#')
                   +icon('view_line')
           .goods__list.catalog__products-list#j_cat-prod-list(data-mode='mode_block')
-            -for(var x=0;x<9;x++)
+            -for(var x=0;x<3;x++)
+              +goodsBlock('','+')
+              +goodsBlock({img: 'algamar_300x190',imgLineMode: 'algamar_280x172', status: ['Акция'], title: 'Агар-агар Algamar Algas Marinas /* типо длинное название */ S.A', info: 'США, 283 гр', 			desrc: 'Эти драже идельно подойдут для больших и малых торжеств. Арахис в глазури можно есть как самостоятельное блюдо, так и украшать...', 			oldPrice: '479', 			price: '379'		},'+')
               +goodsBlock('','+')
           .pagination__line
-            .pagination__prev-wrap
-              a.pagination__prev(href='#') Предыдущая страница
             .pagination__list-wrap
               ul.pagination__list
+                li.pagination__item
+                  a.pagination__link.pagination__prev(href='#')
+                    +icon('i-pagination_arr')
                 each item in [1,2,3,4,5]
                   li.pagination__item(class= item == 1 ? "active" : '')
                     a.pagination__link(href='#')=item
-            .pagination__next-wrap
-              a.pagination__next(href='#') Следующая страница
+                li.pagination__item
+                  a.pagination__link(href='#')
+                    +icon('i-pagination_arr')
+            .pagination__show-all-wrap
+              a.pagination__show-all(href='#') Показать всё
           .page-aricle__wrap
             p Это SEO текст. Ароматизаторы всё шире и шире применяются в пищевой промышленности. Рост спроса на ароматизаторы вызван развитием современных технологий получения пищевых продуктов на основе глубокой переработки сырья.
             p  После такой переработки, целью которой является получение стандартизованных концентратов белков, жиров и углеводов, пищевые продукты почти полностью освобождаются от «балластных» веществ, в том числе и от летучих ароматных веществ, определяющих их аромат (соевое масло, другие рафинированные масла, соевый белок, мука, крахмал, сахар, белково-витаминный концентрат и др.).
-      +recentlyViewed('Вы недавно смотрели')
+      +recentlyViewed('Вы недавно смотрели','j_recently-viewed-1')

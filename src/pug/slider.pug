@@ -1,0 +1,19 @@
+extends _layout.pug
+block main
+  .ddsfsdf
+    .container
+      //- +recentlyViewed('Вы недавно смотрели','j_recently-viewed-1')
+      //- +recipesSlider('Рецепты у нас в блоге')
+      .recipes__slider.owl-carousel
+        -for(var x=0;x<6;x++)
+          .recipe__item(href='#')
+            a.recipe__img(href='#')
+              img(src='img/content/recipe_300x190.jpg')
+              i.play-video
+                +icon('play-video')
+            a.recipe__info(href='#')
+              .recipe__title Рецепт шоколадного торта с ягодами
+              .recipe__date 20 июля 2017 года
+              .recipe__descr Видео с пошаговым рецептом одного из самых вкусных десертов.
+            .tags__block
+              a.tag.tag-recipe(href='#') Рецепты

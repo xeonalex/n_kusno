@@ -1,7 +1,7 @@
 .cooking-store-page {
   .recent-news {
     margin-top: -20px;
-    margin-bottom: 100px;
+    margin-bottom: 55px;
   }
 }
 .bg_heading {
@@ -31,6 +31,7 @@
   .owl-nav {
     position: relative;
     top: -75px;
+    height: 20px;
   }
 }
 
@@ -79,7 +80,7 @@
   &:hover {
     @include bshadow( '+');
   }
-  
+
   &:after {
     display: none;
   }
@@ -153,3 +154,11 @@
     }
   }
 }
+
+
+@include breakpoint_max(1440) {
+  .news__item .news__theses {
+    font-size: 15px;
+    line-height: 1.4;
+  }
+};

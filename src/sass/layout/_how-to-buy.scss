@@ -168,10 +168,10 @@
             height: 7px;
             background-repeat: no-repeat;
             background-position: 50%;
-            top: 0;
+            top: 2px;
             bottom: 0;
             margin: auto;
-            right: -13px;
+            right: -15px;
         }
     }
 }
@@ -311,7 +311,7 @@
     }
 }
 .map-adress {
-    width: 300px;
+    width: 406px;
     box-shadow: 0 2px 43px -4px hsla(300,2%,48%,.2);
     overflow: hidden;
     border-top: 10px solid $active;
@@ -335,7 +335,7 @@
 .j_accordeon-item.opened {
   .address-title {
     @extend .ui_activeLink_accent;
-    padding-bottom: 14px;
+    padding-bottom: 10px;
   }
 }
 .j_accordeon-item {

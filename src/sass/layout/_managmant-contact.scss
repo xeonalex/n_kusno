@@ -1,0 +1,17 @@
+.managmant-contact__page {
+  background-image: 	url(../img/news/single_news_bg.png);
+  background-position: 	top center;
+  background-repeat: no-repeat;
+  background-size: 	contain;
+}
+.managmant-contact__content {
+  margin-bottom: 55px;
+  max-width: 620px;
+  p {
+    @extend .ui_text_sm;
+    margin-bottom: 15px;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}

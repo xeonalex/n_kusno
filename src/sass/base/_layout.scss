@@ -11,11 +11,13 @@
 html, body {
     font-family: 'Fira Sans', sans-serif;
     height: 100%;
+    min-width: 320px;
 }
 .wrapper {
   display: table;
   height: 100%;
   width: 100%;
+  table-layout: fixed;
 }
 .maincontent {
   display: table-row;

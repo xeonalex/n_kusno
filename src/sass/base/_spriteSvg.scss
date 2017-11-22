@@ -4,6 +4,21 @@
 	vertical-align: middle;
 	transition: fill 0.3s;
 }
+.icon-i_star {
+	fill: $active;
+	width: 23px;
+	height: 22px;
+}
+.icon-i_mob-menu {
+	fill: $active;
+	width: 22px;
+	height: 19px;
+}
+.icon-i-pagination_arr {
+	width: 7px;
+	height: 12px;
+	fill: $icons;
+}
 .icon-i_favorite_n{
 	width: 20px;
 	height: 19px;

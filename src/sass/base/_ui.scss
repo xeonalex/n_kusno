@@ -29,8 +29,12 @@
 	position: relative;
 	z-index: 1;
 	overflow: hidden;
+	> * {
+		z-index: 1;
+		position: relative;
+	}
 	&:after {
-		z-index: 0;
+		z-index: 0 !important;
 		content: '';
 		display: block;
 		position: absolute;
@@ -42,19 +46,21 @@
 		background-color: #{$border_color};
 	}
 	&:before {
-		z-index: 0;
+		z-index: 0 !important;
 		position: absolute;
+		display: block;
 		top: 0;
 		bottom: 0;
 		left: 0;
 		right: 0;
 		content: '';
 		border: 2px solid $line;
-
+		transition: border 0.3s;
 	}
 	&:hover {
 		&:before {
-			display: none;
+			border-color: #fff;
+			border-color: transparent;
 		}
 	}
 }
@@ -279,6 +285,16 @@ h3 {
 	    opacity .3s ease-out,
 	    top .3s ease-out;
 	}
+	.btnTxt-mob {
+		display: none;
+		position: relative;
+		top: 0px;
+		opacity: 1;
+
+		transition:
+			opacity .3s ease-out,
+			top .3s ease-out;
+	}
 	&:after {
 	  content: attr(data-text);
 		display: block;
@@ -384,4 +400,10 @@ label.ui_radio {
     }
   }
 
+}
+
+@include breakpoint_max(1299) {
+	.ui_button_accent {
+		min-width: auto;
+	}
 }

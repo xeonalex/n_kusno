@@ -9,40 +9,40 @@ block main
 				.page-content__wrap
 					.about-header__wrap(style='background-image: url(img/bg/bg_main-header.jpg);')
 						.container
-							.about-sidebar__wrap
-								.sidebar__block.no_padding
-									+aboutMenu
+							//- .about-sidebar__wrap
+							//- 	.sidebar__block.no_padding
+							//- 		+aboutMenu
 							.about-header__wrap-inner
 								+breadcrumbs(['Главная','О компании'])
 								.about-header__content
 									h1.about-header__title Добро пожаловать в наш магазин
 									.about-header__subtext Заказывайте вкусные, полезные и просто приятные продукты <br> с доставкой прямо на вашу кухню.
-			.about-content__wrap
-				.about-text__container
-					p.simple Вкусный магазин — это магазин профессиональных продуктов для кулинаров, кондитерского инвентаря, товаров для хобби и творчества. Наша компания — это профессиональная команда, специализирующаяся на принципах качества и высокого сервиса.
+					.about-content__wrap
+						.about-text__container
+							p.simple Вкусный магазин — это магазин профессиональных продуктов для кулинаров, кондитерского инвентаря, товаров для хобби и творчества. Наша компания — это профессиональная команда, специализирующаяся на принципах качества и высокого сервиса.
 
-				.about__advantages
-					p.ui_head2_normal Преимущества нашего магазина
-					ul.about__advantages-list
-						each item in ['Широкий ассортимент','Новые поступления','Розничная продажа','Свежие продукты']
-							li.about__advantages-item
-								.icon-wrap
-									+icon('i_star_adv')
-								p.about__advantages-text=item
-				.about__youll-find
-					.ui_head2_normal У нас вы найдёте
-					ul.about__youll-find__list
-						li.about__youll-find__item
-							+icon('i_cake_about','about__youll-find__icon')
-							.about__youll-find__title Лавка кулинара
-							p.about__youll-find__text Продукты, которыми пользуются профессиональные повара и кондитеры, для всех домохозяек
-							a.about__youll-find__link(href='#') Перейти в раздел
-						li.about__youll-find__item
-							+icon('i_candy_about','about__youll-find__icon')
-							.about__youll-find__title Кондитерский инвентарь
-							p.about__youll-find__text Украшения и приспособления для работы с мастикой, марципаном и тестом.
-							a.about__youll-find__link(href='#') Перейти в раздел
-				.about-text__container
-					p.simple Наш онлайн кондитерский магазин предлагает самый широкий ассортимент форм для шоколада, мармелада, мастики, кондитерские посыпки, разные пищевые красители, наборы для кенди бара. И это лишь крошечная часть всего того, что вы сможете приобрести у нас по самым демократическим ценам.
-					p.simple Чтобы ознакомиться с продукцией поближе, достаточно просто воспользоваться удобным каталогом на сайте. У нас Вы найдете кондитерские товары, предназначенные для любителей, а также профессионалов. Всем известно, что талант – это, конечно, очень важная составляющая в работе любого повара, но согласитесь, что без специально подобранного инвентаря создать красивый кулинарный шедевр очень сложно даже настоящему мастеру.
-				+accentBlock
+						.about__advantages
+							p.ui_head2_normal Преимущества нашего магазина
+							ul.about__advantages-list
+								each item in ['Широкий ассортимент','Новые поступления','Розничная продажа','Свежие продукты']
+									li.about__advantages-item
+										.icon-wrap
+											+icon('i_star_adv')
+										p.about__advantages-text=item
+						.about__youll-find
+							.ui_head2_normal У нас вы найдёте
+							ul.about__youll-find__list
+								li.about__youll-find__item
+									+icon('i_cake_about','about__youll-find__icon')
+									.about__youll-find__title Лавка кулинара
+									p.about__youll-find__text Продукты, которыми пользуются профессиональные повара и кондитеры, для всех домохозяек
+									a.about__youll-find__link(href='#') Перейти в раздел
+								li.about__youll-find__item
+									+icon('i_candy_about','about__youll-find__icon')
+									.about__youll-find__title Кондитерский инвентарь
+									p.about__youll-find__text Украшения и приспособления для работы с мастикой, марципаном и тестом.
+									a.about__youll-find__link(href='#') Перейти в раздел
+						.about-text__container
+							p.simple Наш онлайн кондитерский магазин предлагает самый широкий ассортимент форм для шоколада, мармелада, мастики, кондитерские посыпки, разные пищевые красители, наборы для кенди бара. И это лишь крошечная часть всего того, что вы сможете приобрести у нас по самым демократическим ценам.
+							p.simple Чтобы ознакомиться с продукцией поближе, достаточно просто воспользоваться удобным каталогом на сайте. У нас Вы найдете кондитерские товары, предназначенные для любителей, а также профессионалов. Всем известно, что талант – это, конечно, очень важная составляющая в работе любого повара, но согласитесь, что без специально подобранного инвентаря создать красивый кулинарный шедевр очень сложно даже настоящему мастеру.
+						+accentBlock

@@ -45,6 +45,7 @@
 
 .sidebar__wrap {
 	position: relative;
+	width: 300px;
 	z-index: 2;
 	float: left;
 }
@@ -272,5 +273,51 @@
 
 	&-recipe {
 		background-color: rgb(164, 190, 255);
+	}
+}
+
+
+@include breakpoint_max(1299){
+	.sidebar__wrap{
+		width: 230px;
+	}
+	.page-content__wrap {
+		margin-left: 250px;
+	}
+	.news__item .news__title {
+		font-size: 19px;
+		line-height: 1.4;
+		font-weight: 500;
+	}
+}
+@include breakpoint_max(1019) {
+	.sidebar__wrap	{
+		display: none;
+	}
+	.page-content__wrap {
+		margin-left: 0;
+	}
+	.breadcrubms {
+		display: none;
+	}
+}
+@include breakpoint_max(1019) {
+	.single-news-page {
+		padding-top: 85px;
+	}
+	.page__title {
+		font-size: 32px;
+		line-height: 1.2;
+	}
+
+}
+@include breakpoint_max(999) {
+	.single-news-page {
+		padding-top: 65px;
+	}
+}
+@include breakpoint_max(759) {
+	.single-news-page {
+		padding-top: 55px;
 	}
 }

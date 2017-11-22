@@ -6,12 +6,10 @@ block main
 				.sidebar__wrap
 					.sidebar__block.no_padding
 						+aboutMenu
-					.sidebar__block
-						p.new-goods__sidebar-text Новые поступления в нашем магазине, самые горячие новинки!
-						a(href='#').new-goods__link Посмотреть товары
+					+newArrivals
 				.page-content__wrap
 					+breadcrumbs(['Главная','О компании','Новости','Лимитирование поставок'])
-					h1.page__title Новости
+					h1.page__title Лимитирование поставок продукции из США и Европы
 					.single-news__info
 						.tags__block
 							a.tag.tag-goods(href='#') Товары

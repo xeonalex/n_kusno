@@ -7,7 +7,9 @@
     margin-bottom: 15px;
   }
 }
-
+.j_scroll-fixed__object {
+  position: relative;
+}
 .cart-sections__wrapper {
   @include clearfix;
   .left-side {

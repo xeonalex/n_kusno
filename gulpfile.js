@@ -61,7 +61,7 @@ var path = {
     img: './src/img/**/*',
     favicon: './src/favicon/*',
     fonts: './src/fonts/*',
-    svg: 'src/svg_sprite/*.svg'
+    svg: 'src/svg_sprite/sprite/sprite.svg'
   }
 };
 
@@ -114,7 +114,7 @@ gulp.task('sass-dev', function () {
     .pipe(sass({
       style: 'compressed',
       errLogToConsole: true,
-      sourcemaps: false
+      sourcemaps: true
     }))
     // .pipe(gcmq())
     .on('error', sass.logError)
@@ -122,11 +122,11 @@ gulp.task('sass-dev', function () {
       browsers: ['last 15 versions'],
       cascade: true
     }))
-    .pipe(cssnano({
-      discardComments: {
-        removeAll: true
-      }
-    }))
+    // .pipe(cssnano({
+    //   discardComments: {
+    //     removeAll: true
+    //   }
+    // }))
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(path.build.css))
     .pipe(browserSync.stream());
